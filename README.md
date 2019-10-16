@@ -7,4 +7,5 @@
 - develop -> master로 변경중
 - 
 
-pip install mysqlclient
+mysql연동시 사용
+- pip install mysqlclient
