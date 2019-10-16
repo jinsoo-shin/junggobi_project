@@ -17,7 +17,7 @@
                 >
                 <v-container fluid>
                     <v-row>
-                    <Search/>
+                    <search/>
                     </v-row>
                 </v-container>
                 </v-tab-item>
@@ -27,11 +27,7 @@
     </div>
 </template>
 <script>
-import Search from './Search.vue'
 export default {
-    components: {
-        Search,
-    },
     data(){
         return {
 

@@ -17,7 +17,6 @@
 
 
 <script>
-import card from './card.vue'
 export default {
 
   mounted() {
