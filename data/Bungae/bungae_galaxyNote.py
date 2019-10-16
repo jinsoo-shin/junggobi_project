@@ -3,7 +3,7 @@ from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
 
-driver = webdriver.Chrome("./chromedriver.exe")
+driver = webdriver.Chrome("../chromedriver.exe")
 driver.implicitly_wait(3)
 driver.get('https://m.bunjang.co.kr/')
 
@@ -15,7 +15,7 @@ btn = driver.find_element_by_class_name("login-btn").click()
 
 #아이폰 검색
 search = driver.find_element_by_class_name("search-box")
-search.find_element_by_class_name("search-box-input").send_keys("아이폰")
+search.find_element_by_class_name("search-box-input").send_keys("갤럭시노트")
 search.find_element_by_class_name("search-box-input").send_keys(Keys.RETURN)
 
 #아이폰 리스트 찾기
@@ -33,15 +33,13 @@ for i in u_list:
 cnt=0
 request_data = {'bungae': []}
 for data in url_list:
-    print(data)
-    url = "https://m.bunjang.co.kr/products/"+data+"?ref=검색결과&q=아이폰"
+    url = "https://m.bunjang.co.kr/products/"+data+"?ref=검색결과&q=갤럭시노트"
     driver.get(url)
     html = driver.page_source
     soup = BeautifulSoup(html, "html.parser")
 
     sell = soup.select("#app > div.router-view > div > div.product-detail-wrapper > div:nth-child(2) > div:nth-child(1) > div.suggested-products-title")
     if len(sell)==0:
-        
         title = soup.find_all("h2")
         price = soup.find_all("h3")
         status = soup.select("ul.product-summary__assistant-2nd>li.status")
@@ -50,11 +48,11 @@ for data in url_list:
         location = soup.select("ul.product-summary__assistant-2nd>li.location")
         description = soup.find_all("p")
         id = data
+        size = ""
         title = title[0].text.strip()
         print(title)
         if "매입" not in title:
             cnt+=1
-            size = ""
             if "기가" in title:
                 index = title.find("기가")
                 size = title[(index-3):index]

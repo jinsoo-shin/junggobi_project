@@ -3,7 +3,7 @@ from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
 
-driver = webdriver.Chrome("./chromedriver.exe")
+driver = webdriver.Chrome("../chromedriver.exe")
 driver.implicitly_wait(3)
 driver.get('https://m.bunjang.co.kr/')
 
