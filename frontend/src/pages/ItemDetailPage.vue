@@ -4,7 +4,7 @@
         <!-- start : item-list -->
         <v-flex xs7>
             ---------------itemDetailPage-------------
-            <ItemList :itemListCards="itemList" />
+            <itemList :itemListCards="itemList" />
         </v-flex>
         <!-- end : item-list -->
         </v-layout>
@@ -12,11 +12,7 @@
 </template>
 
 <script>
-import ItemList from '../components/ItemList.vue'
 export default {
-    components: {
-        ItemList
-    },
     data: () => ({
         itemList : 
         [
