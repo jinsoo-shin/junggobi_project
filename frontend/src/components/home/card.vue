@@ -175,8 +175,8 @@ h1 + p, p + p {
   position: absolute;
   bottom: 0;
   color: #fff;
-  /* -webkit-transform: translateY(40%); */
-          /* transform: translateY(40%); */
+  -webkit-transform: translateY(40%);
+          transform: translateY(40%);
   transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .card-info p {
