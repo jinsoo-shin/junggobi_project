@@ -45,25 +45,51 @@ for data in url_list:
     shipping = soup.select("ul.product-summary__assistant-2nd>li.shipping")
     location = soup.select("ul.product-summary__assistant-2nd>li.location")
     description = soup.find_all("p")
+    id = data
     title = title[0].text.strip()
+    cellular = False
+    if "셀룰러" in title:
+        cellular = True
+    elif "cellular" in title:
+        cellular = True
+    elif "Cellular" in title:
+        cellular = True
+    if "기가" in title:
+        index = title.find("기가")
+        size = title[(index-3):index]
+    elif "32G" in title:
+        size = "32G"
+    elif "64G" in title:
+        size = "64G"
+    elif "128G" in title:
+        size = "128G"
+    elif "256G" in title:
+        size = "256G"
+    elif "512G" in title:
+        size = "512G"
+
     price = price[0].text.strip()
     status = status[0].find("span").text
     exchange = exchange[0].find("span").text
     shipping = shipping[0].find("span").text
     location = location[0].find("span").text.strip()
+    location = location.split("\n")
+    location = location[0]
     description = description[0].text
 
     request_data['bungae'].append({
+        'id' : data,
         'title' : title,
         'price' : price,
         'status' : status,
         'exchange' : exchange,
         'shipping' : shipping,
-        'location' : location,
+        'region' : location,
+        'cellular' : cellular,
+        'size' : size,
         'description' : description
     })
-
-    #cnt 주석 예정
+    #cnt 주석 예정#####################
     if cnt==1:
         break
 print(request_data)
