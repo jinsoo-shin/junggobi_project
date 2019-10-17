@@ -56,16 +56,18 @@ for data in url_list:
             if "기가" in title:
                 index = title.find("기가")
                 size = title[(index-3):index]
+            elif "16G" in title:
+                size = "16"
             elif "32G" in title:
-                size = "32G"
+                size = "32"
             elif "64G" in title:
-                size = "64G"
+                size = "64"
             elif "128G" in title:
-                size = "128G"
+                size = "128"
             elif "256G" in title:
-                size = "256G"
+                size = "256"
             elif "512G" in title:
-                size = "512G"
+                size = "512"
 
             price = price[0].text.strip()
             status = status[0].find("span").text
@@ -78,13 +80,14 @@ for data in url_list:
 
             request_data['bungae'].append({
                 'id' : data,
+                'company' : "삼성전자",
                 'title' : title,
                 'price' : price,
                 'status' : status,
                 'exchange' : exchange,
                 'shipping' : shipping,
                 'region' : location,
-                'size' : size,
+                'size' : size+"G",
                 'description' : description
             })
         #cnt 주석 예정#####################
