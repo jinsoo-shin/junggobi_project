@@ -16,6 +16,7 @@
                         <td><v-list-item-title class="headline">{{ name }}</v-list-item-title></td>
                         <td><v-list-item-subtitle>{{ body }}</v-list-item-subtitle></td>
                         <td><v-btn><a :href="link">바로가기 링크</a></v-btn></td>
+                        <td>{{ price }}</td>
                     </tr>
                 </table>
                 </v-list-item-content>
@@ -33,17 +34,21 @@
 export default {
   props: {
     name: {
-        type: String,
-        default: ""
+      type: String,
+      default: ""
     },
     body: {
-        type: String,
-        default: ""
+      type: String,
+      default: ""
     },
     link: {
-        type: String,
-        default: ""
-    }
+      type: String,
+      default: ""
+    },
+    price: {
+      type: Number,
+      default: 0
+    },
   },
 };
 </script>
