@@ -2,10 +2,10 @@
     <v-container grid-list-md text-center>
         <v-layout justify-center wrap>
         <!-- start : item-list -->
-        <v-flex xs7>
+        <div xs7>
             ---------------itemDetailPage-------------
             <itemList :itemListCards="itemList"/>
-        </v-flex>
+        </div>
         <!-- end : item-list -->
         </v-layout>
     </v-container>
