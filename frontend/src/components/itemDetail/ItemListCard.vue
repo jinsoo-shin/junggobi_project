@@ -48,7 +48,7 @@ export default {
     price: {
       type: Number,
       default: 0
-    }
+    },
   },
 };
 </script>
