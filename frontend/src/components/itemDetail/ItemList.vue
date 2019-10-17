@@ -10,7 +10,7 @@
           solo
           @change="ccc()"
         ></v-select>
-        <itemListCard v-for="card in itemListCards" :key="card.name" :name="card.name" :body="card.body" :link="card.link" :price="card.price">
+        <itemListCard v-for="card in itemListCards" :key="card.name" :name="card.name" :body="card.body" :link="card.link" :price="card.price" :img="card.img">
         </itemListCard>
     </v-layout>
   </v-container>
