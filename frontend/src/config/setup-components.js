@@ -3,6 +3,8 @@ import ItemListCard from '../components/itemDetail/ItemListCard.vue'
 import Search from '../components/home/Search.vue'
 import Tap from '../components/home/Tap.vue'
 import Recommend from '../components/home/Recommend.vue'
+import Headercomponent from '../components/home/Headercomponent.vue'
+import DetailSearch from '../components/home/DetailSearch.vue'
 
 function setupComponents(Vue){
 
@@ -10,6 +12,8 @@ function setupComponents(Vue){
     Vue.component('search', Search);                // 검색 창
     Vue.component('tap', Tap);                      // 
     Vue.component('recommend', Recommend);          // 
+    Vue.component('headercomponent', Headercomponent);
+    Vue.component('detailsearch', DetailSearch);
 
     //item Detail page
     Vue.component('itemList', ItemList);            //detailpage - 검색 제품 목록
