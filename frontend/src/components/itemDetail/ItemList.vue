@@ -8,7 +8,7 @@
           label="정렬방법"
           dense
           solo
-          @change="ccc()"
+          @change="sortyBy()"
         ></v-select>
         <itemListCard v-for="card in itemListCards" :key="card.name" :name="card.name" :body="card.body" :link="card.link" :price="card.price" :img="card.img">
         </itemListCard>
@@ -35,7 +35,7 @@ export default {
     sortByHighToLow_price() {
       this.itemListCards.sort((a,b) => a['price'] > b['price'] ? -1 : 1)
     },
-    ccc() {
+    sortyBy() {
       if(this.sortMethod==="높은가격순") {
         this.sortByHighToLow_price();
       } else {
