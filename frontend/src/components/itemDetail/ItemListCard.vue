@@ -2,43 +2,82 @@
   <v-hover v-slot:default="{ hover }">
     <v-card :elevation="hover ? 8 : 2">
         <!-- -------------itemListCardComponent--------------- -->
-      <v-layout align-center><!-- py-4 pl-4-->
         <div text-center>
-          <v-container grid-list-lg pa-0>
-            <v-layout column>
               <v-list-item>
                 <v-list-item-content>
-                  <table>
-                      <tr>
-                        <v-dialog v-model="enlargeImg"  max-width="290">
-                        <template v-slot:activator="{ on }">
-                          <td rowspan="2"><v-img color="primary" dark v-on="on" :src="img" style="width:200px; height:200px"/></td>
-                        </template>
-                        <v-card><v-img :src="img"/></v-card>
-                        </v-dialog>
-                      </tr>
-                      <tr>
-                        <td><v-list-item-title class="headline">{{ name }}</v-list-item-title></td>
-                        <td><v-list-item-subtitle>{{ body }}</v-list-item-subtitle></td>
-                        <td><v-btn><a :href="link">바로가기 링크</a></v-btn></td>
-                        <td>{{ price }}</td>
-                      </tr>
-                  </table>
+                  <v-row>
+                    <v-col md="4">
+                      <v-dialog v-model="enlargeImg"  max-width="290">
+                      <template v-slot:activator="{ on }">
+                        <v-img dark v-on="on" :src="img" style="width:200px; height:200px"/>
+                      </template>
+                      <v-card><v-img :src="img"/></v-card>
+                      </v-dialog>
+                    </v-col>
+                    <v-col md="6">
+                     
+                      <v-container fluid>
+                            <v-row>
+                                <v-card>
+                                  <v-card-title><h4>{{ name }}</h4></v-card-title>
+                                  <v-divider></v-divider>
+                                  <v-list dense>
+                                    <v-list-item>
+                                      <v-list-item-content>Calories:</v-list-item-content>
+                                      <v-list-item-content class="align-end">{{item.name}}</v-list-item-content>
+                                    </v-list-item>
+                                  </v-list>
+                                </v-card>
+                            </v-row>
+                      </v-container>
+
+
+
+                    </v-col>
+                    <v-col md="2">
+                      <v-btn text small color="error" :href="link" target="_blank">방문하기</v-btn>                     
+                    </v-col>
+                  </v-row>
                 </v-list-item-content>
               </v-list-item>
-            </v-layout>
-          </v-container>
         </div>
-      </v-layout>
     </v-card>
   </v-hover>
+
+
+   <!-- <v-row style="height: 50px;">
+                        <v-list-item-title>{{ price }}</v-list-item-title>
+                      </v-row>
+                      <v-row>
+                        <v-list-item-title class="headline">{{ name }}</v-list-item-title>
+                      </v-row>
+                      <v-row>
+                        <p>{{ body }}</p>
+                      </v-row> -->
 </template>
+
+
+
+
+
 
 <script>
 
 export default {
   data: () => ({
-      enlargeImg: false
+    enlargeImg: false,
+    items: [
+      {
+        name: 'Frozen Yogurt',
+        calories: 159,
+        fat: 6.0,
+        carbs: 24,
+        protein: 4.0,
+        sodium: 87,
+        calcium: '14%',
+        iron: '1%',
+      },
+    ]
   }),
   props: {
     name: {
