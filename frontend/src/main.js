@@ -6,6 +6,7 @@ import store from './store'
 import { setupComponents } from './config/setup-components';
 
 Vue.config.productionTip = false
+Vue.prototype.EventBus = new Vue();
 setupComponents(Vue);
 
 new Vue({
