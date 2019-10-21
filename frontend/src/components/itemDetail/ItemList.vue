@@ -5,11 +5,28 @@
       <v-flex>
         <v-row>
           
+          <!-- start : sort_methods 정렬방법 설정 -->
+          <v-col>
+            <v-row>
+              <v-select
+                v-model="sortMethod"
+                :items="sortMethodList"
+                label="정렬방법"
+                dense
+                :hint=itemLen()
+                persistent-hint
+                @change="sortyBy()"
+              ></v-select>
+            </v-row>
+          </v-col>
+          <!-- end : sort_methods -->
+
           <!-- start : avgChart 평균가 차트 -->
           <v-col align-self="center">
             <div class="hidden-sm-and-down" style="cursor:pointer" @click="avgChart = true" >
-              <v-alert type="info">
-                시세 변동 차트 확인
+              <v-alert outlined dense color="info">
+                <span class="mdi mdi-poll-box"></span> 
+                가격 변동 
               </v-alert>
             </div>
             <v-snackbar color="white" v-model="avgChart" :timeout="timeout">
@@ -25,24 +42,6 @@
           </v-col>
           <!-- end : avgChart -->
 
-          <!-- start : sort_methods 정렬방법 설정 -->
-          <v-col class="mt-2">
-            <v-row>
-              <v-select
-              v-model="sortMethod"
-              :items="sortMethodList"
-              label="정렬방법"
-              dense
-              solo
-              @change="sortyBy()"
-              ></v-select>
-            </v-row>
-            <v-row justify="end">
-              {{itemLen()}}
-            </v-row>
-          </v-col>
-          <!-- end : sort_methods -->
-        
         </v-row>
         <v-row>
         

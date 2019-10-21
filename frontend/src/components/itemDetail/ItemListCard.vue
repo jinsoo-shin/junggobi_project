@@ -10,11 +10,11 @@
               
               <!-- start : itemImage - 아이템 이미지 출력 및 확대-->
               <v-col md="4" align-self="center">
-                <v-dialog v-model="enlargeImg">
+                <v-dialog v-model="enlargeImg" max-width="50%">
                 <template v-slot:activator="{ on }">
-                    <v-img class="outlineImg" v-on="on" :src="item.img" style="width:200px; height:200px"/>
+                  <v-img class="outlineImg" v-on="on" :src="item.img" style="width:200px; height:200px"/>
                 </template>
-                <v-card><v-img :src="item.img"/></v-card>
+                  <v-card><v-img :src="item.img"/></v-card>
                 </v-dialog>
               </v-col>
               <!-- start : itemImage -->
@@ -26,25 +26,19 @@
                     <thead>
                       <tr>
                         <th class="text-left">모델명</th>
-                        <th class="text-left">{{item.name}}</th>
+                        <th class="text-left">{{item.title}}</th>
                       </tr>
                     </thead>
                     <thead>
                       <tr>
-                        <th>용량</th>
-                        <th>{{item.gb}}GB</th>
-                      </tr>
-                    </thead>
-                    <thead>
-                      <tr>
-                        <th>등록 날짜</th>
-                        <th>{{item.registrationDate}}</th>
+                        <th><tr>용량/</tr>등록일</th>
+                        <th><tr>{{item.size}}GB</tr>{{item.registrationDate}}</th>
                       </tr>
                     </thead>
                     <thead>
                       <tr>
                         <th>판매 지역</th>
-                        <th>{{item.area}}</th>
+                        <th>{{item.region}}</th>
                       </tr>
                     </thead>
                     <thead>
@@ -53,11 +47,18 @@
                         <th style="color:#489489">{{item.price}}</th>
                       </tr>
                     </thead>
+                     <thead>
+                      <tr>
+                        <th>기타</th>
+                        <th>{{item.description}}</th>
+                      </tr>
+                    </thead>
                   </template>
                 </v-simple-table>
               </v-col>
               <v-col md="2" align-self="center">
-                <v-btn text small color="error" :href="item.link" target="_blank">방문하기</v-btn>                     
+                <v-btn text small color="error" :href="item.link" target="_blank">방문하기</v-btn>
+                <v-btn text small @click="addItem">관심상품</v-btn>                     
               </v-col>
               <!-- end : itemInfomation table -->
 
@@ -86,6 +87,18 @@ export default {
       default: () => new Object(),
     }
   },
+  methods: {
+    addItem() {
+      let array = this.$store.getters.getFavoriteItems;
+      for(var i=0; i<array.length; i++){
+        if(array[i].idx === this.item.idx) {
+          alert("asdf" + i + Math.random() )
+          return;
+        }
+      }
+      this.$store.commit("setAddFavoriteItems", this.item)
+    }
+  }
 };
 </script>
 
