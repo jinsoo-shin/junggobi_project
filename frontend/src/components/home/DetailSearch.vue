@@ -1,71 +1,137 @@
 <template>
     <div id="app">
-    <v-app id="inspire">
-        <v-stepper v-model="e6" vertical>
-            <v-stepper-step :complete="e6 > 1" step="1">
-                Select an app
-                <small>Summarize if needed</small>
-            </v-stepper-step>
+        <v-app id="inspire">
+            <div>
+            <v-row justify="space-around">
+                <v-col cols="12">
+                <v-slider v-model="steps" label="Steps" min="2" max="20"></v-slider>
+                </v-col>
+                <v-switch v-model="vertical" label="Vertical"></v-switch>
+                <v-switch v-model="altLabels" label="altLabels"></v-switch>
+                <v-switch v-model="editable" label="Editable"></v-switch>
+            </v-row>
+            <v-stepper
+                v-model="e1"
+                :vertical="vertical"
+                :alt-labels="altLabels"
+            >
+                <template v-if="vertical">
+                <template v-for="n in steps">
+                    <v-stepper-step
+                    :key="`${n}-step`"
+                    :complete="e1 > n"
+                    :step="n"
+                    :editable="editable"
+                    >
+                    Step {{ n }}
+                    </v-stepper-step>
+                    
+                    
+                    <v-stepper-content
+                    :key="`${n}-content`"
+                    :step="n"
+                    >
         
-            <v-stepper-content step="1">
-                <v-card color="grey lighten-1" class="mb-12" height="200px"></v-card>
-                <v-btn color="primary" @click="e6 = 2">Continue</v-btn>
-                <v-btn text>Cancel</v-btn>
-            </v-stepper-content>
-        </v-stepper>
-
-        <v-card
-            v-for="(item, index) in jsondata.data"
-            v-bind:item="item"
-            v-bind:index="index"
-            v-bind:key="item.id"
-        >{{item}} {{item.price}}</v-card>
-    </v-app>
+                    
+                    <v-card
+                        class="mb-12"
+                        color="grey lighten-1"
+                        height="200px"
+                    ><checkboxbutton/></v-card>
+                    
+                    <v-btn
+                        color="primary"
+                        @click="nextStep(n)"
+                    >
+                        Continue
+                    </v-btn>
+        
+                    <v-btn text>Cancel</v-btn>
+                    </v-stepper-content>
+                </template>
+                </template>
+                <template v-else>
+                <v-stepper-header>
+                    <template v-for="n in steps">
+                    <v-stepper-step
+                        :key="`${n}-step`"
+                        :complete="e1 > n"
+                        :step="n"
+                        :editable="editable"
+                    >
+                        Step {{ n }}
+                    </v-stepper-step>
+        
+                    <v-divider
+                        v-if="n !== steps"
+                        :key="n"
+                    ></v-divider>
+                    </template>
+                </v-stepper-header>
+        
+                <v-stepper-items>
+                    <v-stepper-content
+                    v-for="n in steps"
+                    :key="`${n}-content`"
+                    :step="n"
+                    >
+                    <v-card
+                        class="mb-12"
+                        color="grey lighten-1"
+                        height="200px"
+                    ><checkboxbutton/></v-card>
+        
+                    <v-btn
+                        color="primary"
+                        @click="nextStep(n)"
+                    >
+                        Continue
+                    </v-btn>
+        
+                    <v-btn text>Cancel</v-btn>
+                    </v-stepper-content>
+                </v-stepper-items>
+                </template>
+            </v-stepper>
+            </div>
+        </v-app>
     </div>
 </template>
 <script>
 export default {
-    data() {
-        return {
-        e6: 0 ,
-        jsondata:{
-                data:[
-                    {"id":1,"price" :1000,"model":11, "gen":2,"display":3,"celluar":"wifi","capa":10,"region":"광주","date":3.23,"data_url": "www.naver.com","img_url" : 'www.daum.net',"sell":true,},
-                    {"id":3,"price" :1000,"model":11, "gen":2,"display":3,"celluar":"wifi","capa":10,"region":"광주","date":3.23,"data_url": "www.naver.com","img_url" : 'www.daum.net',"sell":true,},
-                    {"id":2,"price" :1000,"model":11, "gen":2,"display":3,"celluar":"wifi","capa":10,"region":"광주","date":3.23,"data_url": "www.naver.com","img_url" : 'www.daum.net',"sell":true,},
-                    {"id":4,"price" :1000,"model":11, "gen":2,"display":3,"celluar":"wifi","capa":10,"region":"광주","date":3.23,"data_url": "www.naver.com","img_url" : 'www.daum.net',"sell":true,},
-                    {"id":5,"price" :1000,"model":11, "gen":2,"display":3,"celluar":"wifi","capa":10,"region":"광주","date":3.23,"data_url": "www.naver.com","img_url" : 'www.daum.net',"sell":true,},
-                    {"id":10,"price" :1000,"model":11, "gen":2,"display":3,"celluar":"wifi","capa":10,"region":"광주","date":3.23,"data_url": "www.naver.com","img_url" : 'www.daum.net',"sell":true,},
-                    {"id":9,"price" :1000,"model":11, "gen":2,"display":3,"celluar":"wifi","capa":10,"region":"광주","date":3.23,"data_url": "www.naver.com","img_url" : 'www.daum.net',"sell":true,},
-                    {"id":6,"price" :1000,"model":11, "gen":2,"display":3,"celluar":"wifi","capa":10,"region":"광주","date":3.23,"data_url": "www.naver.com","img_url" : 'www.daum.net',"sell":true,},
-                    {"id":11,"price" :1000,"model":11, "gen":2,"display":3,"celluar":"wifi","capa":10,"region":"광주","date":3.23,"data_url": "www.naver.com","img_url" : 'www.daum.net',"sell":true,},
-                    {"id":12,"price" :1000,"model":11, "gen":2,"display":3,"celluar":"wifi","capa":10,"region":"광주","date":3.23,"data_url": "www.naver.com","img_url" : 'www.daum.net',"sell":true,},
-                    {"id":13,"price" :1000,"model":11, "gen":2,"display":3,"celluar":"wifi","capa":10,"region":"광주","date":3.23,"data_url": "www.naver.com","img_url" : 'www.daum.net',"sell":true,},
-                    {"id":14,"price" :1000,"model":11, "gen":2,"display":3,"celluar":"wifi","capa":10,"region":"광주","date":3.23,"data_url": "www.naver.com","img_url" : 'www.daum.net',"sell":true,},
-                ]
-                
-                
-               
-                
-                
-                
-                
-                
-                
-                
-                
-        }
-            
-        };
+  data() {
+    return {
+      e1: 1,
+      steps: 2,
+      vertical: false,
+      altLabels: false,
+      editable: true };
 
+  },
+
+  watch: {
+    steps(val) {
+      if (this.e1 > val) {
+        this.e1 = val;
+      }
     },
-    methods: {
-        clickbtn: function () {
-        // console.log(this.e13);
-        this.e13 = this.e13 + 1;
+    vertical() {
+      this.e1 = 2;
+      requestAnimationFrame(() => this.e1 = 1); // Workarounds
+    } },
 
-        } }
-    
+
+  methods: {
+    onInput(val) {
+      this.steps = parseInt(val);
+    },
+    nextStep(n) {
+      if (n === this.steps) {
+        this.e1 = 1;
+      } else {
+        this.e1 = n + 1;
+      }
+    } }
 }
 </script>
 <style>
