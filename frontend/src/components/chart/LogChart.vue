@@ -1,3 +1,5 @@
+<!-- logChart - 평균가와 현재 가격 비교 차트 입니다. -->
+<!-- 각각의 날짜와 가격이 필요합니다. -->
 <template>
     <div id="chartdiv"></div>
 </template>
