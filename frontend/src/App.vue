@@ -10,7 +10,7 @@
 </style>
 <script>
 import store from './store'
-
+import collection from 'easter-egg-collection'
 export default {
 	name: 'App',
   components: {

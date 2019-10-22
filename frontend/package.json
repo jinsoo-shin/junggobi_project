@@ -10,7 +10,9 @@
   "dependencies": {
     "@amcharts/amcharts4": "^4.7.0",
     "@mdi/js": "^4.5.95",
+    "@vue/cli": "^3.12.0",
     "core-js": "^2.6.5",
+    "easter-egg-collection": "^1.4.56",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
     "vuetify": "^2.1.0",
