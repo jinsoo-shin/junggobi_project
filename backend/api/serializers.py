@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api.models import Tablet, Product
+from api.models import Tablet, Product,Navercafe
 class TabletSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tablet
@@ -8,4 +8,8 @@ class TabletSerializer(serializers.ModelSerializer):
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
+        fields = '__all__'
+class NavercafeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Navercafe
         fields = '__all__'

@@ -27,7 +27,7 @@ def save_product():
             generation = read_line[4]
             display = read_line[5]
             release_date = read_line[6]
-            request_data['navercafe_ipad'].append({
+            request_data['product'].append({
                 'id':id,
                 'category': category,
                 'manufacturer': manufacturer,

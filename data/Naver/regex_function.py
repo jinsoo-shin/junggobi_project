@@ -114,7 +114,7 @@ def get_model(request_data,read_title,read_text):
         pass
     if cellular is "":
         pass
-    request_data['model']=model
+    request_data['model_name']=model
     request_data['generation']=gen
     request_data['display']=inch
     request_data['memory']=memory
@@ -244,6 +244,10 @@ def get_price_from_text(price_list,text):
 
 def get_price(request_data,read_title,read_price,read_text):
     price_list=[]
+    print("########################")
+    print(read_title)
+    print(read_price)
+    print(read_text)
     get_price_from_text(price_list,read_title)
     get_price_from_text(price_list,read_price)
     get_price_from_text(price_list,read_text)
@@ -255,8 +259,12 @@ def get_price(request_data,read_title,read_price,read_text):
     count = sorted(count,key=lambda x:(-x[1],-x[0]))
     # print(count)
     # print(count[0][0])
-
-    most_price = count[0][0]
+    
+    most_price = 0
+    try :
+        most_price = count[0][0]
+    except:
+        pass
 
     in_price=0
     try:

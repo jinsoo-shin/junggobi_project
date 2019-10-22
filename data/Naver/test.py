@@ -8,7 +8,9 @@ import csv
 import pandas as pd
 import regex_function
 import json
-
+import datetime
+API_URL = 'http://localhost:8000/api/'
+headers = {'content-type': 'application/json'}
 filename = 'navercafe_passtext.txt'
 passtext = []
 with open(filename, mode='r', encoding='utf-8') as data:
@@ -55,7 +57,7 @@ except:
 
 page_number = 1
 for page_num in range(page_number):
-    search_url="https://cafe.naver.com/ArticleSearchList.nhn?search.clubid=10050146&search.menuid=749&search.media=0&search.searchdate=all&search.exact=&search.include=&userDisplay=5&search.exclude=&search.onSale=1&search.option=3&search.sortBy=date&search.searchBy=0&search.searchBlockYn=0&search.includeAll=&search.query=%BE%C6%C0%CC%C6%D0%B5%E5&search.viewtype=title&search.page="+str(page_num+1)
+    search_url="https://cafe.naver.com/ArticleSearchList.nhn?search.clubid=10050146&search.menuid=749&search.media=0&search.searchdate=all&search.exact=&search.include=&userDisplay=50&search.exclude=&search.onSale=1&search.option=3&search.sortBy=date&search.searchBy=0&search.searchBlockYn=0&search.includeAll=&search.query=%BE%C6%C0%CC%C6%D0%B5%E5&search.viewtype=title&search.page="+str(page_num+1)
     # search_url="https://cafe.naver.com/ArticleSearchList.nhn?search.clubid=10050146&search.menuid=749&search.media=0&search.searchdate=all&search.defaultValue=1&search.exact=&search.include=&userDisplay=50&search.exclude=&search.onSale=1&search.option=3&search.sortBy=date&search.searchBy=0&search.searchBlockYn=0&search.includeAll=&search.query=%BE%C6%C0%CC%C6%D0%B5%E5&search.viewtype=title&search.page="+str(page_num)
     driver.get(search_url)
     driver.implicitly_wait(3)
@@ -133,26 +135,23 @@ for page_num in range(page_number):
             text.append(" ".join(test).strip())
             # text.append('\n')
 
-            read_text = " ".join(text)#텍스트
+            read_text = " ".join(text).replace("\n"," ").replace("  "," ")#텍스트
 
             result.append(read_title)
             result.append(read_price)
             result.append(read_text)
             result.append(id)
+
+
+            # date = datetime.datetime.strptime(date,'%Y.%m.%d. %H:%M')
+            # print(date.date())
             result.append(date)#날짜
             result.append(img_src)#이미지 주소
             result.append(simple_url)
 
-
-
-
-
-
-
             save_result.append(result)
             # f.write(data)
         except:
-            print("에러에러에ㅓ에러에]")
             continue
     # df = pd.DataFrame.from_records(save_result, columns=labels)
     # df = df.applymap(lambda x: x.replace('\xa0','').replace('\xa9','').replace(',',''))
@@ -161,6 +160,7 @@ for page_num in range(page_number):
     # f.close()
 
     # for index in range(1):
+    request_data = {'navercafe_ipad': []}
     for li in save_result:
         print("##############################################################################################################")
         # li = save_result[index]
@@ -168,10 +168,29 @@ for page_num in range(page_number):
         read_title=li[0]
         read_price=li[1]
         read_text=li[2]
-        print(read_title)
-        print(read_price)
-        print(read_text)
+        # print(read_title)
+        # print(read_price)
+        # print(read_text)
         product={}
         product=regex_function.get_model(product,read_title,read_text)
         product =regex_function.get_price(product,read_title,read_price,read_text)
-        print("도오잉",product)
+
+        # break
+        # 타이틀, 가격, 내용, 아이디, 날짜, 이미지주소, 링크
+        request_data['navercafe_ipad'].append({
+            'model_name': product['model_name'],
+            'generation': product['generation'],
+            'display': product['display'],
+            'memory': product['memory'],
+            'cellular': product['cellular'],
+            'price': str(product['price']),
+            'id': li[3],
+            'date': li[4],
+            'img_src': li[5],
+            'link': li[6],
+            'title':li[0],
+            'contents':li[2]
+            })
+    
+    response = requests.post(API_URL + 'api/index/', data=json.dumps(request_data), headers=headers)
+ 
