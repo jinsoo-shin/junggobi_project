@@ -16,20 +16,20 @@
                 :alt-labels="altLabels"
             >
                 <template v-if="vertical">
-                <template v-for="n in steps">
+                <template v-for="(value, key, n) in detailedDeviceInformation">
                     <v-stepper-step
-                    :key="`${n}-step`"
-                    :complete="e1 > n"
-                    :step="n"
+                    :key="`${n+1}-step`"
+                    :complete="e1 > n+1"
+                    :step="n+1"
                     :editable="editable"
                     >
-                    Step {{ n }}
+                    Step {{ n+1 }} {{key}} {{value}}
                     </v-stepper-step>
                     
                     
                     <v-stepper-content
-                    :key="`${n}-content`"
-                    :step="n"
+                    :key="`${n+1}-content`"
+                    :step="n+1"
                     >
         
                     
@@ -37,7 +37,7 @@
                         class="mb-12"
                         color="grey lighten-1"
                         height="200px"
-                    ><checkboxbutton/></v-card>
+                    >체크박스</v-card>
                     
                     <v-btn
                         color="primary"
@@ -52,14 +52,14 @@
                 </template>
                 <template v-else>
                 <v-stepper-header>
-                    <template v-for="n in steps">
+                    <template v-for="(value, key, n) in detailedDeviceInformation">
                     <v-stepper-step
-                        :key="`${n}-step`"
-                        :complete="e1 > n"
-                        :step="n"
+                        :key="`${n+1}-step`"
+                        :complete="e1 > n+1"
+                        :step="n+1"
                         :editable="editable"
                     >
-                        Step {{ n }}
+                        Step {{ n+1 }} {{key}} {{value}}
                     </v-stepper-step>
         
                     <v-divider
@@ -72,14 +72,14 @@
                 <v-stepper-items>
                     <v-stepper-content
                     v-for="n in steps"
-                    :key="`${n}-content`"
-                    :step="n"
+                    :key="`${n+1}-content`"
+                    :step="n+1"
                     >
                     <v-card
                         class="mb-12"
                         color="grey lighten-1"
                         height="200px"
-                    ><checkboxbutton/></v-card>
+                    >체크박스</v-card>
         
                     <v-btn
                         color="primary"
@@ -102,10 +102,18 @@ export default {
   data() {
     return {
       e1: 1,
-      steps: 2,
+      steps: 3,
       vertical: false,
       altLabels: false,
-      editable: true };
+      editable: true ,
+      detailedDeviceInformation:{
+        'manufacturer':['apple','samsung','lg'],
+        'measureOfCapacity':['64G','128G','256G'],
+        'networkOfTheDevice':['cell','wifi']
+      }
+
+      
+      };
 
   },
 
