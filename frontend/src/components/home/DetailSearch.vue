@@ -4,7 +4,7 @@
             <div>
             <v-row justify="space-around">
                 <v-col cols="12">
-                <v-slider v-model="steps" label="Steps" min="2" max="20"></v-slider>
+                <v-slider v-model="Object.keys(detailedDeviceInformation).length" label="Steps" min="2" max="20"></v-slider>
                 </v-col>
                 <v-switch v-model="vertical" label="Vertical"></v-switch>
                 <v-switch v-model="altLabels" label="altLabels"></v-switch>
@@ -37,11 +37,16 @@
                         class="mb-12"
                         color="grey lighten-1"
                         height="200px"
-                    >체크박스</v-card>
+                    ><checkboxbutton
+                    :objectData = detailedDeviceInformation
+                    :objectKey = key
+                    :objectValue = value
+                    ></checkboxbutton>
+                    </v-card>
                     
                     <v-btn
                         color="primary"
-                        @click="nextStep(n)"
+                        @click="nextStep(n+1)"
                     >
                         Continue
                     </v-btn>
@@ -63,8 +68,8 @@
                     </v-stepper-step>
         
                     <v-divider
-                        v-if="n !== steps"
-                        :key="n"
+                        v-if="n+1 !== steps"
+                        :key="n+1"
                     ></v-divider>
                     </template>
                 </v-stepper-header>
@@ -73,7 +78,7 @@
                     <v-stepper-content
                     v-for="n in steps"
                     :key="`${n+1}-content`"
-                    :step="n+1"
+                    :step="n"
                     >
                     <v-card
                         class="mb-12"
@@ -102,7 +107,7 @@ export default {
   data() {
     return {
       e1: 1,
-      steps: 3,
+      steps: 4,
       vertical: false,
       altLabels: false,
       editable: true ,
@@ -134,7 +139,7 @@ export default {
       this.steps = parseInt(val);
     },
     nextStep(n) {
-      if (n === this.steps) {
+      if (n === (Object.keys(this.detailedDeviceInformation).length)) {
         this.e1 = 1;
       } else {
         this.e1 = n + 1;

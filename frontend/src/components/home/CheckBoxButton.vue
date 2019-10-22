@@ -1,25 +1,26 @@
 <template>
     <div id="app">
-        <input type="checkbox" v-model ='checkedNames["hi1"]' true-value='yes' false-value='no'>
-        <label for="jack">Jack</label>
-        <input type="checkbox" true-value='yes' false-value='no' v-model="checkedNames['hi2']">
-        <label for="john">John</label>
-        <input type="checkbox" true-value='yes' false-value='no' v-model="checkedNames['hi3']">
-        <label for="mike"><span>{{this.test}}</span></label>
+        <input type="checkbox" v-model ="objectData" true-value='yes' false-value='no'>
+        <label for="jack">{{this.objectData}}}</label>
+        <input type="checkbox" true-value='yes' false-value='no' v-model="objectKey">
+        <label for="john">{{this.objectKey}}</label>
+        <input type="checkbox" true-value='yes' false-value='no' v-model="objectValue">
+        <label for="mike"><span>{{this.objectValue}}</span></label>
         <br>
-        <span>체크한 이름: {{ checkedNames }}</span>
+        <span>체크한 이름: </span>
     </div>
 </template>
 <script>
 export default {
     data() {
-        return
+        return{
+            
+        }
     },
     props: {
-    data:{type:Object},
-    manufacturer : {type:String},
-    measureOfCapacity : {type:String},
-    networkOfTheDevice : {type:String},
+    objectData:{type:Object},
+    objectKey:{type:String},
+    objectValue:{type:Array},
 },
 }
 </script>
