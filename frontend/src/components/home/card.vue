@@ -77,38 +77,6 @@ export default {
 
 </script>
 <style>
-body {
-  margin: 40px 0;
-  font-family: "Raleway";
-  font-size: 14px;
-  font-weight: 500;
-  background-color: #BCAAA4;
-  -webkit-font-smoothing: antialiased;
-}
-
-.title {
-  font-family: "Raleway";
-  font-size: 24px;
-  font-weight: 700;
-  color: #5D4037;
-  text-align: center;
-}
-
-p {
-  line-height: 1.5em;
-}
-
-h1 + p, p + p {
-  margin-top: 10px;
-}
-
-.container {
-  padding: 40px 80px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
 .card-wrap {
   margin: 10px;
   -webkit-transform: perspective(800px);
@@ -174,8 +142,8 @@ h1 + p, p + p {
   position: absolute;
   bottom: 0;
   color: #fff;
-  /* -webkit-transform: translateY(40%); */
-          /* transform: translateY(40%); */
+  -webkit-transform: translateY(40%);
+          transform: translateY(40%);
   transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .card-info p {
