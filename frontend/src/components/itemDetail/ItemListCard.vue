@@ -92,11 +92,31 @@ export default {
       let array = this.$store.getters.getFavoriteItems;
       for(var i=0; i<array.length; i++){
         if(array[i].idx === this.item.idx) {
-          alert("asdf" + i + Math.random() )
+          this.alertDuplicate()
           return;
         }
       }
+      this.alertAdd()
       this.$store.commit("setAddFavoriteItems", this.item)
+    },
+    alertDuplicate() {
+      this.$swal.fire({
+        text: '이미 추가된 항목입니다.',
+        type: 'error', timer: 1000,
+        showConfirmButton: false,
+      })
+    },
+    alertAdd() {
+      const Toast = this.$swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000
+      })
+      Toast.fire({
+        type: 'success',
+        title: '등록되었습니다.'
+      })
     }
   }
 };
