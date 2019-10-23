@@ -92,32 +92,32 @@ export default {
       let array = this.$store.getters.getFavoriteItems;
       for(var i=0; i<array.length; i++){
         if(array[i].idx === this.item.idx) {
-          this.alertDuplicate()
+          this.alertSwal("error")
           return;
         }
       }
-      this.alertAdd()
+      this.alertSwal("success")
       this.$store.commit("setAddFavoriteItems", this.item)
     },
-    alertDuplicate() {
-      this.$swal.fire({
-        text: '이미 추가된 항목입니다.',
-        type: 'error', timer: 1000,
-        showConfirmButton: false,
-      })
-    },
-    alertAdd() {
+    alertSwal(info) {
       const Toast = this.$swal.mixin({
         toast: true,
-        position: 'top-end',
+        position: 'mid',
         showConfirmButton: false,
         timer: 3000
       })
-      Toast.fire({
-        type: 'success',
-        title: '등록되었습니다.'
-      })
-    }
+      if(info==="success") {
+        Toast.fire({
+          type: 'success',
+          title: '등록되었습니다.'
+        })
+      }else {
+        Toast.fire({
+          type: 'error',
+          title: '이미 등록된 상품입니다..'
+        })
+      }
+    },
   }
 };
 </script>
