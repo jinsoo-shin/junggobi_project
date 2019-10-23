@@ -39,12 +39,11 @@
             @dragend="dragEnd" 
             @drop="dragFinish(item.idx, $event)"
             class="mt-2"
-            max-width="344"
+            max-width="230"
             outlined
           >
             <v-list-item three-line>
               <v-list-item-content>
-                {{item.link}}
                 <div class="overline mb-2">{{item.title}}</div>
                 <v-list-item-title class="mb-1">{{item.price}}</v-list-item-title>
                 <v-list-item-subtitle>{{item.description}}</v-list-item-subtitle>
@@ -82,7 +81,7 @@ export default {
       }
   },
   created() {
-      this.EventBus.$on("sideMenu", res=> {this.drawer=true; this.items = this.$store.getters.getFavoriteItems})
+      this.EventBus.$on("sideMenu", res=> {this.drawer=true; this.items = this.$store.getters['data/getFavoriteItems']})
   },
   methods: {
     dragStart(which, ev) {
@@ -95,25 +94,16 @@ export default {
       this.dragging = -1
     },
      dragFinish(to, ev) {
-      console.log(to + " df " + ev)
       this.moveItem(this.dragging, to);
       ev.target.style.marginTop = '2px'
       ev.target.style.marginBottom = '2px'
     },
     moveItem(from, to) {
       if (to === -1) {
-        this.removeItemAt(from);
-        this.$store.commit("setDeleteFavoriteItems", from)
-        console.log("moveItem")
-      } else {
-        // this.todos.splice(to, 0, this.todos.splice(from, 1)[0]);
       }
     },
-    removeItem(item) {
-      // this.todos.splice(this.todos.indexOf(item), 1);
-    },
-    removeItemAt(index) {
-      // this.todos.splice(index, 1);
+    removeItem(idx) {
+      this.$store.commit("data/setDeleteFavoriteItems", from)
     },
     openUrl(link) {
       window.open(link, '_blank');
