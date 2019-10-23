@@ -30,7 +30,7 @@
           
           <!--start : favoriteItems 관심항목 출력 -->
           <v-hover v-slot:default="{ hover }">
-          <div style="cursor: pointer;" onclick="window.open(${item.link},'_blank');">    <!-- 수정필요!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!--->
+          <div style="cursor: pointer;" @click=openUrl(item.link)>
           <v-card 
             :elevation="hover ? 6 : 2"
             draggable="true"
@@ -44,6 +44,7 @@
           >
             <v-list-item three-line>
               <v-list-item-content>
+                {{item.link}}
                 <div class="overline mb-2">{{item.title}}</div>
                 <v-list-item-title class="mb-1">{{item.price}}</v-list-item-title>
                 <v-list-item-subtitle>{{item.description}}</v-list-item-subtitle>
@@ -114,6 +115,9 @@ export default {
     removeItemAt(index) {
       // this.todos.splice(index, 1);
     },
+    openUrl(link) {
+      window.open(link, '_blank');
+    }
   }
 }
 </script>

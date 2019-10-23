@@ -1,14 +1,7 @@
 <!-- itemDetailPage 상세 페이지 -->
 <template>
     <v-container grid-list-md text-center>        
-    
-        <!-- start : item-list -->
-        <itemList :itemListCards="itemList"/>
-        <!-- end : item-list -->
-        
-        <!-- start : sideMenu -->
-        <sideMenu></sideMenu>
-        <v-fab-transition>
+    <v-fab-transition>
             <v-btn
                 @click="side"
                 color="grey"
@@ -21,6 +14,13 @@
                 <span class="mdi mdi-playlist-plus mdi-24px"></span>
             </v-btn>
         </v-fab-transition>
+
+        <!-- start : item-list -->
+        <itemList :itemListCards="itemList"/>
+        <!-- end : item-list -->
+        
+        <!-- start : sideMenu -->
+        <sideMenu></sideMenu>
         <!-- end : sideMenu -->
     
     </v-container>
@@ -43,7 +43,6 @@ export default {
     }),
     methods: {
         side() { 
-            console.log("asdf")
             this.EventBus.$emit("sideMenu", true)
         }
     }
