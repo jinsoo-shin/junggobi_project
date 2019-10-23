@@ -4,7 +4,7 @@
             <div>
             <v-row justify="space-around">
                 <v-col cols="12">
-                <v-slider v-model="steps" label="Steps" min="2" max="20"></v-slider>
+                <v-slider v-model="Object.keys(detailedDeviceInformation).length" label="Steps" min="2" max="20"></v-slider>
                 </v-col>
                 <v-switch v-model="vertical" label="Vertical"></v-switch>
                 <v-switch v-model="altLabels" label="altLabels"></v-switch>
@@ -16,20 +16,20 @@
                 :alt-labels="altLabels"
             >
                 <template v-if="vertical">
-                <template v-for="n in steps">
+                <template v-for="(value, key, n) in detailedDeviceInformation">
                     <v-stepper-step
-                    :key="`${n}-step`"
-                    :complete="e1 > n"
-                    :step="n"
+                    :key="`${n+1}-step`"
+                    :complete="e1 > n+1"
+                    :step="n+1"
                     :editable="editable"
                     >
-                    Step {{ n }}
+                    Step {{ n+1 }} {{key}} {{value}}
                     </v-stepper-step>
                     
                     
                     <v-stepper-content
-                    :key="`${n}-content`"
-                    :step="n"
+                    :key="`${n+1}-content`"
+                    :step="n+1"
                     >
         
                     
@@ -37,11 +37,16 @@
                         class="mb-12"
                         color="grey lighten-1"
                         height="200px"
-                    ><checkboxbutton/></v-card>
+                    ><checkboxbutton
+                    :objectData = detailedDeviceInformation
+                    :objectKey = key
+                    :objectValue = value
+                    ></checkboxbutton>
+                    </v-card>
                     
                     <v-btn
                         color="primary"
-                        @click="nextStep(n)"
+                        @click="nextStep(n+1)"
                     >
                         Continue
                     </v-btn>
@@ -52,19 +57,19 @@
                 </template>
                 <template v-else>
                 <v-stepper-header>
-                    <template v-for="n in steps">
+                    <template v-for="(value, key, n) in detailedDeviceInformation">
                     <v-stepper-step
-                        :key="`${n}-step`"
-                        :complete="e1 > n"
-                        :step="n"
+                        :key="`${n+1}-step`"
+                        :complete="e1 > n+1"
+                        :step="n+1"
                         :editable="editable"
                     >
-                        Step {{ n }}
+                        Step {{ n+1 }} {{key}} {{value}}
                     </v-stepper-step>
         
                     <v-divider
-                        v-if="n !== steps"
-                        :key="n"
+                        v-if="n+1 !== steps"
+                        :key="n+1"
                     ></v-divider>
                     </template>
                 </v-stepper-header>
@@ -72,14 +77,14 @@
                 <v-stepper-items>
                     <v-stepper-content
                     v-for="n in steps"
-                    :key="`${n}-content`"
+                    :key="`${n+1}-content`"
                     :step="n"
                     >
                     <v-card
                         class="mb-12"
                         color="grey lighten-1"
                         height="200px"
-                    ><checkboxbutton/></v-card>
+                    >체크박스</v-card>
         
                     <v-btn
                         color="primary"
@@ -102,10 +107,18 @@ export default {
   data() {
     return {
       e1: 1,
-      steps: 2,
+      steps: 4,
       vertical: false,
       altLabels: false,
-      editable: true };
+      editable: true ,
+      detailedDeviceInformation:{
+        'manufacturer':['apple','samsung','lg'],
+        'measureOfCapacity':['64G','128G','256G'],
+        'networkOfTheDevice':['cell','wifi']
+      }
+
+      
+      };
 
   },
 
@@ -126,7 +139,7 @@ export default {
       this.steps = parseInt(val);
     },
     nextStep(n) {
-      if (n === this.steps) {
+      if (n === (Object.keys(this.detailedDeviceInformation).length)) {
         this.e1 = 1;
       } else {
         this.e1 = n + 1;
