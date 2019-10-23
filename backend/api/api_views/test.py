@@ -5,17 +5,47 @@ from api.serializers import TabletSerializer, ProductSerializer,NavercafeSeriali
 from api.models import Tablet,Product,Navercafe
 import datetime
 from django.db import connection, connections
+from elasticsearch import Elasticsearch
+from api.document import NavercafeDocument
+
 @api_view(['GET','POST'])
 def index(request):
     if request.method=='GET':
+        es = Elasticsearch()
+
+        # 검색어
+        search_word = request.query_params.get('search')
+
+        if not search_word:
+            return Response(status=status.HTTP_400_BAD_REQUEST, data={'message': 'search word param is missing'})
+
+        docs = es.search(index='navercafe-index',
+                         # doc_type='navercafe_index',
+                         body={
+                             "query": {
+                                 "multi_match": {
+                                     "query": search_word,
+                                     "fields": ["title", "contents"]
+                                 }
+                             }
+                         })
+
+        data_list = docs['hits']
+        print(data_list)
+        return Response(data_list)
+        # return Response(data_list)
+
+        # test= NavercafeDocument.search().query('match', display='11')
+        #
+        # for car in test:
+        #     print(car.display)
+        #
+
+
         request_data=[]
-
-        navercafe=Navercafe.objects.all().reverse()[:10]
-
-
-        # return Response(data=request_data, status=status.HTTP_200_OK)
-        serializer = NavercafeSerializer(navercafe, many=True)
-        return Response(data=serializer.data, status=status.HTTP_200_OK)
+        return Response(data=request_data, status=status.HTTP_200_OK)
+        # serializer = NavercafeSerializer(navercafe, many=True)
+        # return Response(data=serializer.data, status=status.HTTP_200_OK)
     if request.method == 'POST':
         product = request.data.get('product', None)
         tablet = request.data.get('tablet', None)

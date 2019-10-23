@@ -40,7 +40,11 @@ INSTALLED_APPS = [
     'api',
     'rest_framework',
 ]
-
+ELASTICSEARCH_DSL = {
+    'default': {
+        'hosts': 'elasticsearch:9200'
+    },
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
