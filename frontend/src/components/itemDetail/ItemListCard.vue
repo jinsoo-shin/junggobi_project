@@ -89,7 +89,7 @@ export default {
   },
   methods: {
     addItem() {
-      let array = this.$store.getters.getFavoriteItems;
+      let array = this.$store.getters['data/getFavoriteItems'];
       for(var i=0; i<array.length; i++){
         if(array[i].idx === this.item.idx) {
           this.alertSwal("error")
@@ -97,7 +97,7 @@ export default {
         }
       }
       this.alertSwal("success")
-      this.$store.commit("setAddFavoriteItems", this.item)
+      this.$store.commit("data/setAddFavoriteItems", this.item)
     },
     alertSwal(info) {
       const Toast = this.$swal.mixin({
