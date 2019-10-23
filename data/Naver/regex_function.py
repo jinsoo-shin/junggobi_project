@@ -15,7 +15,8 @@ def get_model(request_data,read_title,read_text):
     model = "" # 아이패드2 아이패드미니 아이패드프로, 아이패드에어
     gen = "" # ?세대
     inch = "" #몇인치인가?
-
+    read_title=read_title.upper()
+    read_text=read_text.upper()
 #인치를 타이틀에서 삭제
     inch_list =['12.9','11','10.2','10.5','9.7','7.9']
     inch = "".join([s for s in inch_list if s in read_title])
@@ -24,18 +25,18 @@ def get_model(request_data,read_title,read_text):
 
 
 ##용량을 타이틀에서 삭제
-    memory = get_memory(read_title,"") #용량을 가져옴
-    if memory:
-        memory_list = ['GB','기가','G']
-        for i in range(len(memory_list)):
-            memory_list[i]=memory+memory_list[i]
-        delete_text = "".join([s for s in memory_list if s in read_title])
+    storage = get_storage(read_title,read_text) #용량을 가져옴
+    if storage:
+        storage_list = ['GB','기가','G']
+        for i in range(len(storage_list)):
+            storage_list[i]=storage+storage_list[i]
+        delete_text = "".join([s for s in storage_list if s in read_title])
         read_title = read_title.replace(delete_text, "")
         # print("/////////용량제거한 타이틀",read_title)
-        memory=memory+"GB"
+        storage=storage+"GB"
     else:
         if "1TB" in read_title:
-            memory = '1TB'
+            storage = '1TB'
             read_title = read_title.replace("1TB", "")
             # print("//////용량제거한 타이틀", read_title)
 
@@ -102,7 +103,7 @@ def get_model(request_data,read_title,read_text):
 
     if gen is not "":
         gen = gen+"세대"
-    print("모델:",model," /세대:", gen," /인치:",inch,"/용량:",memory,"/LTE:",cellular)
+    print("모델:",model," /세대:", gen," /인치:",inch,"/용량:",storage,"/LTE:",cellular)
 
     if model is "":
         pass
@@ -110,14 +111,14 @@ def get_model(request_data,read_title,read_text):
         pass
     if inch is "":
         pass
-    if memory is "":
+    if storage is "":
         pass
     if cellular is "":
         pass
     request_data['model_name']=model
     request_data['generation']=gen
     request_data['display']=inch
-    request_data['memory']=memory
+    request_data['storage']=storage
     request_data['cellular']=cellular
 
     return request_data
@@ -126,29 +127,34 @@ def get_model(request_data,read_title,read_text):
     # return model
 
 
-def get_memory(read_title,read_text):
-    memory = ""
+def get_storage(read_title,read_text):
+    storage = ""
     try:
-        regex = re.compile(r"(\d+)[기가|GB|gb|g]\w*")
+        regex = re.compile(r"(\d+)[기가|GB|gb|g]")
         mc = regex.search(read_title)
         # print(mc.group(1))
-        memory=mc.group(1)
+        storage=mc.group(1)
     except:
         pass
-    if memory is "":
+
+    if storage is "":
+    storage_list =['16','32','64','128','256','512']
+    storage = "".join([s for s in storage_list if s in read_title])
+
+    if storage is "":
         try:
-            regex = re.compile(r"(\d+)[기가|GB|G]\w*")
+            regex = re.compile(r"(\d+)[기가|GB|G]")
             mc = regex.search(read_text)
             print(mc.group(1))
-            memory = mc.group(1)
+            storage = mc.group(1)
         except:
             pass
 
-    if memory is "":
-        memory_list =['16','32','64','128','256','512']
-        memory = "".join([s for s in memory_list if s in read_title])
+    # if storage is "":
+    #     storage_list =['16','32','64','128','256','512']
+    #     storage = "".join([s for s in storage_list if s in read_title])
 
-    return memory
+    return storage
 
 def get_cellular(read_title,read_text):
 
