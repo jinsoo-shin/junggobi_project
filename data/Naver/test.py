@@ -135,8 +135,9 @@ for page_num in range(page_number):
             text.append(" ".join(test).strip())
             # text.append('\n')
 
-            read_text = " ".join(text).replace("\n"," ").replace("  "," ")#텍스트
-
+            read_text = " ".join(text).replace('\xa0','').replace('\xa9','').replace("\n"," ").replace("  "," ")#텍스트
+            if any(format in read_text for format in passtext):
+                continue # 만약 passtext의 문자열을 read_text가 포함하고 있다면 넘긴다!
             result.append(read_title)
             result.append(read_price)
             result.append(read_text)
@@ -181,7 +182,7 @@ for page_num in range(page_number):
             'model_name': product['model_name'],
             'generation': product['generation'],
             'display': product['display'],
-            'memory': product['memory'],
+            'storage': product['storage'],
             'cellular': product['cellular'],
             'price': str(product['price']),
             'id': li[3],

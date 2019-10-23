@@ -4,15 +4,18 @@ from rest_framework.response import Response
 from api.serializers import TabletSerializer, ProductSerializer,NavercafeSerializer
 from api.models import Tablet,Product,Navercafe
 import datetime
+from django.db import connection, connections
 @api_view(['GET','POST'])
 def index(request):
     if request.method=='GET':
-        # tablet = Tablet.objects.all()
-        # serializer = TabletSerializer(tablet, many=True)
-        # return Response(data=serializer.data, status=status.HTTP_200_OK)
-        #
-        request_data=["get"]
-        return Response(data=request_data, status=status.HTTP_200_OK)
+        request_data=[]
+
+        navercafe=Navercafe.objects.all().reverse()[:10]
+
+
+        # return Response(data=request_data, status=status.HTTP_200_OK)
+        serializer = NavercafeSerializer(navercafe, many=True)
+        return Response(data=serializer.data, status=status.HTTP_200_OK)
     if request.method == 'POST':
         product = request.data.get('product', None)
         tablet = request.data.get('tablet', None)
@@ -71,3 +74,27 @@ def index(request):
 
             pass
         return Response(status=status.HTTP_200_OK)
+
+def my_sql(key, value):
+    cursor = connection.cursor()
+    query = 'select * from navercafe limit 10;'
+    cursor.execute(str)
+    row = dictfetchall(cursor)
+    return row
+    # if key == 'user':
+    #     str = 'SELECT username FROM `auth_user` WHERE id IN (' + value + ')'
+    #     cursor.execute(str)
+    #     row = dictfetchall(cursor)
+    #     return row
+    # if key == 'getuserid':
+    #     cursor.execute('SELECT userid FROM `api_rating` WHERE id=%s;',[value])
+    #     row = cursor.fetchall()
+    #     return row
+
+
+def dictfetchall(cursor):
+    desc = cursor.description
+    return [
+        dict(zip([col[0] for col in desc], row))
+        for row in cursor.fetchall()
+    ]
