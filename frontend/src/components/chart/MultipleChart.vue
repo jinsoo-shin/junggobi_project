@@ -92,9 +92,9 @@ export default {
         valueAxis.renderer.grid.template.disabled = true;
         }
 
-        createAxisAndSeries("visits", "Visits", false, "circle");
-        createAxisAndSeries("views", "Views", true, "triangle");
-        createAxisAndSeries("hits", "Hits", true, "rectangle");
+        createAxisAndSeries("visits", "평균가", false, "circle");
+        createAxisAndSeries("views", "최저가", true, "triangle");
+        createAxisAndSeries("hits", "최고가", true, "rectangle");
 
         // Add legend
         chart.legend = new am4charts.Legend();
