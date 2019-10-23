@@ -39,18 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'api',
     'rest_framework',
-    'haystack',
 ]
-
-WHOOSH_INDEX=os.path.join(BASE_DIR, 'whoosh_index')
-
-HAYSTACK_CONNECTIONS = {
-    'default': {
-        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
-        'PATH': WHOOSH_INDEX,
-    },
-}
-
 
 
 MIDDLEWARE = [
