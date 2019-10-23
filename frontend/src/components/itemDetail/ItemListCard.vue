@@ -102,7 +102,7 @@ export default {
     alertSwal(info) {
       const Toast = this.$swal.mixin({
         toast: true,
-        position: 'mid',
+        position: 'center',
         showConfirmButton: false,
         timer: 3000
       })
