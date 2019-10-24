@@ -118,29 +118,6 @@ class DjangoSession(models.Model):
         db_table = 'django_session'
 
 
-class Navercafe(models.Model):
-    id = models.IntegerField(primary_key=True)
-    category = models.CharField(max_length=10, blank=True, null=True)
-    manufacturer = models.CharField(max_length=50, blank=True, null=True)
-    model_name = models.CharField(max_length=100, blank=True, null=True)
-    generation = models.CharField(max_length=10, blank=True, null=True)
-    display = models.CharField(max_length=10, blank=True, null=True)
-    cellular = models.CharField(max_length=10, blank=True, null=True)
-    storage = models.CharField(max_length=10, blank=True, null=True)
-    price = models.IntegerField(blank=True, null=True)
-    region = models.CharField(max_length=20, blank=True, null=True)
-    date = models.DateField(blank=True, null=True)
-    link = models.CharField(max_length=1000, blank=True, null=True)
-    img_src = models.CharField(max_length=1000, blank=True, null=True)
-    is_sell = models.IntegerField(blank=True, null=True)
-    title = models.CharField(max_length=5000, blank=True, null=True)
-    contents = models.CharField(max_length=5000, blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'navercafe'
-
-
 class Product(models.Model):
     id = models.IntegerField(primary_key=True)
     category = models.CharField(max_length=10, blank=True, null=True)
@@ -153,6 +130,29 @@ class Product(models.Model):
     class Meta:
         managed = False
         db_table = 'product'
+
+
+class ProductInfo(models.Model):
+    id = models.IntegerField(primary_key=True)
+    category = models.CharField(max_length=10, blank=True, null=True)
+    manufacturer = models.CharField(max_length=50, blank=True, null=True)
+    model_name = models.CharField(max_length=100, blank=True, null=True)
+    generation = models.CharField(max_length=10, blank=True, null=True)
+    display = models.CharField(max_length=10, blank=True, null=True)
+    cellular = models.CharField(max_length=10, blank=True, null=True)
+    storage = models.CharField(max_length=10, blank=True, null=True)
+    price = models.IntegerField(blank=True, null=True)
+    region = models.CharField(max_length=100, blank=True, null=True)
+    date = models.DateField(blank=True, null=True)
+    link = models.CharField(max_length=1000, blank=True, null=True)
+    img_src = models.CharField(max_length=1000, blank=True, null=True)
+    is_sell = models.IntegerField(blank=True, null=True)
+    title = models.CharField(max_length=5000, blank=True, null=True)
+    contents = models.CharField(max_length=100000, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'product_info'
 
 
 class Tablet(models.Model):
