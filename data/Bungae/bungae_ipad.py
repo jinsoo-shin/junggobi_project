@@ -6,14 +6,22 @@ from datetime import datetime
 from datetime import timedelta
 import time
 from selenium.common.exceptions import NoSuchElementException
+import requests
+import json
 
-driver = webdriver.Chrome("../chromedriver.exe")
+API_URL = "http://localhost:8000/api/"
+headers = {'content-type': 'application/json'}
+
+chrome_options= webdriver.ChromeOptions() #옵션 설정하기
+# chrome_options.add_argument('headless') #창이 안보이도록 숨기기
+chrome_options.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.3')
+
+driver = webdriver.Chrome("../chromedriver.exe",chrome_options=chrome_options)
 driver.implicitly_wait(3)
 driver.get('https://m.bunjang.co.kr/')
 
 #번개장터 접속 후, 로그인
 login_number = driver.find_element_by_class_name("sc-cQFLBn")
-print(login_number)
 login_number.find_element_by_tag_name("input").send_keys("01071193527")
 password = driver.find_element_by_class_name("sc-gojNiO")
 password.find_element_by_tag_name("input").send_keys("junggobi1014!")
@@ -45,7 +53,7 @@ today = datetime.today().strftime("%Y%m%d")
 
 #상세페이지 웹 크롤링
 cnt=0
-request_data = {'bungae': []}
+request_data = {'product_info': []}
 for data in url_list:
     url = "https://m.bunjang.co.kr/products/"+data+"?ref=검색결과&q=아이패드"
     driver.get(url)
@@ -55,13 +63,13 @@ for data in url_list:
 
         sell = soup.select("#app > div.router-view > div > div.product-detail-wrapper > div:nth-child(2) > div:nth-child(1) > div.suggested-products-title")
         if len(sell)==0:
-            title = soup.select("#root > div > div > div.sc-koErNt.hoSImv > div.sc-gJqsIT.eMTckw > div > div.sc-cFlXAS.hJvCHs > div > div.sc-jRhVzh.bynJLV > div > div.sc-gPzReC.fWxkCf > div.sc-jrIrqw.hOgugl > div.sc-hjRWVT.bbGQaP")
-            price = soup.select("#root > div > div > div.sc-koErNt.hoSImv > div.sc-gJqsIT.eMTckw > div > div.sc-cFlXAS.hJvCHs > div > div.sc-jRhVzh.bynJLV > div > div.sc-gPzReC.fWxkCf > div.sc-jrIrqw.hOgugl > div.sc-iybRtq.eazFIt > div")
-            status = soup.select("#root > div > div > div.sc-koErNt.hoSImv > div.sc-gJqsIT.eMTckw > div > div.sc-cFlXAS.hJvCHs > div > div.sc-jRhVzh.bynJLV > div > div.sc-gPzReC.fWxkCf > div.sc-cEvuZC.jcUgmG > div.sc-dxZgTM.eVVlYD > div:nth-child(1) > div.sc-iFMziU.eMXTei")
-            exchange = soup.select("#root > div > div > div.sc-koErNt.hoSImv > div.sc-gJqsIT.eMTckw > div > div.sc-cFlXAS.hJvCHs > div > div.sc-jRhVzh.bynJLV > div > div.sc-gPzReC.fWxkCf > div.sc-cEvuZC.jcUgmG > div.sc-dxZgTM.eVVlYD > div:nth-child(2) > div.sc-iFMziU.eMXTei")
-            location = soup.select("#root > div > div > div.sc-koErNt.hoSImv > div.sc-gJqsIT.eMTckw > div > div.sc-cFlXAS.hJvCHs > div > div.sc-jRhVzh.bynJLV > div > div.sc-gPzReC.fWxkCf > div.sc-cEvuZC.jcUgmG > div.sc-dxZgTM.eVVlYD > div:nth-child(4) > div.sc-iFMziU.cpTpen")
-            description = soup.select("#root > div > div > div.sc-koErNt.hoSImv > div.sc-gJqsIT.eMTckw > div > div.sc-OxbzP.fGXcye > div.sc-kqlzXE.cVGKCL > div.sc-cPuPxo.gQmCMT > div.sc-dREXXX.bQuoGl > div.sc-hcmgZB.gsXioq > div.sc-dHmInP.hQhrav")
-            check_date = soup.select("#root > div > div > div.sc-koErNt.hoSImv > div.sc-gJqsIT.eMTckw > div > div.sc-cFlXAS.hJvCHs > div > div.sc-jRhVzh.bynJLV > div > div.sc-gPzReC.fWxkCf > div.sc-cEvuZC.jcUgmG > div.sc-kXeGPI.grTZPy > div > div:nth-child(3)")
+            title = soup.select("#root > div > div > div.sc-gJqsIT.hbVxbC > div.sc-kDhYZr.ikrBOB > div > div.sc-hcnlBt.jfMCiR > div > div.sc-iHhHRJ.gVVJLD > div > div.sc-gPzReC.fWxkCf > div.sc-jrIrqw.hOgugl > div.sc-hjRWVT.bbGQaP")
+            price = soup.select("#root > div > div > div.sc-gJqsIT.hbVxbC > div.sc-kDhYZr.ikrBOB > div > div.sc-hcnlBt.jfMCiR > div > div.sc-iHhHRJ.gVVJLD > div > div.sc-gPzReC.fWxkCf > div.sc-jrIrqw.hOgugl > div.sc-iybRtq.eazFIt > div")
+            # status = soup.select("#root > div > div > div.sc-koErNt.hoSImv > div.sc-gJqsIT.eMTckw > div > div.sc-cFlXAS.hJvCHs > div > div.sc-jRhVzh.bynJLV > div > div.sc-gPzReC.fWxkCf > div.sc-cEvuZC.jcUgmG > div.sc-dxZgTM.eVVlYD > div:nth-child(1) > div.sc-iFMziU.eMXTei")
+            # exchange = soup.select("#root > div > div > div.sc-koErNt.hoSImv > div.sc-gJqsIT.eMTckw > div > div.sc-cFlXAS.hJvCHs > div > div.sc-jRhVzh.bynJLV > div > div.sc-gPzReC.fWxkCf > div.sc-cEvuZC.jcUgmG > div.sc-dxZgTM.eVVlYD > div:nth-child(2) > div.sc-iFMziU.eMXTei")
+            location = soup.select("#root > div > div > div.sc-gJqsIT.hbVxbC > div.sc-kDhYZr.ikrBOB > div > div.sc-hcnlBt.jfMCiR > div > div.sc-iHhHRJ.gVVJLD > div > div.sc-gPzReC.fWxkCf > div.sc-cEvuZC.jcUgmG > div.sc-dxZgTM.eVVlYD > div:nth-child(4) > div.sc-iFMziU.cpTpen")
+            description = soup.select("#root > div > div > div.sc-gJqsIT.hbVxbC > div.sc-kDhYZr.ikrBOB > div > div.sc-lnrBVv.hvYxyl > div.sc-OxbzP.hZrvrw > div.sc-hvvHee.jlHWKG > div.sc-kcbnda.cuxerH > div.sc-dHmInP.eQnWXw > div.sc-ejGVNB.ldIAac")
+            check_date = soup.select("#root > div > div > div.sc-gJqsIT.hbVxbC > div.sc-kDhYZr.ikrBOB > div > div.sc-hcnlBt.jfMCiR > div > div.sc-iHhHRJ.gVVJLD > div > div.sc-gPzReC.fWxkCf > div.sc-cEvuZC.jcUgmG > div.sc-kXeGPI.grTZPy > div > div:nth-child(3)")
             date = ""
             if len(check_date)!=0:
                 check_date = check_date[0].text
@@ -77,22 +85,22 @@ for data in url_list:
                     date = today
             id = data
             title = title[0].text
-            price = price[0].text
-            status = status[0].text
-            exchange = exchange[0].text
+            price = price[0].text.replace("원","").replace(",","")
+            
+            # status = status[0].text
+            # exchange = exchange[0].text
             if len(location)!=0:
                 location = location[0].text
             description = description[0].text
-
             size = ""
             if "매입" not in title:
-                cellular = False
+                cellular = "WIFI"
                 if "셀룰러" in title:
-                    cellular = True
+                    cellular = "셀룰러"
                 elif "cellular" in title:
-                    cellular = True
+                    cellular = "셀룰러"
                 elif "Cellular" in title:
-                    cellular = True
+                    cellular = "셀룰러"
                 if "기가" in title:
                     index = title.find("기가")
                     size = title[(index-3):index]
@@ -113,44 +121,58 @@ for data in url_list:
                     if i_c in title:
                         inch = i_c
                         break
-                category_list = ["미니", "프로", "에어"]
-                for c_g in category_list:
+                category = ""
+                category_list1 = ["미니", "mini"]
+                for c_g in category_list1:
                     if c_g in title:
-                        category = c_g
+                        category =  " "+c_g
                         break
-                print(title)
-                print(price)
-                print(status)
-                print(exchange)
-                print(location)
-                # print(description)
-                print(date)
-                print(generation)
-                print(category)
-                print(inch)
-                print(cellular)
-                print(size)
-                print(url)
-                print(img_url_list[cnt])
+                if len(category)==0 :
+                    category_list2 = ["에어", "air"]
+                    for c_g in category_list2:
+                        if c_g in title:
+                            category = " "+c_g
+                            break
+                if len(category)==0 :
+                    category_list3 = ["프로", "pro"]
+                    for c_g in category_list3:
+                        if c_g in title:
+                            category = " "+c_g
+                            break
+                # print(title)
+                # print(price)
+                # # print(status)
+                # # print(exchange)
+                # print(location)
+                # # print(description)
+                # print(date)
+                # print(generation)
+                # print(category)
+                # print(inch)
+                # print(cellular)
+                # print(size)
+                # print(url)
+                # print(img_url_list[cnt])
                 
-                request_data['bungae'].append({
+                request_data['product_info'].append({
                     'id' : data,
-                    'price' : price,
-                    'company' : "애플",
-                    'title' : title,
+                    'category' : "태블릿",
+                    'manufacturer' : "애플",
+                    'model_nmae' : '아이패드'+category,
                     'generation' : generation,
-                    'category' : category,
-                    'inch' : inch,
+                    'display' : inch,
                     'cellular' : cellular,
-                    'size' : size+"G",
+                    'storage' : size+"GB",
+                    'price' : price,
                     'region' : location,
                     "date" : date,
                     'link' : url,
-                    'img_url' : img_url_list[cnt],
-                    'status' : status,
-                    'exchange' : exchange,
-                    # 'description' : description
+                    'img_src' : img_url_list[cnt],
+                    'is_sell' : 0,
+                    'title' : title,
+                    'description' : description
                 })
+                print(cnt)
                 cnt+=1
             #cnt 주석 예정#####################
             # if cnt==1:
@@ -161,6 +183,6 @@ for data in url_list:
     except:
         print("제대로 처리 되지 않습니다")
         continue
-
+response = requests.post(API_URL+"product/", data=json.dumps(request_data), headers=headers)
 print(request_data)
     

@@ -118,7 +118,21 @@ class DjangoSession(models.Model):
         db_table = 'django_session'
 
 
-class Navercafe(models.Model):
+class Product(models.Model):
+    id = models.IntegerField(primary_key=True)
+    category = models.CharField(max_length=10, blank=True, null=True)
+    manufacturer = models.CharField(max_length=50, blank=True, null=True)
+    model_name = models.CharField(max_length=100, blank=True, null=True)
+    generation = models.CharField(max_length=10, blank=True, null=True)
+    display = models.CharField(max_length=10, blank=True, null=True)
+    release_date = models.CharField(max_length=10, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'product'
+
+
+class ProductInfo(models.Model):
     id = models.IntegerField(primary_key=True)
     category = models.CharField(max_length=10, blank=True, null=True)
     manufacturer = models.CharField(max_length=50, blank=True, null=True)
@@ -138,21 +152,7 @@ class Navercafe(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'navercafe'
-
-
-class Product(models.Model):
-    id = models.IntegerField(primary_key=True)
-    category = models.CharField(max_length=10, blank=True, null=True)
-    manufacturer = models.CharField(max_length=50, blank=True, null=True)
-    model_name = models.CharField(max_length=100, blank=True, null=True)
-    generation = models.CharField(max_length=10, blank=True, null=True)
-    display = models.CharField(max_length=10, blank=True, null=True)
-    release_date = models.CharField(max_length=10, blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'product'
+        db_table = 'product_info'
 
 
 class Tablet(models.Model):
