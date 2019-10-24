@@ -148,7 +148,7 @@ class ProductInfo(models.Model):
     img_src = models.CharField(max_length=1000, blank=True, null=True)
     is_sell = models.IntegerField(blank=True, null=True)
     title = models.CharField(max_length=5000, blank=True, null=True)
-    contents = models.CharField(max_length=5000, blank=True, null=True)
+    contents = models.CharField(max_length=100000, blank=True, null=True)
 
     class Meta:
         managed = False
