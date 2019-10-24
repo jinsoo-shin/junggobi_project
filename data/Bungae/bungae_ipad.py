@@ -91,6 +91,8 @@ for data in url_list:
             # exchange = exchange[0].text
             if len(location)!=0:
                 location = location[0].text
+            else:
+                location = ""
             description = description[0].text
             size = ""
             if "매입" not in title:
@@ -158,8 +160,8 @@ for data in url_list:
                     'id' : data,
                     'category' : "태블릿",
                     'manufacturer' : "애플",
-                    'model_nmae' : '아이패드'+category,
-                    'generation' : generation,
+                    'model_name' : '아이패드'+category,
+                    'generation' : generation+"세대",
                     'display' : inch,
                     'cellular' : cellular,
                     'storage' : size+"GB",
@@ -168,9 +170,9 @@ for data in url_list:
                     "date" : date,
                     'link' : url,
                     'img_src' : img_url_list[cnt],
-                    'is_sell' : 0,
+                    'is_sell' : False,
                     'title' : title,
-                    'description' : description
+                    'contents' : description
                 })
                 print(cnt)
                 cnt+=1
