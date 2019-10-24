@@ -12,6 +12,7 @@ import json
 API_URL = "http://localhost:8000/api/"
 headers = {'content-type': 'application/json'}
 
+#user agent 유저인척하여 막히지 않도록!!
 chrome_options= webdriver.ChromeOptions() #옵션 설정하기
 # chrome_options.add_argument('headless') #창이 안보이도록 숨기기
 chrome_options.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.3')
@@ -33,6 +34,8 @@ search.find_element_by_class_name("sc-eNQAEJ").send_keys("아이패드")
 search.find_element_by_class_name("sc-eNQAEJ").send_keys(Keys.RETURN)
 
 #아이패드 리스트 찾기
+driver.implicitly_wait(10)
+# driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 u_list = driver.find_element_by_class_name("sc-gRnDUn").find_elements_by_tag_name("img")
 url_list = []
 img_url_list = []
@@ -74,10 +77,7 @@ for data in url_list:
             if len(check_date)!=0:
                 check_date = check_date[0].text
                 if "일 전" in check_date:
-                    for i in check_date:
-                        if i=="일":
-                            break
-                        upload_date += i
+                    upload_date = check_date.replace("일 전", "")
                     upload_date*=1
                     date = datetime(today.year, today.month, today.day) - timedelta(upload_date)
                     date = date.strftime("%Y%m%d")
@@ -175,14 +175,15 @@ for data in url_list:
                     'contents' : description
                 })
                 print(cnt)
-                cnt+=1
             #cnt 주석 예정#####################
             # if cnt==1:
             #     break
-            time.sleep(3)
+            # time.sleep(3)
+            cnt+=1
         else:
             print("상품이 판매되었습니다.")
     except:
+        cnt+=1
         print("제대로 처리 되지 않습니다")
         continue
 response = requests.post(API_URL+"product/", data=json.dumps(request_data), headers=headers)
