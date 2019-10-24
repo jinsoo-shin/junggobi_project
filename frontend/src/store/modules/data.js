@@ -1,12 +1,16 @@
-// import api from '../../api'
+import api from '../../api'
 
 const state = {
+  items : [],
   favoriteItems : [],
-  abc : "Dfsfsfsf"
 }
 const getters = {
   getFavoriteItems(state) {
     return state.favoriteItems;
+  },
+  getItems(state) {
+    console.log(state.items)
+    return state.items;
   }
 }
 const mutations = {
@@ -23,7 +27,10 @@ const mutations = {
   }
 }
 const actions = {
-
+  async test1() {
+    const resp = await api.test()
+    state.items = resp.data
+  }
 }
 export default {
   namespaced: true,
