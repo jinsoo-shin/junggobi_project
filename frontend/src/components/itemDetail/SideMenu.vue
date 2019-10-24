@@ -21,7 +21,7 @@
         </v-hover>
         </v-list-item-content>
       </v-list-item>
-
+      
       <v-divider></v-divider>
 
       <v-list dense>
@@ -103,11 +103,11 @@ export default {
       }
     },
     removeItem(idx) {
-      this.$store.commit("data/setDeleteFavoriteItems", from)
+      this.$store.commit('data/setDeleteFavoriteItems', from)
     },
     openUrl(link) {
       window.open(link, '_blank');
-    }
+    },
   }
 }
 </script>
