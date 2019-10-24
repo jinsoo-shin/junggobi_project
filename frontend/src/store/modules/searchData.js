@@ -1,26 +1,25 @@
-
-
-const state = {
-    selected : [],
-  }
-  const getters = {
-    getSelected(state) {
-      return state.selected;
+const moduleB = {
+  state: {
+      count: 8
+  },
+  mutations: {
+    increment (state) {
+      state.count++
     }
+      
+  },
+  getters: {
+    doubleCount (state) {
+      return state.count *2
+    }
+    
+      
+  },
+  actions: {
+      incrementIfOdd({state, commit}) {
+        if (state.count %2 === 1) {
+          commit('increment');
+        }
+      }
   }
-  const mutations = {
-    setAddSelected(state, payload) {
-      state.favoriteItems[state.favoriteItems.length] = payload;
-    },
-  }
-  const actions = {
-  
-  }
-  export default {
-    namespaced: true,
-    state,
-    getters,
-    actions,
-    mutations,
-  }
-  
+}

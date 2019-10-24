@@ -140,8 +140,10 @@ export default {
     },
     nextStep(n) {
       if (n === (Object.keys(this.detailedDeviceInformation).length)) {
+
         this.e1 = 1;
       } else {
+
         this.e1 = n + 1;
       }
     } }
