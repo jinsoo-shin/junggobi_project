@@ -9,6 +9,9 @@ const state = {
     }
   }
   const mutations = {
+    setAddSelected(state, payload) {
+      state.favoriteItems[state.favoriteItems.length] = payload;
+    },
   }
   const actions = {
   
