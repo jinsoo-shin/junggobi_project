@@ -12,6 +12,7 @@ def information(request):
         serializer = Product_Info_Serializer(product_info, many=True)
         return Response(data=serializer.data, status=status.HTTP_200_OK)
     if request.method == 'POST':
+        product_info = request.data.get('product_info',None)
         for cur_data in product_info:
             id = cur_data.get("id", None)
             category = cur_data.get("category", None)
@@ -19,15 +20,19 @@ def information(request):
             model_name = cur_data.get("model_name",None)
             print(model_name)
             generation = cur_data.get("generation",None)
-            if len(generation)== len("세대"):
+            if len(generation)==len("세대"):
                 generation = None
             display = cur_data.get("display",None)
             if len(display)==0:
                 display = None
             cellular = cur_data.get("cellular",None)
             storage = cur_data.get("storage",None)
+            if len(storage)==len("GB"):
+                storage = None
             price = cur_data.get("price",None)
             region = cur_data.get("region",None)
+            if len(region)==0:
+                region = None
             date = cur_data.get("date",None)
             date = datetime.datetime.strptime(date,'%Y%m%d')
             date= date.date()
