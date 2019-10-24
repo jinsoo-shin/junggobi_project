@@ -26,7 +26,8 @@
 
       <v-list dense>
         <v-list-item-title>관심 항목</v-list-item-title> 
-        <v-list-item v-for="item in items" :key="item.idx">
+          
+        <v-list-item v-for="item in items" :key="item.id">
           
           <!--start : favoriteItems 관심항목 출력 -->
           <v-hover v-slot:default="{ hover }">
@@ -34,25 +35,25 @@
           <v-card 
             :elevation="hover ? 6 : 2"
             draggable="true"
-            @dragstart="dragStart(item.idx, $event)"
+            @dragstart="dragStart(item.id, $event)"
             @dragover.prevent 
             @dragend="dragEnd" 
-            @drop="dragFinish(item.idx, $event)"
+            @drop="dragFinish(item.id, $event)"
             class="mt-2"
             max-width="230"
             outlined
           >
             <v-list-item three-line>
               <v-list-item-content>
-                <div class="overline mb-2">{{item.title}}</div>
+                <div class="overline mb-2">{{item.model_name}}</div>
                 <v-list-item-title class="mb-1">{{item.price}}</v-list-item-title>
-                <v-list-item-subtitle>{{item.description}}</v-list-item-subtitle>
+                <v-list-item-subtitle>{{item.contents}}</v-list-item-subtitle>
               </v-list-item-content>
 
               <v-list-item-avatar
                 tile
                 size="80"
-              ><v-img  class="outlineImg" :src=item.img style="width:100px; height:100px"></v-img>
+              ><v-img  class="outlineImg" :src=item.img_src style="width:100px; height:100px"></v-img>
                     
               </v-list-item-avatar>
             </v-list-item>
@@ -85,8 +86,6 @@ export default {
   },
   methods: {
     dragStart(which, ev) {
-      console.log(ev)
-      ev.dataTransfer.setData('Text', this.id);
       ev.dataTransfer.dropEffect = 'move'
       this.dragging = which;
     },
@@ -100,10 +99,8 @@ export default {
     },
     moveItem(from, to) {
       if (to === -1) {
+        this.$store.commit('data/setDeleteFavoriteItems', from)
       }
-    },
-    removeItem(idx) {
-      this.$store.commit('data/setDeleteFavoriteItems', from)
     },
     openUrl(link) {
       window.open(link, '_blank');
