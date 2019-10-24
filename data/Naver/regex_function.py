@@ -138,8 +138,8 @@ def get_storage(read_title,read_text):
         pass
 
     if storage is "":
-    storage_list =['16','32','64','128','256','512']
-    storage = "".join([s for s in storage_list if s in read_title])
+        storage_list =['16','32','64','128','256','512']
+        storage = "".join([s for s in storage_list if s in read_title])
 
     if storage is "":
         try:

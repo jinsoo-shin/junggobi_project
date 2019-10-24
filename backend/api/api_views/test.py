@@ -6,33 +6,40 @@ from api.models import Tablet,Product,Navercafe
 import datetime
 from django.db import connection, connections
 from elasticsearch import Elasticsearch
-from api.document import NavercafeDocument
+# from api.document import NavercafeDocument
 
+
+from django.core import serializers
 @api_view(['GET','POST'])
 def index(request):
     if request.method=='GET':
-        es = Elasticsearch()
 
-        # 검색어
-        search_word = request.query_params.get('search')
-
-        if not search_word:
-            return Response(status=status.HTTP_400_BAD_REQUEST, data={'message': 'search word param is missing'})
-
-        docs = es.search(index='navercafe-index',
-                         # doc_type='navercafe_index',
-                         body={
-                             "query": {
-                                 "multi_match": {
-                                     "query": search_word,
-                                     "fields": ["title", "contents"]
-                                 }
-                             }
-                         })
-
-        data_list = docs['hits']
-        print(data_list)
-        return Response(data_list)
+        print(b.indexing() for b in Navercafe.objects.all().iterator())
+        for b in Navercafe.objects.all().iterator():
+            print(b.indexing())
+        # navercafe = Navercafe.objects.all()
+        # serializer = NavercafeSerializer(navercafe, many=True)
+        # print(serializer.data[0])
+        # return Response(serializer.data, content_type="text/json-comment-filtered")
+        # # 검색어
+        # search_word = request.query_params.get('search')
+        #
+        # if not search_word:
+        #     return Response(status=status.HTTP_400_BAD_REQUEST, data={'message': 'search word param is missing'})
+        #
+        # docs = es.search(index='navercafe-index',
+        #                  # doc_type='navercafe_index',
+        #                  body={
+        #                      "query": {
+        #                          "multi_match": {
+        #                              "query": search_word,
+        #                              "fields": ["title", "contents"]
+        #                          }
+        #                      }
+        #                  })
+        #
+        # data_list = docs['hits']
+        # print(data_list)
         # return Response(data_list)
 
         # test= NavercafeDocument.search().query('match', display='11')
@@ -86,7 +93,7 @@ def index(request):
                 price = cur_data.get("price",None)
                 # region = cur_data.get("region",None)
                 date = cur_data.get("date",None)
-                date =datetime.datetime.strptime(date,'%Y.%m.%d. %H:%M')
+                date =datetime.datetime.strptime(date,'%Y.%m.%d. %H:%M') #2019.10.24 11:05
                 date= date.date()
                 link = cur_data.get("link",None)
                 img_src = cur_data.get("img_src",None)
