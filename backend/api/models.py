@@ -6,7 +6,7 @@
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
-
+from .search import ProductInfoIndex
 
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=150)
@@ -153,6 +153,28 @@ class ProductInfo(models.Model):
     class Meta:
         managed = False
         db_table = 'product_info'
+
+    def indexing(self):
+        obj = ProductInfoIndex(
+            meta={'id': self.id},
+            category=self.category,
+            manufacturer=self.manufacturer,
+            model_name=self.model_name,
+            generation=self.generation,
+            display=self.display,
+            cellular=self.cellular,
+            storage=self.storage,
+            price=self.price,
+            region=self.region,
+            date=self.date,
+            link=self.link,
+            img_src=self.img_src,
+            is_sell=self.is_sell,
+            title=self.title,
+            contents=self.contents,
+        )
+        obj.save()
+        return obj.to_dict(include_meta=True)
 
 
 class Tablet(models.Model):

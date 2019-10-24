@@ -1,5 +1,5 @@
 from elasticsearch_dsl.connections import connections
-from elasticsearch_dsl import Document, Keyword, Text, Integer, Date,Search,tokenizer,analyzer
+from elasticsearch_dsl import Document, Keyword, Text, Integer, Date,Search,tokenizer,analyzer,analysis
 
 from elasticsearch.helpers import bulk
 from elasticsearch import Elasticsearch
@@ -7,8 +7,12 @@ from . import models
 import json
 
 connections.create_connection(hosts=['localhost'])
-
+my_analyzer = analyzer(
+    'my_analyzer',
+    tokenizer=tokenizer('nori_tokenizer')
+)
 class ProductInfoIndex(Document):
+
     id = Integer()
     category = Text()
     manufacturer = Text()
@@ -23,16 +27,20 @@ class ProductInfoIndex(Document):
     link = Text()
     img_src = Text()
     is_sell = Integer()
-    title = Text()
-    contents = Text()
+    title = Text(analyzer=my_analyzer)
+    contents = Text(analyzer=my_analyzer)
     # class Meta:
     #     index = 'navercafe-index'
     class Index:
-        name = 'navercafe-index'
+        name = 'productinfo-index'
+
+
 
 def bulk_indexing():
     ProductInfoIndex.init()
     es = Elasticsearch()
+
+
 
     # es.indices.create(
     #     index='test-index',

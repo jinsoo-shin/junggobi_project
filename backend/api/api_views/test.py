@@ -1,8 +1,8 @@
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from api.serializers import TabletSerializer, ProductSerializer,NavercafeSerializer
-from api.models import Tablet,Product,Navercafe
+from api.serializers import TabletSerializer, ProductSerializer,Product_Info_Serializer
+from api.models import Tablet,Product,ProductInfo
 import datetime
 from django.db import connection, connections
 from elasticsearch import Elasticsearch
@@ -14,33 +14,33 @@ from django.core import serializers
 def index(request):
     if request.method=='GET':
 
-        print(b.indexing() for b in Navercafe.objects.all().iterator())
-        for b in Navercafe.objects.all().iterator():
-            print(b.indexing())
         # navercafe = Navercafe.objects.all()
         # serializer = NavercafeSerializer(navercafe, many=True)
         # print(serializer.data[0])
         # return Response(serializer.data, content_type="text/json-comment-filtered")
-        # # 검색어
-        # search_word = request.query_params.get('search')
-        #
-        # if not search_word:
-        #     return Response(status=status.HTTP_400_BAD_REQUEST, data={'message': 'search word param is missing'})
-        #
-        # docs = es.search(index='navercafe-index',
-        #                  # doc_type='navercafe_index',
-        #                  body={
-        #                      "query": {
-        #                          "multi_match": {
-        #                              "query": search_word,
-        #                              "fields": ["title", "contents"]
-        #                          }
-        #                      }
-        #                  })
-        #
-        # data_list = docs['hits']
-        # print(data_list)
-        # return Response(data_list)
+
+
+        es = Elasticsearch()
+        # 검색어
+        search_word = request.query_params.get('search')
+
+        if not search_word:
+            return Response(status=status.HTTP_400_BAD_REQUEST, data={'message': 'search word param is missing'})
+
+        docs = es.search(index='productinfo-index',
+                         # doc_type='navercafe_index',
+                         body={
+                             "query": {
+                                 "multi_match": {
+                                     "query": search_word,
+                                     "fields": ["title", "contents","region"]
+                                 }
+                             }
+                         })
+
+        data_list = docs['hits']
+        print(data_list)
+        return Response(data_list)
 
         # test= NavercafeDocument.search().query('match', display='11')
         #
@@ -106,32 +106,7 @@ def index(request):
                     display=None
             # print(date.date()))
                 # 타이틀, 가격, 내용, 아이디, 날짜, 이미지주소, 링크
-                Navercafe(id=id,category=category, manufacturer=manufacturer, model_name=model_name, generation=generation,
+                ProductInfo(id=id,category=category, manufacturer=manufacturer, model_name=model_name, generation=generation,
                           display=display,cellular=cellular,storage=storage,price=price,date=date,link=link,img_src=img_src,is_sell=is_sell,title=title,contents=contents).save()
 
-            pass
         return Response(status=status.HTTP_200_OK)
-
-def my_sql(key, value):
-    cursor = connection.cursor()
-    query = 'select * from navercafe limit 10;'
-    cursor.execute(str)
-    row = dictfetchall(cursor)
-    return row
-    # if key == 'user':
-    #     str = 'SELECT username FROM `auth_user` WHERE id IN (' + value + ')'
-    #     cursor.execute(str)
-    #     row = dictfetchall(cursor)
-    #     return row
-    # if key == 'getuserid':
-    #     cursor.execute('SELECT userid FROM `api_rating` WHERE id=%s;',[value])
-    #     row = cursor.fetchall()
-    #     return row
-
-
-def dictfetchall(cursor):
-    desc = cursor.description
-    return [
-        dict(zip([col[0] for col in desc], row))
-        for row in cursor.fetchall()
-    ]

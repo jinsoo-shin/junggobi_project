@@ -107,7 +107,8 @@ for page_num in range(page_number):
             inbox = page.find(class_="inbox")
             tt = page.find(id="tbody")
             img_src = tt.find(class_="image_condition").find("img").get('src')
-            img_src = img_src.replace("?type=s3")
+            img_src = img_src.replace("?type=s3","")
+
             date = page.find(class_="tit-box").find(class_="date").text
             regex = re.compile(r"articleid=(\d+)&")
             mc = regex.search(info_url)
@@ -194,5 +195,5 @@ for page_num in range(page_number):
             'contents':li[2]
             })
     
-    response = requests.post(API_URL + 'api/index/', data=json.dumps(request_data), headers=headers)
+    response = requests.post(API_URL + 'index/', data=json.dumps(request_data), headers=headers)
  
