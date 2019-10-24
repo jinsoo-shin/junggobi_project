@@ -142,7 +142,7 @@ class ProductInfo(models.Model):
     cellular = models.CharField(max_length=10, blank=True, null=True)
     storage = models.CharField(max_length=10, blank=True, null=True)
     price = models.IntegerField(blank=True, null=True)
-    region = models.CharField(max_length=20, blank=True, null=True)
+    region = models.CharField(max_length=100, blank=True, null=True)
     date = models.DateField(blank=True, null=True)
     link = models.CharField(max_length=1000, blank=True, null=True)
     img_src = models.CharField(max_length=1000, blank=True, null=True)

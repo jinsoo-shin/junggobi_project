@@ -179,7 +179,7 @@ for data in url_list:
             #cnt 주석 예정#####################
             # if cnt==1:
             #     break
-            time.sleep(5)
+            time.sleep(3)
         else:
             print("상품이 판매되었습니다.")
     except:
