@@ -32,9 +32,9 @@ export default {
     },
     methods:{
         clickevent(da) {
-            let idx = this.selected.indexOf(da)
-            if (idx > -1) {
-                this.selected.splice(idx,1)
+            let id = this.selected.indexOf(da)
+            if (id > -1) {
+                this.selected.splice(id,1)
             } else {
                 this.selected.push(da)
         }

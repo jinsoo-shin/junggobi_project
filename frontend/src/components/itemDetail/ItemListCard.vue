@@ -31,7 +31,7 @@
                     </thead>
                     <thead>
                       <tr>
-                        <th><tr>용량/</tr>등록일</th>
+                        <th class="text-truncate"><tr>용량/</tr>등록일</th>
                         <th><tr>{{item.storage}}</tr>{{item.date}}</th>
                       </tr>
                     </thead>
@@ -50,7 +50,7 @@
                      <thead>
                       <tr>
                         <th>기타</th>
-                        <th>{{item.contents}}</th>
+                        <th><span class="target">{{item.contents}}</span></th>
                       </tr>
                     </thead>
                   </template>
@@ -91,7 +91,7 @@ export default {
     addItem() {
       let array = this.$store.getters['data/getFavoriteItems'];
       for(var i=0; i<array.length; i++){
-        if(array[i].idx === this.item.idx) {
+        if(array[i].id === this.item.id) {
           this.alertSwal("error")
           return;
         }
@@ -126,4 +126,12 @@ export default {
 .outlineImg { /*이미지 외곽선 css */
   max-width:95%;border:3px dashed #545565;
 }
+.target {
+ overflow: hidden;
+ text-overflow: ellipsis;
+ display: -webkit-box;
+ -webkit-line-clamp: 2;
+ -webkit-box-orient: vertical;
+}
+
 </style>
