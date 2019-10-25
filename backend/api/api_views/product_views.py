@@ -6,29 +6,28 @@ from api.models import Tablet, Product, ProductInfo
 import datetime
 from django.db import connection, connections
 from elasticsearch import Elasticsearch
+from elasticsearch_dsl import Search
+from api.search import bulk_indexing
 
-
-@api_view(['GET','POST'])
+@api_view(['GET','POST','DELETE'])
 def information(request):
     if request.method=='GET':
         search_word = request.query_params.get('search')
-
-        es = Elasticsearch()
-        # 검색어
 
         if not search_word:
             product_info = ProductInfo.objects.all()
             serializer = Product_Info_Serializer(product_info, many=True)
             return Response(data=serializer.data, status=status.HTTP_200_OK)
             # return Response(status=status.HTTP_400_BAD_REQUEST, data={'message': 'search word param is missing'})
-
+        
+        es = Elasticsearch()
         docs = es.search(index='productinfo-index',
                          # doc_type='navercafe_index',
                          body={
                              "query": {
                                  "multi_match": {
                                      "query": search_word,
-                                     "fields": ["title", "contents","region"]
+                                     "fields": ["title", "contents", "region"]
                                  }
                              }
                          })
@@ -120,10 +119,17 @@ def information(request):
                 contents = cur_data.get("contents",None)
                 is_sell = cur_data.get("is_sell",False)
 
+                if generation is "":
+                    generation=None
                 if display is "":
                     display=None
+                if storage is "":
+                    storage=None
                 ProductInfo(id=id,category=category, manufacturer=manufacturer, model_name=model_name, generation=generation,
                           display=display,cellular=cellular,storage=storage,price=price,date=date,link=link,img_src=img_src,
                             is_sell=is_sell,title=title,contents=contents).save()
-        
+            #elasticsearch index 추가추가
+            bulk_indexing()
+            
         return Response(status=status.HTTP_200_OK)
+
