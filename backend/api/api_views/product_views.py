@@ -6,9 +6,10 @@ from api.models import Tablet, Product, ProductInfo
 import datetime
 from django.db import connection, connections
 from elasticsearch import Elasticsearch
+from elasticsearch_dsl import Search
 from api.search import bulk_indexing
 
-@api_view(['GET','POST'])
+@api_view(['GET','POST','DELETE'])
 def information(request):
     if request.method=='GET':
         search_word = request.query_params.get('search')
@@ -131,3 +132,4 @@ def information(request):
             bulk_indexing()
             
         return Response(status=status.HTTP_200_OK)
+
