@@ -5,7 +5,6 @@ from urllib.request import urlopen
 from datetime import datetime
 from datetime import timedelta
 import time
-from selenium.common.exceptions import NoSuchElementException
 import requests
 import json
 
@@ -35,7 +34,7 @@ search.find_element_by_class_name("sc-eNQAEJ").send_keys(Keys.RETURN)
 
 #아이패드 리스트 찾기
 driver.implicitly_wait(10)
-# driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 u_list = driver.find_element_by_class_name("sc-gRnDUn").find_elements_by_tag_name("img")
 url_list = []
 img_url_list = []
