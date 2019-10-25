@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3bf36be6-7a1b-495e-a3f4-538ae5c45048" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/api/api_views/product_views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requiremnets.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/api/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/api_views/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/api_views/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data/Bungae/bungae_ipad.py" beforeDir="false" afterPath="$PROJECT_DIR$/../data/Bungae/bungae_ipad.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data/Bungae/bungae_iphone.py" beforeDir="false" afterPath="$PROJECT_DIR$/../data/Bungae/bungae_iphone.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data/Naver/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/../data/Naver/navercafe_ipad.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/itemDetail/ItemListCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/itemDetail/ItemListCard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/itemDetail/SideMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/itemDetail/SideMenu.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/ItemDetailPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/ItemDetailPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/store/modules/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/store/modules/data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/api_views/test.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,17 +56,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/api_views/test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#13#46#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/api_views/product_views.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -259,6 +233,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2419035" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />

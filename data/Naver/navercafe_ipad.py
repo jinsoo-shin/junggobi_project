@@ -144,7 +144,6 @@ for page_num in range(page_number):
 
     request_data = {'navercafe_ipad': []}
     for li in save_result:
-        print("##############################################################################################################")
         read_title=li[0]
         read_price=li[1]
         read_text=li[2]

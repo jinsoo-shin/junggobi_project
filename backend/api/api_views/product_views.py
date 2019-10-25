@@ -122,5 +122,5 @@ def information(request):
                 ProductInfo(id=id,category=category, manufacturer=manufacturer, model_name=model_name, generation=generation,
                           display=display,cellular=cellular,storage=storage,price=price,date=date,link=link,img_src=img_src,
                             is_sell=is_sell,title=title,contents=contents).save()
-
+        
         return Response(status=status.HTTP_200_OK)
