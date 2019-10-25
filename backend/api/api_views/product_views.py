@@ -11,15 +11,16 @@ from elasticsearch import Elasticsearch
 @api_view(['GET','POST'])
 def information(request):
     if request.method=='GET':
-        # product_info = ProductInfo.objects.all()
-        # serializer = Product_Info_Serializer(product_info, many=True)
-        # return Response(data=serializer.data, status=status.HTTP_200_OK)
-        es = Elasticsearch()
-        # 검색어
         search_word = request.query_params.get('search')
 
+        es = Elasticsearch()
+        # 검색어
+
         if not search_word:
-            return Response(status=status.HTTP_400_BAD_REQUEST, data={'message': 'search word param is missing'})
+            product_info = ProductInfo.objects.all()
+            serializer = Product_Info_Serializer(product_info, many=True)
+            return Response(data=serializer.data, status=status.HTTP_200_OK)
+            # return Response(status=status.HTTP_400_BAD_REQUEST, data={'message': 'search word param is missing'})
 
         docs = es.search(index='productinfo-index',
                          # doc_type='navercafe_index',
