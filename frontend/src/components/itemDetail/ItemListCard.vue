@@ -12,9 +12,10 @@
               <v-col md="4" align-self="center">
                 <v-dialog v-model="enlargeImg" max-width="50%">
                 <template v-slot:activator="{ on }">
-                  <v-img class="outlineImg" v-on="on" :src="item.img_src" style="width:200px; height:200px"/>
+                  <!-- <iframe :src="retryimg(item.img_src)"></iframe> -->
+                  <v-img class="outlineImg" v-on="on" :src="retryimg(item.img_src)" :lazy-src="retryimg(item.img_src)" style="width:200px; height:200px"/>
                 </template>
-                  <v-card><v-img :src="item.img_src"/></v-card>
+                  <v-card><v-img :src="retryimg(item.img_src)"/></v-card>
                 </v-dialog>
               </v-col>
               <!-- start : itemImage -->
@@ -118,6 +119,10 @@ export default {
         })
       }
     },
+    retryimg(reimg) {
+      
+      return reimg
+    }
   }
 };
 </script>

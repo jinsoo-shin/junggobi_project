@@ -7,6 +7,7 @@
             outlined
             v-on:keyup.enter='searchAll("hi")'
         ></v-text-field>
+        {{itemList}}
     </v-col>
 </div>
 </template>
@@ -16,23 +17,15 @@ export default {
     data()  {
         return {
             data1 : {'1':'2'},
+            itemList: []
         }
         
     },
     methods: {
         async searchAll(keyWord) {
-            const axios = require("axios");
-            await axios({
-            method: "GET",
-            url: "http://localhost:8000/api/product",
-            })
-            .then(res => {
-                this.data1 = res.data.data;
-                // this.data1 = res.data.data.keys('keyname')
-                console.log(this.data1)
-                return this.data1
-            })
-            .catch(function() {});
+            await this.$store.dispatch('data/test1')
+            this.itemList = this.$store.getters['data/getItems']
+            this.$router.push('itemDetailPage');
         },
         async goTodetail(proId) {
         this.$router.push({ name: "itemDetailPage", params: { 'id': this.data1 } });
