@@ -21,7 +21,6 @@ def get_model(request_data,read_title,read_text):
     inch_list =['12.9','11','10.2','10.5','9.7','7.9']
     inch = "".join([s for s in inch_list if s in read_title])
     read_title = read_title.replace(inch,"")
-    # print("/////////인치 제거한 타이틀",read_title)
 
 
 ##용량을 타이틀에서 삭제
@@ -32,20 +31,17 @@ def get_model(request_data,read_title,read_text):
             storage_list[i]=storage+storage_list[i]
         delete_text = "".join([s for s in storage_list if s in read_title])
         read_title = read_title.replace(delete_text, "")
-        # print("/////////용량제거한 타이틀",read_title)
         storage=storage+"GB"
     else:
         if "1TB" in read_title:
             storage = '1TB'
             read_title = read_title.replace("1TB", "")
-            # print("//////용량제거한 타이틀", read_title)
 
 ##큰모델 가져오기
     if "미니" in read_title:
         model = "아이패드 미니"
         try:
             regex = re.compile(r"(?<=[미니|미니 ])(\d)")
-            # regex = re.compile(r"[미니|미니 ]?(\d)")
             mc = regex.search(read_title)
             gen = mc.group(1)
         except:
@@ -62,7 +58,6 @@ def get_model(request_data,read_title,read_text):
         model = "아이패드 프로"
         try:
             regex = re.compile(r"(?<=[프로|프로 ])(\d)")
-            # regex = re.compile(r"[프로|프로 ]?(\d)")
             mc = regex.search(read_title)
             gen = mc.group(1)
         except:
@@ -71,7 +66,6 @@ def get_model(request_data,read_title,read_text):
         model = "아이패드 프로"
         try:
             regex = re.compile(r"(?<=[PRO|PRO ])(\d)")
-            # regex = re.compile(r"[PRO|PRO ]?(\d)")
             mc = regex.search(read_title)
             gen = mc.group(1)
         except:
@@ -79,7 +73,6 @@ def get_model(request_data,read_title,read_text):
     else:
         model = "아이패드"
         try:
-            # regex = re.compile(r"[미니|미니 ]?(\d)")
             regex = re.compile(r"(?<=[아이패드|아이패드 ])(\d)")
             mc = regex.search(read_title)
             gen = mc.group(1)
@@ -103,7 +96,7 @@ def get_model(request_data,read_title,read_text):
 
     if gen is not "":
         gen = gen+"세대"
-    print("모델:",model," /세대:", gen," /인치:",inch,"/용량:",storage,"/LTE:",cellular)
+    # print("모델:",model," /세대:", gen," /인치:",inch,"/용량:",storage,"/LTE:",cellular)
 
     if model is "":
         pass
@@ -122,30 +115,25 @@ def get_model(request_data,read_title,read_text):
     request_data['cellular']=cellular
 
     return request_data
-    # result = " ".join(request_data).replace("  "," ")
-    # print(result)
-    # return model
-
 
 def get_storage(read_title,read_text):
     storage = ""
     try:
         regex = re.compile(r"(\d+)[기가|GB|gb|g]")
         mc = regex.search(read_title)
-        # print(mc.group(1))
         storage=mc.group(1)
     except:
         pass
 
     if storage is "":
-    storage_list =['16','32','64','128','256','512']
-    storage = "".join([s for s in storage_list if s in read_title])
+        storage_list =['16','32','64','128','256','512']
+        storage = "".join([s for s in storage_list if s in read_title])
 
     if storage is "":
         try:
             regex = re.compile(r"(\d+)[기가|GB|G]")
             mc = regex.search(read_text)
-            print(mc.group(1))
+            # print(mc.group(1))
             storage = mc.group(1)
         except:
             pass
@@ -250,10 +238,10 @@ def get_price_from_text(price_list,text):
 
 def get_price(request_data,read_title,read_price,read_text):
     price_list=[]
-    print("########################")
-    print(read_title)
-    print(read_price)
-    print(read_text)
+    # print("########################")
+    # print(read_title)
+    # print(read_price)
+    # print(read_text)
     get_price_from_text(price_list,read_title)
     get_price_from_text(price_list,read_price)
     get_price_from_text(price_list,read_text)

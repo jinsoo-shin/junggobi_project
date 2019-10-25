@@ -6,7 +6,7 @@
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
-
+from .search import ProductInfoIndex
 
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=150)
@@ -142,17 +142,39 @@ class ProductInfo(models.Model):
     cellular = models.CharField(max_length=10, blank=True, null=True)
     storage = models.CharField(max_length=10, blank=True, null=True)
     price = models.IntegerField(blank=True, null=True)
-    region = models.CharField(max_length=100, blank=True, null=True)
+    region = models.CharField(max_length=20, blank=True, null=True)
     date = models.DateField(blank=True, null=True)
     link = models.CharField(max_length=1000, blank=True, null=True)
     img_src = models.CharField(max_length=1000, blank=True, null=True)
     is_sell = models.IntegerField(blank=True, null=True)
     title = models.CharField(max_length=5000, blank=True, null=True)
-    contents = models.CharField(max_length=100000, blank=True, null=True)
+    contents = models.CharField(max_length=5000, blank=True, null=True)
 
     class Meta:
         managed = False
         db_table = 'product_info'
+
+    def indexing(self):
+        obj = ProductInfoIndex(
+            meta={'id': self.id},
+            category=self.category,
+            manufacturer=self.manufacturer,
+            model_name=self.model_name,
+            generation=self.generation,
+            display=self.display,
+            cellular=self.cellular,
+            storage=self.storage,
+            price=self.price,
+            region=self.region,
+            date=self.date,
+            link=self.link,
+            img_src=self.img_src,
+            is_sell=self.is_sell,
+            title=self.title,
+            contents=self.contents,
+        )
+        obj.save()
+        return obj.to_dict(include_meta=True)
 
 
 class Tablet(models.Model):
