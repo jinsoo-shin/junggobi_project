@@ -5,6 +5,7 @@
             label="Outlined"
             placeholder="Placeholder"
             outlined
+            v-on:keyup.enter='searchAll("hi")'
         ></v-text-field>
     </v-col>
 </div>
@@ -14,24 +15,29 @@
 export default {
     data()  {
         return {
-            data1 : {},
+            data1 : {'1':'2'},
         }
         
     },
     methods: {
         async searchAll(keyWord) {
-            let searchData = new SearchData();
             const axios = require("axios");
             await axios({
             method: "GET",
             url: "http://localhost:8000/api/product",
             })
             .then(res => {
-                data1 = res.data.data;
-                console.log(data1)
+                this.data1 = res.data.data;
+                // this.data1 = res.data.data.keys('keyname')
+                console.log(this.data1)
+                return this.data1
             })
             .catch(function() {});
         },
+        async goTodetail(proId) {
+        this.$router.push({ name: "itemDetailPage", params: { 'id': this.data1 } });
+        }
+
 
 
 

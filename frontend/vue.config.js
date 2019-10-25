@@ -1,5 +1,10 @@
 module.exports = {
-  "transpileDependencies": [
-    "vuetify"
-  ]
+  publicPath: '/',
+  devServer: {
+    proxy: {
+      '/api': {
+        target: `${process.env.VUE_APP_API_URL}`,
+      }
+    }
+  }
 }

@@ -65,7 +65,7 @@ def save_tablet():
                 'query': query,
             })
     print(request_data)
-    response = requests.post(API_URL + 'api/index/', data=json.dumps(request_data), headers=headers)
+    # response = requests.post(API_URL + 'api/index/', data=json.dumps(request_data), headers=headers)
 
 
 if __name__ == '__main__':

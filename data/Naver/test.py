@@ -193,5 +193,5 @@ for page_num in range(page_number):
             'contents':li[2]
             })
     
-    response = requests.post(API_URL + 'api/index/', data=json.dumps(request_data), headers=headers)
+    # response = requests.post(API_URL + 'api/index/', data=json.dumps(request_data), headers=headers)
  

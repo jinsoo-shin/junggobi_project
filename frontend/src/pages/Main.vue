@@ -28,7 +28,8 @@
         </div>
         <section id="section00">
         <!-- <div id="heading"></div> -->
-        <detailsearch/>
+        <search/>
+        <!-- <detailsearch/> -->
         </section>
         <section id="section01">
         <!-- <div id="heading"></div> -->

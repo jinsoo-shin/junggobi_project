@@ -49,10 +49,15 @@ export default {
         async dis() {
             await this.$store.dispatch('data/test1')
             this.itemList = this.$store.getters['data/getItems']
+        },
+        async getparams() {
+            this.itemList =this.$router.history.current.params.id
+            await console.log(this.itemList)
         }
     },
     created() {
         this.dis();
+        this.getparams();
         
     }
 };
