@@ -12,9 +12,9 @@
               <v-col md="4" align-self="center">
                 <v-dialog v-model="enlargeImg" max-width="50%">
                 <template v-slot:activator="{ on }">
-                  <v-img class="outlineImg" v-on="on" :src="item.img" style="width:200px; height:200px"/>
+                  <v-img class="outlineImg" v-on="on" :src="item.img_src" style="width:200px; height:200px"/>
                 </template>
-                  <v-card><v-img :src="item.img"/></v-card>
+                  <v-card><v-img :src="item.img_src"/></v-card>
                 </v-dialog>
               </v-col>
               <!-- start : itemImage -->
@@ -26,13 +26,13 @@
                     <thead>
                       <tr>
                         <th class="text-left">모델명</th>
-                        <th class="text-left">{{item.title}}</th>
+                        <th class="text-left">{{item.model_name}}</th>
                       </tr>
                     </thead>
                     <thead>
                       <tr>
                         <th><tr>용량/</tr>등록일</th>
-                        <th><tr>{{item.size}}GB</tr>{{item.registrationDate}}</th>
+                        <th><tr>{{item.storage}}</tr>{{item.date}}</th>
                       </tr>
                     </thead>
                     <thead>
@@ -50,7 +50,7 @@
                      <thead>
                       <tr>
                         <th>기타</th>
-                        <th>{{item.description}}</th>
+                        <th>{{item.contents}}</th>
                       </tr>
                     </thead>
                   </template>

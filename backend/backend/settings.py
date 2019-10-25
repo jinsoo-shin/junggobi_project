@@ -87,7 +87,8 @@ DATABASES = {
         'USER': 'newuser',
         'PASSWORD': 'ssafy',
         'HOST': '192.168.100.60',# Or an IP Address that your database is hosted on
-        'PORT': '3306'
+        'PORT': '3306',
+        'OPTIONS': {'charset': 'utf8mb4'}
     }
 }
 

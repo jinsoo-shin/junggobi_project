@@ -2,10 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3bf36be6-7a1b-495e-a3f4-538ae5c45048" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/api/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/api_views/product_views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requiremnets.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/api/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/api_views/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/api_views/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/search.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/Bungae/bungae_ipad.py" beforeDir="false" afterPath="$PROJECT_DIR$/../data/Bungae/bungae_ipad.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/Bungae/bungae_iphone.py" beforeDir="false" afterPath="$PROJECT_DIR$/../data/Bungae/bungae_iphone.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/Naver/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/../data/Naver/navercafe_ipad.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/components/itemDetail/ItemListCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/itemDetail/ItemListCard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/components/itemDetail/SideMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/itemDetail/SideMenu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/ItemDetailPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/ItemDetailPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/store/modules/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/store/modules/data.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,20 +29,20 @@
     <session id="-1252192175">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.0" value="2" />
-          <entry key="project.open.time.3" value="2" />
+          <entry key="project.open.time.3" value="3" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="9" />
+          <entry key="project.opened" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="html" value="2" />
-          <entry key="py" value="26" />
+          <entry key="py" value="27" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
@@ -38,13 +50,13 @@
         <counts>
           <entry key="HTML" value="2" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="26" />
+          <entry key="Python" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="32" />
-          <entry key="py" value="2889" />
+          <entry key="py" value="2951" />
           <entry key="txt" value="21" />
         </counts>
       </usages-collector>
@@ -52,18 +64,29 @@
         <counts>
           <entry key="HTML" value="32" />
           <entry key="PLAIN_TEXT" value="21" />
-          <entry key="Python" value="2889" />
+          <entry key="Python" value="2951" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/api_views/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="35" column="75" selection-start-line="35" selection-start-column="75" selection-end-line="35" selection-end-column="75" />
+            <state>
+              <folding>
+                <element signature="e#13#46#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/api/api_views/product_views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-893">
+              <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -75,7 +98,7 @@
         <entry file="file://$PROJECT_DIR$/api/search.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="760">
-              <caret line="40" column="4" lean-forward="true" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="24" />
+              <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="24" />
               <folding>
                 <element signature="e#0#53#0" expanded="true" />
                 <marker date="1571889533013" expanded="true" signature="845:856" ph="..." />
@@ -88,8 +111,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="32" lean-forward="true" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
+            <state relative-caret-position="76">
+              <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -100,8 +123,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="147" column="10" selection-start-line="147" selection-start-column="10" selection-end-line="147" selection-end-column="10" />
+            <state relative-caret-position="270">
+              <caret line="151" lean-forward="true" selection-start-line="151" selection-end-line="151" />
               <folding>
                 <element signature="e#468#496#0" expanded="true" />
               </folding>
@@ -138,14 +161,15 @@
         <option value="$PROJECT_DIR$/api/search.py" />
         <option value="$PROJECT_DIR$/api/models.py" />
         <option value="$PROJECT_DIR$/api/api_views/test.py" />
+        <option value="$PROJECT_DIR$/api/api_views/product_views.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
     <option name="width" value="1075" />
-    <option name="height" value="1049" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -277,20 +301,11 @@
     <entry file="file://$PROJECT_DIR$/api/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/document.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="37" lean-forward="true" selection-end-line="48" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/api/document.py" />
     <entry file="file://$PROJECT_DIR$/api/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="1" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -298,9 +313,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -315,16 +327,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="32" lean-forward="true" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
+        <state relative-caret-position="76">
+          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
@@ -333,8 +342,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="147" column="10" selection-start-line="147" selection-start-column="10" selection-end-line="147" selection-end-column="10" />
+        <state relative-caret-position="270">
+          <caret line="151" lean-forward="true" selection-start-line="151" selection-end-line="151" />
           <folding>
             <element signature="e#468#496#0" expanded="true" />
           </folding>
@@ -344,7 +353,7 @@
     <entry file="file://$PROJECT_DIR$/api/search.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="760">
-          <caret line="40" column="4" lean-forward="true" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="24" />
+          <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="24" />
           <folding>
             <element signature="e#0#53#0" expanded="true" />
             <marker date="1571889533013" expanded="true" signature="845:856" ph="..." />
@@ -355,8 +364,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/api_views/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="35" column="75" selection-start-line="35" selection-start-column="75" selection-end-line="35" selection-end-column="75" />
+        <state>
+          <folding>
+            <element signature="e#13#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/api_views/product_views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-893">
+          <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
