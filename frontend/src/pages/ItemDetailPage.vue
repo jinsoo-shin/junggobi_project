@@ -53,7 +53,6 @@ export default {
     },
     created() {
         this.dis();
-        
     }
 };
 </script>

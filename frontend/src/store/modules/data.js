@@ -19,7 +19,7 @@ const mutations = {
   },
   setDeleteFavoriteItems(state,payload) {
     for(var i=0; i<state.favoriteItems.length; i++){
-      if(state.favoriteItems[i].idx === payload){
+      if(state.favoriteItems[i].id === payload){
         state.favoriteItems.splice(i, 1);
         break;
       }
