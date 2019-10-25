@@ -127,19 +127,19 @@ for data in url_list:
                 category_list1 = ["미니", "mini"]
                 for c_g in category_list1:
                     if c_g in title:
-                        category =  " "+c_g
+                        category =  " 미니"
                         break
                 if len(category)==0 :
                     category_list2 = ["에어", "air"]
                     for c_g in category_list2:
                         if c_g in title:
-                            category = " "+c_g
+                            category = " 에어"
                             break
                 if len(category)==0 :
                     category_list3 = ["프로", "pro"]
                     for c_g in category_list3:
                         if c_g in title:
-                            category = " "+c_g
+                            category = " 프로"
                             break
                 # print(title)
                 # print(price)

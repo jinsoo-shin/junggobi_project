@@ -54,6 +54,8 @@ def information(request):
                 if len(display)==0:
                     display = None
                 cellular = cur_data.get("cellular",None)
+                if len(cellular)==0:
+                    cellular = None
                 storage = cur_data.get("storage",None)
                 if len(storage)==len("GB"):
                     storage = None
