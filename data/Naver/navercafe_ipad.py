@@ -17,18 +17,12 @@ with open(filename, mode='r', encoding='utf-8') as data:
     passtext = data.readlines()
     passtext = [x.strip('\n') for x in passtext]
     print(passtext)
-    ##파일읽어와서 리스트로 만들었음
-
-# savefile = 'navercafe-crawling.txt'
-
-# f = open(savefile, mode='a', encoding='utf-8')
 
 chrome_options= webdriver.ChromeOptions() #옵션 설정하기
 # chrome_options.add_argument('headless') #창이 안보이도록 숨기기
 chrome_options.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.3')
 driver = webdriver.Chrome("../chromedriver.exe",chrome_options=chrome_options)
 driver.implicitly_wait(3)
-# driver.implicitly_wait(3)
 driver.get('https://nid.naver.com/nidlogin.login')
 id = 'sjins0127'
 pw = 'jso127!'
@@ -58,13 +52,11 @@ except:
 page_number = 1
 for page_num in range(page_number):
     search_url="https://cafe.naver.com/ArticleSearchList.nhn?search.clubid=10050146&search.menuid=749&search.media=0&search.searchdate=all&search.exact=&search.include=&userDisplay=50&search.exclude=&search.onSale=1&search.option=3&search.sortBy=date&search.searchBy=0&search.searchBlockYn=0&search.includeAll=&search.query=%BE%C6%C0%CC%C6%D0%B5%E5&search.viewtype=title&search.page="+str(page_num+1)
-    # search_url="https://cafe.naver.com/ArticleSearchList.nhn?search.clubid=10050146&search.menuid=749&search.media=0&search.searchdate=all&search.defaultValue=1&search.exact=&search.include=&userDisplay=50&search.exclude=&search.onSale=1&search.option=3&search.sortBy=date&search.searchBy=0&search.searchBlockYn=0&search.includeAll=&search.query=%BE%C6%C0%CC%C6%D0%B5%E5&search.viewtype=title&search.page="+str(page_num)
     driver.get(search_url)
     driver.implicitly_wait(3)
     driver.switch_to.frame('cafe_main')
     html = driver.page_source
     dom = BeautifulSoup(html, 'html.parser')
-    # dom = BeautifulSoup(urllib.request.urlopen(search_url).read().decode("cp949",'ignore'), "html.parser")
     dom1 = dom.find_all(class_='td_article')
     list = []
     cafeurl = "https://cafe.naver.com"
@@ -88,16 +80,14 @@ for page_num in range(page_number):
             element_url=cafeurl+a.get('href')
             # print(a.get('href'))
             list.append(element_url)
-    # # ################################################################## url 가져오는 파트
-    #
+    ######
+
 
     save_result = []
     labels =['id','url','title','cost','text','date','img']
-    # id, info_url, title, cost, text, img 순서!
     for i in range(len(list)):
         result =[]
         info_url=list[i]
-        # info_url="https://cafe.naver.com/ArticleRead.nhn?clubid=10050146&page=1&menuid=749&inCafeSearch=true&searchBy=0&query=%BE%C6%C0%CC%C6%D0%B5%E5&includeAll=&exclude=&include=&exact=&searchdate=all&media=0&sortBy=date&articleid=653494415&referrerAllArticles=false"
         try:
             driver.get(info_url)
             driver.implicitly_wait(3)
@@ -107,20 +97,17 @@ for page_num in range(page_number):
             inbox = page.find(class_="inbox")
             tt = page.find(id="tbody")
             img_src = tt.find(class_="image_condition").find("img").get('src')
+            img_src = img_src.replace("?type=s3","")
+
             date = page.find(class_="tit-box").find(class_="date").text
             regex = re.compile(r"articleid=(\d+)&")
             mc = regex.search(info_url)
-            # print(mc.group(1))
-            # result.append(mc.group(1)) # 아이디
 
             id=mc.group(1)#아이디
             simple_url = "https://cafe.naver.com/joonggonara/"+mc.group(1)
-            # result.append(simple_url) #url
 
             read_title = tt.find(class_="title").text
             read_price = tt.find(class_="cost").text
-            # result.append(tt.find(class_="title").text) #타이틀
-            # result.append(tt.find(class_="cost").text) #가격
 
             test = tt.find_all(string=True)
             index = None
@@ -143,9 +130,6 @@ for page_num in range(page_number):
             result.append(read_text)
             result.append(id)
 
-
-            # date = datetime.datetime.strptime(date,'%Y.%m.%d. %H:%M')
-            # print(date.date())
             result.append(date)#날짜
             result.append(img_src)#이미지 주소
             result.append(simple_url)
@@ -158,27 +142,19 @@ for page_num in range(page_number):
     # df = df.applymap(lambda x: x.replace('\xa0','').replace('\xa9','').replace(',',''))
     # df.to_csv("navercafe_crawling.csv",encoding="utf-8-sig",header=False,index=False,mode='a')
 
-    # f.close()
-
-    # for index in range(1):
     request_data = {'navercafe_ipad': []}
     for li in save_result:
-        print("##############################################################################################################")
-        # li = save_result[index]
-        # print(li)
         read_title=li[0]
         read_price=li[1]
         read_text=li[2]
-        # print(read_title)
-        # print(read_price)
-        # print(read_text)
         product={}
         product=regex_function.get_model(product,read_title,read_text)
         product =regex_function.get_price(product,read_title,read_price,read_text)
 
-        # break
         # 타이틀, 가격, 내용, 아이디, 날짜, 이미지주소, 링크
         request_data['navercafe_ipad'].append({
+            'category' : '태블릿',
+            'manufacturer' : '애플',
             'model_name': product['model_name'],
             'generation': product['generation'],
             'display': product['display'],
@@ -193,5 +169,6 @@ for page_num in range(page_number):
             'contents':li[2]
             })
     
-    # response = requests.post(API_URL + 'api/index/', data=json.dumps(request_data), headers=headers)
+
+    response = requests.post(API_URL + 'product/', data=json.dumps(request_data), headers=headers)
  

@@ -57,8 +57,7 @@ export default {
     },
     created() {
         this.dis();
-        this.getparams();
-        
+
     }
 };
 </script>

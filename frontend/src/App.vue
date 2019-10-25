@@ -9,6 +9,7 @@
 
 </style>
 <script>
+import { mdiAccount } from '@mdi/js'
 // import store from './store'
 import collection from 'easter-egg-collection'
 export default {

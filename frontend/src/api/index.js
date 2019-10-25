@@ -1,6 +1,8 @@
 import axios from 'axios'
 
-const apiUrl = process.env.VUE_APP_API_URL
+// const apiUrl = process.env.VUE_APP_API_URL
+
+const apiUrl = '/api'
 
 export default {
 //   searchMovies(params) {
@@ -9,6 +11,6 @@ export default {
 //     })
 //   },
     test() {
-        return axios.get(`${apiUrl}/index/`)
+        return axios.get(`${apiUrl}/product/`)
     }
 }
