@@ -19,7 +19,7 @@ def information(request):
             serializer = Product_Info_Serializer(product_info, many=True)
             return Response(data=serializer.data, status=status.HTTP_200_OK)
             # return Response(status=status.HTTP_400_BAD_REQUEST, data={'message': 'search word param is missing'})
-        
+
         es = Elasticsearch()
         docs = es.search(index='productinfo-index',
                          # doc_type='navercafe_index',
@@ -130,6 +130,6 @@ def information(request):
                             is_sell=is_sell,title=title,contents=contents).save()
             #elasticsearch index 추가추가
             bulk_indexing()
-            
+
         return Response(status=status.HTTP_200_OK)
 
