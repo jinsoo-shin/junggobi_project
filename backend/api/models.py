@@ -8,6 +8,9 @@
 from django.db import models
 from .search import ProductInfoIndex
 
+from api.file import download, get_buffer_ext
+from urllib.parse import urlparse
+
 
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=150)
@@ -155,6 +158,29 @@ class ProductInfo(models.Model):
         managed = False
         db_table = 'product_info'
 
+    def save(self, *args, **kwargs):
+        if self.link.find('naver') != -1 :
+            # 우선 purchase_url의 대표 이미지를 크롤링하는 로직은 생략하고, 크롤링 결과 이미지 url을 임의대로 설정  
+            item_image_url = self.link
+            
+            if item_image_url:
+                temp_file = download(item_image_url)
+                file_name = '{urlparse}.{ext}'.format(
+                    # url의 마지막 '/' 내용 중 확장자 제거
+                    # ex) url = 'https://~~~~~~/bag-1623898_960_720.jpg'
+                    #     -> 'bag-1623898_960_720.jpg'
+                    #     -> 'bag-1623898_960_720'
+                    urlparse=urlparse(item_image_url).path.split('/')[-1].split('.')[0],
+                    ext=get_buffer_ext(temp_file)
+                )
+                
+                self.link.save(file_name)
+                super().save()
+            else:
+                super().save()
+        else:
+            super().save()
+
     def indexing(self):
         obj = ProductInfoIndex(
             meta={'id': self.id},
@@ -189,3 +215,4 @@ class Tablet(models.Model):
     class Meta:
         managed = False
         db_table = 'tablet'
+
