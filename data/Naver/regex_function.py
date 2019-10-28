@@ -292,10 +292,10 @@ def get_iphone_model(request_data,read_title,read_text):
     print(read_title)
 
     ##큰모델 가져오기
-    if "+" in read_title:
+    if "플러스" in read_title:
         detail_model_list.append("플러스")
         read_title =read_title.replace("플러스","").replace("+","")
-    elif "플러스" in read_title:
+    elif "+" in read_title:
         detail_model_list.append("플러스")
         read_title =read_title.replace("플러스","").replace("+","")
 
@@ -336,17 +336,103 @@ def get_iphone_model(request_data,read_title,read_text):
 
     return request_data
 
+def get_galaxymobile_model(request_data,read_title,read_text):
+    model = ""
+    read_title=read_title.upper()
+    read_text=read_text.upper()
+    model_list=['갤럭시'] # 뒤에 붙여서 모델명을 join할 예정
+    detail_model_list=[] #
 
-if __name__ == '__main__':
-    detail_model_list=[]
-    read_title = "아이폰 7+플러스"
+    ##용량을 타이틀에서 삭제
+    storage = get_storage(read_title,read_text) #용량을 가져옴
+    if storage:
+        storage_list = ['GB','기가','G']
+        for i in range(len(storage_list)):
+            storage_list[i]=storage+storage_list[i]
+        delete_text = "".join([s for s in storage_list if s in read_title])
+        read_title = read_title.replace(delete_text, "")
+        storage=storage+"GB"
+
+    # print(read_title)
+
+    ##큰모델 가져오기
+
+    if "(+" in read_title:
+        read_title = read_title.replace("(+", "")
     if "+" in read_title:
         detail_model_list.append("플러스")
-        read_title =read_title.replace("플러스", "")
+        read_title =read_title.replace("플러스","").replace("+","")
     elif "플러스" in read_title:
         detail_model_list.append("플러스")
-        read_title=read_title.replace("플러스", "")
-    print(detail_model_list)
+        read_title =read_title.replace("플러스","").replace("+","")
+
+    if "프로" in read_title:
+        detail_model_list.append("프로")
+        read_title =read_title.replace("PRO","").replace("프로","")
+    elif "PRO" in read_title:
+        detail_model_list.append("프로")
+        read_title =read_title.replace("PRO","").replace("프로","")
+
+    if "엣지" in read_title:
+        detail_model_list.append("엣지")
+        read_title =read_title.replace("엣지", "")
+    if "스타" in read_title:
+        detail_model_list.append("스타")
+        read_title =read_title.replace("스타", "")
+    try:
+        regex = re.compile("갤럭시\s?(\w+)")
+        mc = regex.search(read_title)
+        model_gen = mc.group(1)
+        model_list.append(model_gen)
+        model = " ".join(model_list)
+    except:
+        pass
+    try:
+        regex = re.compile("(201\d)")
+        mc = regex.search(read_title)
+        year = mc.group(1)
+        # print(year)
+        detail_model_list.append(year)
+    except:
+        pass
+
+    if len(detail_model_list) is not 0:
+        detail_model = " ".join(detail_model_list)
+        model = model +" "+ detail_model
+    if "7FE" in model:
+        model = model.replace("7FE","FE")
+
+    # print("모델",model)
+    if model is "":
+        model = None
+    if storage is "":
+        storage = None
+
+    request_data['model_name']=model
+    request_data['storage']=storage
+
+    return request_data
+
+#
+# if __name__ == '__main__':
+#     # detail_model_list=[]
+#     product = {}
+#     read_title = "삼성 갤럭시노트9 정상해지공기계 판매합니다 / 영등"
+#     get_galaxymobile_model(product,read_title,"")
+    # try:
+    #     regex = re.compile("(201\d)")
+    #     mc = regex.search(read_title)
+    #     model_gen = mc.group(1)
+    #     print(model_gen)
+    # except:
+    #     pass
+    # if "+" in read_title:
+    #     detail_model_list.append("플러스")
+    #     read_title =read_title.replace("플러스", "")
+    # elif "플러스" in read_title:
+    #     detail_model_list.append("플러스")
+    #     read_title=read_title.replace("플러스", "")
+    # print(detail_model_list)
 #     product={}
 
 #     read_title = "아이폰7 레드 128기가"
