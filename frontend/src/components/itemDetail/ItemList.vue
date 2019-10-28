@@ -44,9 +44,8 @@
 
         </v-row>
         <v-row>
-        
           <!-- start : itemListCards 아이템 리스트 출력 -->
-          <v-col>
+          <v-col v-if="loadingList">
             <!-- <itemListCard v-for="card in itemListCards" :key="card.name" :item="card" class="mt-1"></itemListCard> -->
             <itemListCard v-for="i in itemListCards.length > length ? length : itemListCards.length"
               :key="i" :item="itemListCards[i-1]" class="mt-1"/>
@@ -55,27 +54,30 @@
         
         </v-row>
         <v-row>
+
+          <!-- start : lodingBar 출력부 -->
+          <v-col v-if="loading===false">
+            <loadingImg></loadingImg>   
+          </v-col>
+          <!-- end : loadingBar -->
+
+        </v-row>
+        <v-row>
+
           <!-- start : loadMore button 더 보기 버튼 -->
-          <v-col xs12 text-xs-center round my-5 v-if="moreBtn">
+          <v-col v-if="moreBtn">
             <v-btn outlined @click = "loadMore">더보기</v-btn>
           </v-col>
           <!-- end : loadMore -->
-
           
         </v-row>
       </v-flex>
       
       <!-- start : gotoTop button 맨위로 버튼 -->
       <v-btn
-        v-scroll="onScroll"
-        v-show="fab"
-        fab
-        dark
-        fixed
-        bottom
-        right
-        color="primary"
-        @click="toTop"
+        v-scroll="onScroll" v-show="fab"
+        fab dark fixed bottom right
+        color="primary" @click="toTop"
       >
       <v-icon>keyboard_arrow_up</v-icon>
     </v-btn> 
@@ -98,9 +100,11 @@ export default {
     timeout: 10000,   // 차트 생존 시간
     sortMethod: "",   // 정렬 방법
     sortMethodList: ["높은가격순", "낮은가격순"], // 정렬 방법 리스트
-    length: 10,
-    fab: false,
-    moreBtn: true,
+    length: 10,         // 첫 검색시 출력될 아이템 갯수
+    fab: false,         
+    moreBtn: true,      // 더보기버튼 출력
+    loading: false,     // 로딩 이미지 출력
+    loadingList: false, // 카드리스트 출력 
   }),
   methods:{
     sortByLowToHigh_price() { // 정렬 - 낮은가격순
@@ -119,18 +123,29 @@ export default {
     itemLen() { // 검색된 데이터 정보 양 출력
       return "검색 결과 : " + this.itemListCards.length + " 건";
     },
-    loadMore() {
+    loadMore() {  // 더보기 버튼 
+      this.loadingTimer(1000)
       this.length += 10;
       if (this.length >= this.itemListCards.length) this.moreBtn = false;
+      
     },
-    onScroll (e) {
+    onScroll (e) {  // 맨위로 이동
       if (typeof window === 'undefined') return
       const top = window.pageYOffset ||   e.target.scrollTop || 0
       this.fab = top > 20
     },
-    toTop () {
+    toTop () {      // 맨위좌표 기억
       this.$vuetify.goTo(0)
+    },
+    loadingTimer(timer) { //이미지 로딩바 출력부분
+      let self=this;
+      this.loading = false;
+      setTimeout(function(){self.loading = true; self.loadingList=true}, timer);
     }
-  }  
+  },
+  created() {
+    this.loadingTimer(3000) // 화면전환시 로딩바 출력 부분
+    
+  }
 }
 </script>
