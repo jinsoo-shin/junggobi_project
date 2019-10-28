@@ -1,6 +1,4 @@
 #-*- coding:utf-8 -*-
-from selenium import webdriver
-from bs4 import BeautifulSoup
 import requests
 import time
 import urllib.request
@@ -11,19 +9,19 @@ from collections import Counter
 
 
 
-def get_model(request_data,read_title,read_text):
+def get_ipad_model(request_data,read_title,read_text):
     model = "" # 아이패드2 아이패드미니 아이패드프로, 아이패드에어
     gen = "" # ?세대
     inch = "" #몇인치인가?
     read_title=read_title.upper()
     read_text=read_text.upper()
-#인치를 타이틀에서 삭제
+    #인치를 타이틀에서 삭제
     inch_list =['12.9','11','10.2','10.5','9.7','7.9']
     inch = "".join([s for s in inch_list if s in read_title])
     read_title = read_title.replace(inch,"")
 
 
-##용량을 타이틀에서 삭제
+    ##용량을 타이틀에서 삭제
     storage = get_storage(read_title,read_text) #용량을 가져옴
     if storage:
         storage_list = ['GB','기가','G']
@@ -37,7 +35,7 @@ def get_model(request_data,read_title,read_text):
             storage = '1TB'
             read_title = read_title.replace("1TB", "")
 
-##큰모델 가져오기
+    ##큰모델 가져오기
     if "미니" in read_title:
         model = "아이패드 미니"
         try:
@@ -137,10 +135,6 @@ def get_storage(read_title,read_text):
             storage = mc.group(1)
         except:
             pass
-
-    # if storage is "":
-    #     storage_list =['16','32','64','128','256','512']
-    #     storage = "".join([s for s in storage_list if s in read_title])
 
     return storage
 
@@ -276,7 +270,124 @@ def get_price(request_data,read_title,read_price,read_text):
     request_data["price"]=most_price if most_price>=in_price else in_price
     return request_data
 
-# if __name__ == '__main__':
+
+
+def get_iphone_model(request_data,read_title,read_text):
+    model = "" 
+    read_title=read_title.upper()
+    read_text=read_text.upper()
+    model_list=['아이폰'] # 뒤에 붙여서 모델명을 join할 예정
+    detail_model_list=[] # 프로, MAX 플러스
+
+    ##용량을 타이틀에서 삭제
+    storage = get_storage(read_title,read_text) #용량을 가져옴
+    if storage:
+        storage_list = ['GB','기가','G']
+        for i in range(len(storage_list)):
+            storage_list[i]=storage+storage_list[i]
+        delete_text = "".join([s for s in storage_list if s in read_title])
+        read_title = read_title.replace(delete_text, "")
+        storage=storage+"GB"
+
+    print(read_title)
+
+    ##큰모델 가져오기
+    if "+" in read_title:
+        detail_model_list.append("플러스")
+        read_title =read_title.replace("플러스","").replace("+","")
+    elif "플러스" in read_title:
+        detail_model_list.append("플러스")
+        read_title =read_title.replace("플러스","").replace("+","")
+
+    if "프로" in read_title:
+        detail_model_list.append("프로")
+        read_title =read_title.replace("PRO","").replace("프로","")
+    elif "PRO" in read_title:
+        detail_model_list.append("프로")
+        read_title =read_title.replace("PRO","").replace("프로","")
+
+    if "맥스" in read_title:
+        detail_model_list.append("MAX")
+        read_title =read_title.replace("맥스", "").replace("MAX", "")
+    elif "MAX" in read_title:
+        detail_model_list.append("MAX")
+        read_title=read_title.replace("맥스", "").replace("MAX", "")
+
+    try:
+        regex = re.compile("아이폰\s?(\w+)")
+        mc = regex.search(read_title)
+        model_gen = mc.group(1)
+        model_list.append(model_gen)
+        model = " ".join(model_list)
+    except:
+        pass
+    if len(detail_model_list) is not 0:
+        detail_model = " ".join(detail_model_list)
+        model = model +" "+ detail_model
+
+
+    if model is "":
+        model = None
+    if storage is "":
+        storage = None
+
+    request_data['model_name']=model
+    request_data['storage']=storage
+
+    return request_data
+
+
+if __name__ == '__main__':
+    detail_model_list=[]
+    read_title = "아이폰 7+플러스"
+    if "+" in read_title:
+        detail_model_list.append("플러스")
+        read_title =read_title.replace("플러스", "")
+    elif "플러스" in read_title:
+        detail_model_list.append("플러스")
+        read_title=read_title.replace("플러스", "")
+    print(detail_model_list)
+#     product={}
+
+#     read_title = "아이폰7 레드 128기가"
+#     read_price ="22,222원"
+#     read_text="풀 박스 입니다. 공기계 상태 입니다. 찍힘, 스크레치 없습니다. 판매금액 26만원 % 8구6구 7lo7 연락주세요."
+#     product= get_iphone_model(product,read_title,read_text)
+#     product =get_price(product,read_title,read_price,read_text)
+#     print(product)
+
+
+# 아이폰7 레드 128기가
+# 풀 박스 입니다. 공기계 상태 입니다. 찍힘, 스크레치 없습니다. 판매금액 26만원 % 8구6구 7lo7 연락주세요.
+# 22,222원
+# ##################################################
+# 아이폰xs 스그 풀박스  리퍼 남음
+# 아이폰xs 풀박스 판매합니다 64기가 충전기 케이블 이어폰 다 있습니다 케이블은 사용도 안했습니다. 배터리 성능 100프로 입니다 리퍼기간은 2020년 3월10일 까지입니다.
+# 서울 직거래 상태는 사진처럼 좋습니다 왼쪽 아래에 작은 기스 있습니다! 나머지는 상태 S급입니다 서브 폰으로 집에서 사용해서 좋습니다!  강화유리 부착중입니다!      
+# 700,000원
+# ##################################################
+# 아이폰7 플러스 32기가 매트블랙
+# [10-247] 아이폰7 플러스 32기가 매트블랙 상태 좋습니다 리퍼 만료입니다 기기단품입니다 배터리89% 25%선택약정가능합니다. 통신사 상관없시 사용한기기입니다 유심만꽂 
+# 으면 바로사용가능합니다 기능검수이상없습니다 역삼역2번출구 직거래가능합니다 댓글이나 쪽지 확인못해요 010-9191-2541 연락주세요
+# 290,000원
+# ##################################################
+# 아이폰XS Max 골드256gb 부산
+# 아이폰XS맥스골드256gb지난해11월구입 사용잘했구요해지했습니다25%할인되구요 리퍼기간은11월까지입니다전화용으로사용해서 배터리좋습니다사진테두리작게한군데말고는 매
+# 우깨끗해요폰만있고쓰던케이스드릴께요
+# 800,000원
+# ##################################################
+# 아이폰XR 128기가 레드
+# [10-244] 아이폰XR 128기가 레드 상태 좋습니다 리퍼 1월2일까지 입니다 기기단품입니다 배터리96% 25%선택약정불가능합니다. 통신사 상관없시 사용한기기입니다 유심만꽂 
+# 으면 바로사용가능합니다 기능검수이상없습니다 역삼역2번출구 직거래가능합니다 댓글이나 쪽지 확인못해요 010-9191-2541 연락주세요
+# 580,000원
+# ##################################################
+# 아이폰8 64기가 골드
+# [10-243] 아이폰8 64기가 골드 상태 좋습니다 백점하나있어요 리퍼 만료입니다 기기단품입니다 배터리84% 25%선택약정가능합니다. 통신사 상관없시 사용한기기입니다 유심 
+# 만꽂으면 바로사용가능합니다 기능검수이상없습니다 역삼역2번출구 직거래가능합니다 댓글이나 쪽지 확인못해요 010-9191-2541 연락주세요
+# 300,000원
+
+
+
 #     with open('navercafe_crawling.csv','r', encoding='utf-8-sig') as read_data:
 #         read_data = list(read_data)
 #         for i in range(len(read_data)) :
