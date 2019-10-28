@@ -70,7 +70,7 @@ for data in url_list:
             price = soup.select("#root > div > div > div.sc-gJqsIT.hbVxbC > div.sc-kDhYZr.ikrBOB > div > div.sc-hcnlBt.jfMCiR > div > div.sc-iHhHRJ.gVVJLD > div > div.sc-gPzReC.fWxkCf > div.sc-jrIrqw.hOgugl > div.sc-iybRtq.eazFIt > div")
             # status = soup.select("#root > div > div > div.sc-koErNt.hoSImv > div.sc-gJqsIT.eMTckw > div > div.sc-cFlXAS.hJvCHs > div > div.sc-jRhVzh.bynJLV > div > div.sc-gPzReC.fWxkCf > div.sc-cEvuZC.jcUgmG > div.sc-dxZgTM.eVVlYD > div:nth-child(1) > div.sc-iFMziU.eMXTei")
             # exchange = soup.select("#root > div > div > div.sc-koErNt.hoSImv > div.sc-gJqsIT.eMTckw > div > div.sc-cFlXAS.hJvCHs > div > div.sc-jRhVzh.bynJLV > div > div.sc-gPzReC.fWxkCf > div.sc-cEvuZC.jcUgmG > div.sc-dxZgTM.eVVlYD > div:nth-child(2) > div.sc-iFMziU.eMXTei")
-            location = soup.select("#root > div > div > div.sc-gJqsIT.hbVxbC > div.sc-kDhYZr.ikrBOB > div > div.sc-hcnlBt.jfMCiR > div > div.sc-iHhHRJ.gVVJLD > div > div.sc-gPzReC.fWxkCf > div.sc-cEvuZC.jcUgmG > div.sc-dxZgTM.eVVlYD > div:nth-child(4) > div.sc-iFMziU.cpTpen")
+            location = soup.select("#root > div > div > div.sc-gJqsIT.hbVxbC > div.sc-kDhYZr.ikrBOB > div > div.sc-hcnlBt.jfMCiR > div > div.sc-iHhHRJ.gVVJLD > div > div.sc-gPzReC.fWxkCf > div.sc-cEvuZC.jcUgmG > div.sc-dxZgTM.eVVlYD > div:nth-child(4) > div.sc-iFMziU.cXlMvV")
             description = soup.select("#root > div > div > div.sc-gJqsIT.hbVxbC > div.sc-kDhYZr.ikrBOB > div > div.sc-lnrBVv.hvYxyl > div.sc-OxbzP.hZrvrw > div.sc-hvvHee.jlHWKG > div.sc-kcbnda.cuxerH > div.sc-dHmInP.eQnWXw > div.sc-ejGVNB.ldIAac")
             check_date = soup.select("#root > div > div > div.sc-gJqsIT.hbVxbC > div.sc-kDhYZr.ikrBOB > div > div.sc-hcnlBt.jfMCiR > div > div.sc-iHhHRJ.gVVJLD > div > div.sc-gPzReC.fWxkCf > div.sc-cEvuZC.jcUgmG > div.sc-kXeGPI.grTZPy > div > div:nth-child(3)")
             date = ""
@@ -87,10 +87,8 @@ for data in url_list:
             description = description[0].text
             price = price[0].text.replace("원","").replace(",","")
             
-            if len(location)!=0:
-                location = location[0].text
-            else:
-                location = ""
+
+            location = location[0].text.replace("지역인증","")
             start_check = True
 
             title_list = ["삽니다", "급매", "매입", "주의사항"]
@@ -121,18 +119,18 @@ for data in url_list:
                 for i in range(1,12,1):
                     if str(i) in title:
                         category = str(i)
-                        if i >= 10:
+                        if i >= 8:
                             for t_p in ten_plus:
                                 if t_p in title:
                                     category += " 플러스"
 
                 
-                print(title)
-                print(size)
-                print(description)
-                print(location)
-                print(category)
-                print(price)
+                # print(title)
+                # print(size)
+                # print(description)
+                # print(location)
+                # print(category)
+                # print(price)
 
                 request_data['product_info'].append({
                     'id' : data,
