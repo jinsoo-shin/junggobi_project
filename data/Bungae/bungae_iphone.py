@@ -129,7 +129,7 @@ for data in url_list:
                         category_list1 = ["플러스", "plus", "+"]
                         for c_l in category_list1:
                             if c_l in title:
-                                category  +=" "+c_l
+                                category  +=" 플러스"
                                 break
                 if len(category)==0:
                     s_list1 = ["7S", "7s", "7"]
