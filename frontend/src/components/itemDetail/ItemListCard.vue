@@ -7,14 +7,13 @@
         <v-list-item>
           <v-list-item-content>
             <v-row>
-              
               <!-- start : itemImage - 아이템 이미지 출력 및 확대-->
               <v-col md="4" align-self="center">
-                <v-dialog v-model="enlargeImg" max-width="50%">
+                <v-dialog v-model="enlargeImg" max-width="30%">
                 <template v-slot:activator="{ on }">
                   <v-img class="outlineImg" v-on="on" :src="item.img_src" style="width:200px; height:200px"/>
                 </template>
-                  <v-card><v-img :src="item.img_src"/></v-card>
+                  <v-img :src="item.img_src"/>
                 </v-dialog>
               </v-col>
               <!-- start : itemImage -->
