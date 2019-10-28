@@ -356,9 +356,13 @@ def get_galaxymobile_model(request_data,read_title,read_text):
     # print(read_title)
 
     ##큰모델 가져오기
-
     if "(+" in read_title:
         read_title = read_title.replace("(+", "")
+
+    if "엣지" in read_title:
+    detail_model_list.append("엣지")
+    read_title =read_title.replace("엣지", "")
+
     if "+" in read_title:
         detail_model_list.append("플러스")
         read_title =read_title.replace("플러스","").replace("+","")
@@ -373,9 +377,6 @@ def get_galaxymobile_model(request_data,read_title,read_text):
         detail_model_list.append("프로")
         read_title =read_title.replace("PRO","").replace("프로","")
 
-    if "엣지" in read_title:
-        detail_model_list.append("엣지")
-        read_title =read_title.replace("엣지", "")
     if "스타" in read_title:
         detail_model_list.append("스타")
         read_title =read_title.replace("스타", "")
