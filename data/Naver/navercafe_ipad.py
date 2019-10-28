@@ -51,7 +51,7 @@ except:
 
 page_number = 1
 for page_num in range(page_number):
-    search_url="https://cafe.naver.com/ArticleSearchList.nhn?search.clubid=10050146&search.menuid=749&search.media=0&search.searchdate=all&search.exact=&search.include=&userDisplay=5&search.exclude=&search.onSale=1&search.option=3&search.sortBy=date&search.searchBy=0&search.searchBlockYn=0&search.includeAll=&search.query=%BE%C6%C0%CC%C6%D0%B5%E5&search.viewtype=title&search.page="+str(page_num+1)
+    search_url="https://cafe.naver.com/ArticleSearchList.nhn?search.clubid=10050146&search.menuid=749&search.media=0&search.searchdate=all&search.exact=&search.include=&userDisplay=50&search.exclude=&search.onSale=1&search.option=3&search.sortBy=date&search.searchBy=0&search.searchBlockYn=0&search.includeAll=&search.query=%BE%C6%C0%CC%C6%D0%B5%E5&search.viewtype=title&search.page="+str(page_num+1)
     driver.get(search_url)
     driver.implicitly_wait(3)
     driver.switch_to.frame('cafe_main')
@@ -97,7 +97,16 @@ for page_num in range(page_number):
             inbox = page.find(class_="inbox")
             tt = page.find(id="tbody")
             img_src = tt.find(class_="image_condition").find("img").get('src')
-            img_src = img_src.replace("?type=s3","")
+            img_src = img_src.replace("?type=s3","").replace("%3Ftype%3Df1","")
+            is_sell = False
+            try:
+                is_sell_text = tt.find(class_="image_condition").find(class_="sold_txt").text
+                print("is_sell_text",is_sell_text)
+                if "판매가 완료된 상품" in is_sell_text:
+                    is_sell = True
+            except:
+                pass
+
 
             date = page.find(class_="tit-box").find(class_="date").text
             regex = re.compile(r"articleid=(\d+)&")
@@ -133,26 +142,22 @@ for page_num in range(page_number):
             result.append(date)#날짜
             result.append(img_src)#이미지 주소
             result.append(simple_url)
-
+            result.append(is_sell)
             save_result.append(result)
-            # f.write(data)
         except:
             continue
-    # df = pd.DataFrame.from_records(save_result, columns=labels)
-    # df = df.applymap(lambda x: x.replace('\xa0','').replace('\xa9','').replace(',',''))
-    # df.to_csv("navercafe_crawling.csv",encoding="utf-8-sig",header=False,index=False,mode='a')
 
-    request_data = {'navercafe_ipad': []}
+    request_data = {'navercafe': []}
     for li in save_result:
         read_title=li[0]
         read_price=li[1]
         read_text=li[2]
         product={}
-        product=regex_function.get_model(product,read_title,read_text)
+        product=regex_function.get_ipad_model(product,read_title,read_text)
         product =regex_function.get_price(product,read_title,read_price,read_text)
 
         # 타이틀, 가격, 내용, 아이디, 날짜, 이미지주소, 링크
-        request_data['navercafe_ipad'].append({
+        request_data['navercafe'].append({
             'category' : '태블릿',
             'manufacturer' : '애플',
             'model_name': product['model_name'],
@@ -166,7 +171,8 @@ for page_num in range(page_number):
             'img_src': li[5],
             'link': li[6],
             'title':li[0],
-            'contents':li[2]
+            'contents':li[2],
+            'is_sell':li[7]
             })
     
     response = requests.post(API_URL + 'product/', data=json.dumps(request_data), headers=headers)
