@@ -35,6 +35,7 @@ def search(request):
         if search:
             es = Elasticsearch()
             es.indices.delete(index='productinfo-index', ignore=[400, 404])
+            print("index delete")
         bulk_indexing()
         return Response(data=search,status=status.HTTP_200_OK)
 

@@ -1,5 +1,5 @@
 from elasticsearch_dsl.connections import connections
-from elasticsearch_dsl import Document, Keyword, Text, Integer, Date,Search,tokenizer,analyzer,analysis
+from elasticsearch_dsl import Document, Keyword, Text, Integer, Date,Search,tokenizer,analyzer,analysis,Boolean
 
 from elasticsearch.helpers import bulk
 from elasticsearch import Elasticsearch

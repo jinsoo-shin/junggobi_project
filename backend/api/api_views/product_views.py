@@ -39,7 +39,7 @@ def information(request):
     if request.method == 'POST':
         product = request.data.get('product', None)
         tablet = request.data.get('tablet', None)
-        navercafe_ipad = request.data.get('navercafe_ipad',None)
+        navercafe = request.data.get('navercafe',None)
         product_info = request.data.get('product_info',None)
         if product_info:
             for cur_data in product_info:
@@ -98,8 +98,9 @@ def information(request):
                 price = cur_tablet.get("price",None)
                 query = cur_tablet.get("query",None)
                 Tablet(product_id=product_id,key_name=key_name, cellular=cellular, storage=storage, price=price,query=query).save()
-        if navercafe_ipad:
-            for cur_data in navercafe_ipad:
+        if navercafe:
+            for cur_data in navercafe:
+                print(cur_data)
                 id = cur_data.get("id", None)
                 category = cur_data.get("category",None)
                 manufacturer = cur_data.get("manufacturer",None)
@@ -118,18 +119,19 @@ def information(request):
                 title = cur_data.get("title",None)
                 contents = cur_data.get("contents",None)
                 is_sell = cur_data.get("is_sell",False)
-
+                print(is_sell)
                 if generation is "":
                     generation=None
                 if display is "":
                     display=None
                 if storage is "":
                     storage=None
+
                 ProductInfo(id=id,category=category, manufacturer=manufacturer, model_name=model_name, generation=generation,
                           display=display,cellular=cellular,storage=storage,price=price,date=date,link=link,img_src=img_src,
                             is_sell=is_sell,title=title,contents=contents).save()
             #elasticsearch index 추가추가
-            bulk_indexing()
+            # bulk_indexing()
 
         return Response(status=status.HTTP_200_OK)
 
