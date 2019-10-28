@@ -47,10 +47,20 @@
         
           <!-- start : itemListCards 아이템 리스트 출력 -->
           <v-col>
-            <itemListCard v-for="card in itemListCards" :key="card.name" :item="card" class="mt-1"></itemListCard>
+            <!-- <itemListCard v-for="card in itemListCards" :key="card.name" :item="card" class="mt-1"></itemListCard> -->
+            <itemListCard v-for="i in itemListCards.length > length ? length : itemListCards.length"
+              :key="i" :item="itemListCards[i]" class="mt-1"/>
           </v-col>
           <!-- end : itemListCards -->
         
+        </v-row>
+        <v-row>
+          <v-col>
+            <v-btn outlined @click = "loadMore">더보기</v-btn>
+          </v-col>
+          <v-col>
+            <v-btn outlined>Top</v-btn>
+          </v-col>
         </v-row>
       </v-flex>
     </div>
@@ -69,7 +79,9 @@ export default {
     avgChart: false,  // 평균 비교 차트
     timeout: 10000,   // 차트 생존 시간
     sortMethod: "",   // 정렬 방법
-    sortMethodList: ["높은가격순", "낮은가격순"]  // 정렬 방법 리스트
+    sortMethodList: ["높은가격순", "낮은가격순"], // 정렬 방법 리스트
+    length: 3,
+    fab: false
   }),
   methods:{
     sortByLowToHigh_price() { // 정렬 - 낮은가격순
@@ -87,6 +99,10 @@ export default {
     },
     itemLen() { // 검색된 데이터 정보 양 출력
       return "검색 결과 : " + this.itemListCards.length + " 건";
+    },
+    loadMore() {
+      this.length += 3;
+      if (this.length >= this.itemListCards.length) this.more = false;
     },
   }  
 }

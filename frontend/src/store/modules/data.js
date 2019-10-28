@@ -3,13 +3,13 @@ import api from '../../api'
 const state = {
   items : [],
   favoriteItems : [],
+  index : 0,
 }
 const getters = {
   getFavoriteItems(state) {
     return state.favoriteItems;
   },
   getItems(state) {
-    console.log(state.items)
     return state.items;
   }
 }
