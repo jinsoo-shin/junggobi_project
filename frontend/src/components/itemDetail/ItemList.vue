@@ -49,33 +49,38 @@
           <v-col>
             <!-- <itemListCard v-for="card in itemListCards" :key="card.name" :item="card" class="mt-1"></itemListCard> -->
             <itemListCard v-for="i in itemListCards.length > length ? length : itemListCards.length"
-              :key="i" :item="itemListCards[i]" class="mt-1"/>
+              :key="i" :item="itemListCards[i-1]" class="mt-1"/>
           </v-col>
           <!-- end : itemListCards -->
         
         </v-row>
         <v-row>
-          <v-col>
+          <!-- start : loadMore button 더 보기 버튼 -->
+          <v-col xs12 text-xs-center round my-5 v-if="moreBtn">
             <v-btn outlined @click = "loadMore">더보기</v-btn>
           </v-col>
-          <v-col>
-            <v-btn outlined>Top</v-btn>
-          </v-col>
+          <!-- end : loadMore -->
+
+          
         </v-row>
       </v-flex>
+      
+      <!-- start : gotoTop button 맨위로 버튼 -->
       <v-btn
-            v-scroll="onScroll"
-            v-show="fab"
-            fab
-            dark
-            fixed
-            bottom
-            right
-            color="primary"
-            @click="toTop"
-          >
-          <v-icon>keyboard_arrow_up</v-icon>
-          </v-btn>
+        v-scroll="onScroll"
+        v-show="fab"
+        fab
+        dark
+        fixed
+        bottom
+        right
+        color="primary"
+        @click="toTop"
+      >
+      <v-icon>keyboard_arrow_up</v-icon>
+    </v-btn> 
+    <!-- end : gotoTop button -->
+
     </div>
   </v-container>
 </template>
@@ -93,8 +98,9 @@ export default {
     timeout: 10000,   // 차트 생존 시간
     sortMethod: "",   // 정렬 방법
     sortMethodList: ["높은가격순", "낮은가격순"], // 정렬 방법 리스트
-    length: 3,
-    fab: false
+    length: 10,
+    fab: false,
+    moreBtn: true,
   }),
   methods:{
     sortByLowToHigh_price() { // 정렬 - 낮은가격순
@@ -114,8 +120,8 @@ export default {
       return "검색 결과 : " + this.itemListCards.length + " 건";
     },
     loadMore() {
-      this.length += 20;
-      if (this.length >= this.itemListCards.length) this.more = false;
+      this.length += 10;
+      if (this.length >= this.itemListCards.length) this.moreBtn = false;
     },
     onScroll (e) {
       if (typeof window === 'undefined') return
