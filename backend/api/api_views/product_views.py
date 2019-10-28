@@ -8,14 +8,32 @@ from django.db import connection, connections
 from elasticsearch import Elasticsearch
 from elasticsearch_dsl import Search
 from api.search import bulk_indexing
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from bs4 import BeautifulSoup
+from urllib.request import urlopen
+import time
+import requests
+import json
 
-@api_view(['GET','POST','DELETE'])
+@api_view(['GET', 'POST', 'DELETE', 'PUT'])
 def information(request):
     if request.method=='GET':
         search_word = request.query_params.get('search')
 
         if not search_word:
             product_info = ProductInfo.objects.all()
+            
+            check = request.GET.get('is_sell',None)
+            bungae = request.GET.get('link', None)
+            id = request.GET.get('id',None)
+            if check:
+                product_info = product_info.filter(is_sell__iexact=check)
+            if id:
+                product_info = product_info.filter(id__iexact=id)
+            if bungae:
+                product_info = product_info.filter(link__icontains=bungae)
+
             serializer = Product_Info_Serializer(product_info, many=True)
             return Response(data=serializer.data, status=status.HTTP_200_OK)
             # return Response(status=status.HTTP_400_BAD_REQUEST, data={'message': 'search word param is missing'})
@@ -36,7 +54,7 @@ def information(request):
         print(data_list)
         return Response(data_list)
 
-    if request.method == 'POST':
+    elif request.method == 'POST':
         product = request.data.get('product', None)
         tablet = request.data.get('tablet', None)
         navercafe_ipad = request.data.get('navercafe_ipad',None)
@@ -133,3 +151,16 @@ def information(request):
 
         return Response(status=status.HTTP_200_OK)
 
+    elif request.method == 'PUT':
+        product_info = ProductInfo.objects.get(id=id)
+        serializer = Product_Info_Serializer(product_info, data=request.DATA)
+        if serializer.is_valid():
+            ProductInfo(id=id,category=category, manufacturer=manufacturer, model_name=model_name, generation=generation,
+                          display=display,cellular=cellular,storage=storage,price=price,date=date,link=link,img_src=img_src,
+                            is_sell=1,title=title,contents=contents).save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+if __name__ == "__main__":
+    information()
