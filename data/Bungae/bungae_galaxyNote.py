@@ -88,7 +88,8 @@ for data in url_list:
             price = price[0].text.replace("원","").replace(",","")
             
 
-            location = location[0].text.replace("지역인증","")
+            if len(location)!=0:
+                    location = location[0].text
             start_check = True
 
             title_list = ["삽니다", "급매", "매입", "주의사항"]
