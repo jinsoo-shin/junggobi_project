@@ -43,6 +43,42 @@
           <!-- end : avgChart -->
 
         </v-row>
+
+        <v-row>
+          <v-col class="px-4">
+            <v-range-slider
+              v-model="range"
+              :max="max"
+              :min="min"
+              hide-details
+              class="align-center"
+              thumb-label
+            >
+              <template v-slot:prepend>
+                <v-text-field
+                  v-model="range[0]"
+                  class="mt-0 pt-0"
+                  hide-details
+                  single-line
+                  type="number"
+                  style="width: 60px"
+                ></v-text-field>
+              </template>
+              <template v-slot:prepend>
+                <v-text-field
+                  v-model="range[1]"
+                  class="mt-0 pt-0"
+                  hide-details
+                  single-line
+                  type="number"
+                  style="width: 60px"
+                ></v-text-field>
+              </template>
+            </v-range-slider>
+          </v-col>
+        </v-row>
+
+
         <v-row>
           <!-- start : itemListCards 아이템 리스트 출력 -->
           <v-col v-if="loadingList">
@@ -105,6 +141,10 @@ export default {
     moreBtn: true,      // 더보기버튼 출력
     loading: false,     // 로딩 이미지 출력
     loadingList: false, // 카드리스트 출력 
+    min: 0,
+    max: 3000000,
+    range: [0, 3000000],
+ 
   }),
   methods:{
     sortByLowToHigh_price() { // 정렬 - 낮은가격순
