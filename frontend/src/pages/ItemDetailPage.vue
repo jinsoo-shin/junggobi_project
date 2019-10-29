@@ -1,7 +1,7 @@
 <!-- itemDetailPage 상세 페이지 -->
 <template>
     <v-container grid-list-md text-center>        
-    <v-fab-transition>
+        <v-fab-transition>
             <v-btn
                 @click="side"
                 color="grey"
