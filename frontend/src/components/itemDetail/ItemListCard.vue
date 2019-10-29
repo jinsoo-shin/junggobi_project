@@ -56,7 +56,8 @@
                 </v-simple-table>
               </v-col>
               <v-col md="2" align-self="center">
-                <v-btn text small color="error" :href="item.link" target="_blank">방문하기</v-btn>
+                
+                <v-btn text small color="error" @click="visitLink(item.link, item.price)">방문하기</v-btn>
                 <v-btn text small @click="addItem">관심상품</v-btn>                     
               </v-col>
               <!-- end : itemInfomation table -->
@@ -116,6 +117,10 @@ export default {
           title: '이미 등록된 상품입니다..'
         })
       }
+    },
+    visitLink(link, price) {
+      let routeData = this.$router.resolve({name: 'redirectPage', query: {link: link, price: price}});
+      window.open(routeData.href, '_blank');
     },
   }
 };

@@ -12,6 +12,7 @@ import MultipleChart from '../components/chart/MultipleChart.vue'
 import SideMenu from '../components/itemDetail/SideMenu.vue'
 import LoadingImg from '../components/LoadingImg.vue'
 
+
 function setupComponents(Vue){
 
     //main page 

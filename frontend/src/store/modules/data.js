@@ -10,6 +10,7 @@ const getters = {
     return state.favoriteItems;
   },
   getItems(state) {
+    console.log(state.items)
     return state.items;
   }
 }

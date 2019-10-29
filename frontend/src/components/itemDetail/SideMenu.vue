@@ -31,7 +31,7 @@
           
           <!--start : favoriteItems 관심항목 출력 -->
           <v-hover v-slot:default="{ hover }">
-          <div style="cursor: pointer;" @click=openUrl(item.link)>
+          <div style="cursor: pointer;" @click="openUrl(item.link, item.price)">
           <v-card 
             :elevation="hover ? 6 : 2"
             draggable="true"
@@ -102,8 +102,9 @@ export default {
         this.$store.commit('data/setDeleteFavoriteItems', from)
       }
     },
-    openUrl(link) {
-      window.open(link, '_blank');
+    openUrl(link, price) {  // url 연결페이지로
+      let routeData = this.$router.resolve({name: 'redirectPage', query: {link: link, price: price}});
+      window.open(routeData.href, '_blank');
     },
   }
 }
