@@ -23,7 +23,8 @@
             </div>
         </div>
         <div id="hero-section">
-            <div id="head-line"></div>
+            <!-- <v-img src="https://thumbs.gfycat.com/EverlastingVioletCaracal-size_restricted.gif" width="100%" heigth="100%" /> -->
+            <!-- <div id="head-line"></div> -->
         </div>
         </div>
         <section id="section00">
