@@ -18,17 +18,77 @@ def search(request):
             es = Elasticsearch()
             docs = es.search(index='productinfo-index',
                              body={
+                                 "size": 10, # size는 한 번에 나타날 게시글의 수
+                                 "from": 0, # 페이징을 할 때 쪽수는 from
                                  "query": {
-                                     "multi_match": {
-                                         "query": search_word,
-                                         "fields": ["title", "contents", "region"]
+                                     # "multi_match": {
+                                     #     "query": search_word,
+                                     #     "fields": ["title", "contents", "region"]
+                                     # },
+                                     "bool": {
+                                         "should": [
+                                             {"match": {"title": search_word}},
+                                             {"match": {"contents": search_word}},
+                                             {"match": {"region": search_word}},
+                                             {"match": {"manufacturer": ""}},
+                                             {"match": {"model_name": ""}}
+                                         ]
                                      }
+                                 },
+                                 "highlight": {
+                                     "pre_tags": ["<mark><strong>"],
+                                     "post_tags": ["</strong></mark>"],
+                                     "fields": {
+                                         "title": {},
+                                         "contents":{}
+                                     },
+                                 },
+                                 "aggs": {#aggregations
+                                     "avg_price": {
+                                         "avg": {
+                                             "field": "price"
+                                         }
+                                     },
+                                     "max_price": {
+                                         "max": {
+                                             "field": "price"
+                                         }
+                                     },
+                                     "min_price": {
+                                         "min": {
+                                             "field": "price"
+                                         }
+                                     },
+                                     "group_by_date": {
+                                         "terms": {
+                                             "field": "date",
+                                             "format": "yyyy-MM-dd",
+                                             "order": {"_key": "asc"},
+                                             "size": 7
+                                         },
+                                         "aggs": {
+                                             "date_avg": {
+                                                 "avg": {
+                                                     "field": "price"
+                                                 },
+                                             },
+                                             "date_max": {
+                                                 "max": {
+                                                     "field": "price"
+                                                 }
+                                             },
+                                             "date_min": {
+                                                 "min": {
+                                                     "field": "price"
+                                                 }
+                                             },
+                                         },
+                                     },
+
                                  }
                              })
 
-            data_list = docs['hits']
-            print(data_list)
-            return Response(data_list)
+            return Response(docs)
 
     if request.method == 'POST':
         search = request.data.get('search', None)
@@ -39,3 +99,30 @@ def search(request):
         bulk_indexing()
         return Response(data=search,status=status.HTTP_200_OK)
 
+
+@api_view(['GET', 'POST'])
+def auto(request):
+    if request.method == 'GET':
+        search_word = request.query_params.get('search_word')
+        if search_word:
+            es = Elasticsearch()
+            docs = es.search(index='productinfo-index',
+                             body={
+                                 # "size":10,
+                                 "_source": ["model_name"],
+                                 "query": {
+                                     "wildcard": {
+                                         "model_name": {
+                                             "value": "*"+search_word+"*"
+                                         }
+                                     },
+
+                                 },
+
+                             })
+            request_result = docs['hits']['hits']
+            auto_keyword=[]
+            for data in request_result:
+                auto_keyword.append(data["_source"]['model_name'])
+            auto_keyword = list(set(auto_keyword))
+            return Response(auto_keyword)

@@ -87,58 +87,58 @@ for search_url_page in search_url_list:
 
 save_result = []
 for i in range(len(list)):
-result =[]
-info_url=list[i]
-try:
-    driver.get(info_url)
-    driver.implicitly_wait(3)
-    driver.switch_to.frame('cafe_main')
-    html = driver.page_source
-    page = BeautifulSoup(html, 'html.parser')
-    inbox = page.find(class_="inbox")
-    tt = page.find(id="tbody")
-    img_src = tt.find(class_="image_condition").find("img").get('src')
-    img_src = img_src.replace("?type=s3","").replace("%3Ftype%3Df1","")
-    is_sell = False
+    result =[]
+    info_url=list[i]
     try:
-        is_sell_text = tt.find(class_="image_condition").find(class_="sold_txt").text
-        if "판매가 완료된 상품" in is_sell_text:
-            is_sell = True
+        driver.get(info_url)
+        driver.implicitly_wait(3)
+        driver.switch_to.frame('cafe_main')
+        html = driver.page_source
+        page = BeautifulSoup(html, 'html.parser')
+        inbox = page.find(class_="inbox")
+        tt = page.find(id="tbody")
+        img_src = tt.find(class_="image_condition").find("img").get('src')
+        img_src = img_src.replace("?type=s3","").replace("%3Ftype%3Df1","")
+        is_sell = False
+        try:
+            is_sell_text = tt.find(class_="image_condition").find(class_="sold_txt").text
+            if "판매가 완료된 상품" in is_sell_text:
+                is_sell = True
+        except:
+            pass
+        date = page.find(class_="tit-box").find(class_="date").text
+        regex = re.compile(r"articleid=(\d+)&")
+        mc = regex.search(info_url)
+
+        id=mc.group(1)#아이디
+        simple_url = "https://cafe.naver.com/joonggonara/"+mc.group(1)
+
+        read_title = tt.find(class_="title").text
+        read_price = tt.find(class_="cost").text
+        test = tt.find_all(string=True)
+        index = None
+        text =[]
+        for i in range(len(test)):
+            if "해외직구로 면세" in test[i]:
+                index = i
+                break
+        test = test[index+1:]
+        text.append(" ".join(test).strip())
+        read_text = " ".join(text).replace('\xa0','').replace('\xa9','').replace("\n"," ").replace("  "," ")#텍스트
+        # if any(format in read_text for format in passtext):
+        #     continue # 만약 passtext의 문자열을 read_text가 포함하고 있다면 넘긴다!
+        result.append(read_title)
+        result.append(read_price)
+        result.append(read_text)
+        result.append(id)
+        result.append(date)#날짜
+        result.append(img_src)#이미지 주소
+        result.append(simple_url)
+        result.append(is_sell)
+
+        save_result.append(result)
     except:
-        pass
-    date = page.find(class_="tit-box").find(class_="date").text
-    regex = re.compile(r"articleid=(\d+)&")
-    mc = regex.search(info_url)
-
-    id=mc.group(1)#아이디
-    simple_url = "https://cafe.naver.com/joonggonara/"+mc.group(1)
-
-    read_title = tt.find(class_="title").text
-    read_price = tt.find(class_="cost").text
-    test = tt.find_all(string=True)
-    index = None
-    text =[]
-    for i in range(len(test)):
-        if "해외직구로 면세" in test[i]:
-            index = i
-            break
-    test = test[index+1:]
-    text.append(" ".join(test).strip())
-    read_text = " ".join(text).replace('\xa0','').replace('\xa9','').replace("\n"," ").replace("  "," ")#텍스트
-    # if any(format in read_text for format in passtext):
-    #     continue # 만약 passtext의 문자열을 read_text가 포함하고 있다면 넘긴다!
-    result.append(read_title)
-    result.append(read_price)
-    result.append(read_text)
-    result.append(id)
-    result.append(date)#날짜
-    result.append(img_src)#이미지 주소
-    result.append(simple_url)
-    result.append(is_sell)
-
-    save_result.append(result)
-except:
-    continue
+        continue
 
 
 request_data = {'navercafe': []}

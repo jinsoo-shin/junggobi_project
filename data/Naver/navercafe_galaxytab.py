@@ -51,7 +51,7 @@ except:
 
 page_number = 1
 for page_num in range(page_number):
-    search_url="https://cafe.naver.com/ArticleSearchList.nhn?search.clubid=10050146&search.menuid=749&search.media=0&search.searchdate=all&search.exact=&search.include=&userDisplay=50&search.exclude=&search.onSale=1&search.option=3&search.sortBy=date&search.searchBy=0&search.searchBlockYn=0&search.includeAll=&search.query=%BE%C6%C0%CC%C6%D0%B5%E5&search.viewtype=title&search.page="+str(page_num+1)
+    search_url="https://cafe.naver.com/ArticleSearchList.nhn?search.clubid=10050146&search.menuid=749&search.media=0&search.searchdate=all&search.defaultValue=1&search.exact=&search.include=&userDisplay=50&search.exclude=&search.onSale=1&search.option=3&search.sortBy=date&search.searchBy=1&search.searchBlockYn=0&search.includeAll=&search.query=%B0%B6%B7%B0%BD%C3+%C5%C7&search.viewtype=title&search.page="+str(page_num+1)
     driver.get(search_url)
     driver.implicitly_wait(3)
     driver.switch_to.frame('cafe_main')
@@ -70,7 +70,7 @@ for page_num in range(page_number):
         #     pass
         a = element.find('a')
         title = a.get_text(strip=True)
-        if "아이패드" not in title:
+        if "갤럭시" not in title:
             continue
 
         if any(format in title for format in passtext):
@@ -127,13 +127,11 @@ for page_num in range(page_number):
                     index = i
                     break
             test = test[index+1:]
-            # print(" ".join(test).strip())
             text.append(" ".join(test).strip())
-            # text.append('\n')
 
             read_text = " ".join(text).replace('\xa0','').replace('\xa9','').replace("\n"," ").replace("  "," ")#텍스트
-            if any(format in read_text for format in passtext):
-                continue # 만약 passtext의 문자열을 read_text가 포함하고 있다면 넘긴다!
+            # if any(format in read_text for format in passtext):
+            #     continue # 만약 passtext의 문자열을 read_text가 포함하고 있다면 넘긴다!
             result.append(read_title)
             result.append(read_price)
             result.append(read_text)
@@ -147,33 +145,33 @@ for page_num in range(page_number):
         except:
             continue
 
-    request_data = {'navercafe': []}
-    for li in save_result:
-        read_title=li[0]
-        read_price=li[1]
-        read_text=li[2]
-        product={}
-        product=regex_function.get_ipad_model(product,read_title,read_text)
-        product =regex_function.get_price(product,read_title,read_price,read_text)
+request_data = {'navercafe': []}
+for li in save_result:
+    read_title=li[0]
+    read_price=li[1]
+    read_text=li[2]
+    product={}
+    product=regex_function.get_galaxytab_model(product,read_title,read_text)
+    product =regex_function.get_price(product,read_title,read_price,read_text)
 
-        # 타이틀, 가격, 내용, 아이디, 날짜, 이미지주소, 링크
-        request_data['navercafe'].append({
-            'category' : '태블릿',
-            'manufacturer' : '애플',
-            'model_name': product['model_name'],
-            'generation': product['generation'],
-            'display': product['display'],
-            'storage': product['storage'],
-            'cellular': product['cellular'],
-            'price': str(product['price']),
-            'id': li[3],
-            'date': li[4],
-            'img_src': li[5],
-            'link': li[6],
-            'title':li[0],
-            'contents':li[2],
-            'is_sell':li[7]
-            })
-    
-    response = requests.post(API_URL + 'product/', data=json.dumps(request_data), headers=headers)
+    # 타이틀, 가격, 내용, 아이디, 날짜, 이미지주소, 링크
+    request_data['navercafe'].append({
+        'category' : '태블릿',
+        'manufacturer' : '삼성전자',
+        'model_name': product['model_name'],
+        'generation': product['generation'],
+        'display': product['display'],
+        'storage': product['storage'],
+        'cellular': product['cellular'],
+        'price': str(product['price']),
+        'id': li[3],
+        'date': li[4],
+        'img_src': li[5],
+        'link': li[6],
+        'title':li[0],
+        'contents':li[2],
+        'is_sell':li[7]
+        })
+
+response = requests.post(API_URL + 'product/', data=json.dumps(request_data), headers=headers)
  
