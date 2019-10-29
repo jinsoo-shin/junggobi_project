@@ -13,7 +13,7 @@
             justify-center
             class="white--text"
           >
-            <img src="./Untitled.png" alt="Vuetify.js" height="200">
+            <img src="./src/Untitled.png" alt="Vuetify.js" height="200">
             <div class="subheading mb-4 text-center" id="font">저렴한 중고제품이 필요해!?</div>
             <h1 class="white--text mb-2 text-center" id="main_font">JunggoBi (중고비)</h1>
           </v-layout>
@@ -29,10 +29,8 @@
         >
           <v-flex xs12 sm4 class="my-4">
             <div class="text-center">
-              <h2 class="headline">The best way to start developing</h2>
-              <span class="subheading">
-                Cras facilisis mi vitae nunc
-              </span>
+              <h2 id="font">The best way to find Ipad, Iphone, Galaxy...</h2>
+
             </div>
           </v-flex>
           <v-flex xs12>

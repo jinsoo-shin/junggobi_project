@@ -11,16 +11,16 @@
     <v-flex>
         <v-text-field
             v-model="value"
-            color="cyan darken"
-            label="Text field"
-            placeholder="Start typing..."
+            color="rgb(27, 99, 158)"
+            label="필요한 걸 찾아요!"
+            placeholder="아이패드, 아이폰, 갤럭시S, 갤럭시탭 등을 검색하세요."
             loading
         >
             <template v-slot:progress>
                 <v-progress-linear
                     v-if="custom"
                     :value="progress"
-                    :color="color"
+                    color="rgb(96, 172, 235)"
                     absolute
                     height="7"
                 ></v-progress-linear>
@@ -31,17 +31,20 @@
 
 <script>
 export default {
-computed: {
-    progress () {
-      return Math.min(100, this.value.length * 10)
-    },
-    color () {
-      return ['error', 'warning', 'success'][Math.floor(this.progress / 40)]
-    },
-  }
+    data: () => ({
+        value: '',
+        custom: true,
+    }),
+    computed: {
+        progress () {
+            return Math.min(100, this.value.length * 10)
+        }
+    }
 }
 </script>
 
 <style>
-
+/* #font {
+    color: rgb(96, 172, 235);
+} */
 </style>
