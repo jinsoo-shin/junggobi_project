@@ -232,21 +232,12 @@ def get_price_from_text(price_list,text):
 
 def get_price(request_data,read_title,read_price,read_text):
     price_list=[]
-    # print("########################")
-    # print(read_title)
-    # print(read_price)
-    # print(read_text)
     get_price_from_text(price_list,read_title)
     get_price_from_text(price_list,read_price)
     get_price_from_text(price_list,read_text)
-    # print(price_list)
     ## 여기서 1순위는 가장 많은것, 2순위 제일 비싼것
     count=Counter(price_list).most_common(2)
-    # sorted_C_union = sorted(count.items(), key=lambda x: (-x[1], x[0]))
-    # print(sorted_C_union)
     count = sorted(count,key=lambda x:(-x[1],-x[0]))
-    # print(count)
-    # print(count[0][0])
     
     most_price = 0
     try :
@@ -278,7 +269,9 @@ def get_iphone_model(request_data,read_title,read_text):
     read_text=read_text.upper()
     model_list=['아이폰'] # 뒤에 붙여서 모델명을 join할 예정
     detail_model_list=[] # 프로, MAX 플러스
-
+    
+    if "케어플러스" in read_title:
+        read_title =read_title.replace("케어플러스","")
     ##용량을 타이틀에서 삭제
     storage = get_storage(read_title,read_text) #용량을 가져옴
     if storage:
@@ -289,7 +282,7 @@ def get_iphone_model(request_data,read_title,read_text):
         read_title = read_title.replace(delete_text, "")
         storage=storage+"GB"
 
-    print(read_title)
+    # print(read_title)
 
     ##큰모델 가져오기
     if "플러스" in read_title:
@@ -360,8 +353,8 @@ def get_galaxymobile_model(request_data,read_title,read_text):
         read_title = read_title.replace("(+", "")
 
     if "엣지" in read_title:
-    detail_model_list.append("엣지")
-    read_title =read_title.replace("엣지", "")
+        detail_model_list.append("엣지")
+        read_title =read_title.replace("엣지", "")
 
     if "+" in read_title:
         detail_model_list.append("플러스")
@@ -414,80 +407,116 @@ def get_galaxymobile_model(request_data,read_title,read_text):
 
     return request_data
 
+def get_galaxytab_model(request_data,read_title,read_text):
+    model = ""
+    read_title=read_title.upper()
+    read_text=read_text.upper()
+    model_list=['갤럭시 탭'] # 뒤에 붙여서 모델명을 join할 예정
+    detail_model_list=[] #
+    year = None
+    try:
+        regex = re.compile("(201\d)")
+        mc = regex.search(read_title)
+        year = mc.group(1)
+        read_title = read_title.replace(year, "")
+    except:
+        pass
+
+
+    ##용량을 타이틀에서 삭제
+    storage = get_storage(read_title,read_text) #용량을 가져옴
+    if storage:
+        storage_list = ['GB','기가','G']
+        for i in range(len(storage_list)):
+            storage_list[i]=storage+storage_list[i]
+        delete_text = "".join([s for s in storage_list if s in read_title])
+        read_title = read_title.replace(delete_text, "")
+        storage=storage+"GB"
+
+    ##인치를 타이틀에서 삭제
+    inch_list = ['7.0','7.7','8.0','8.4', '9.7', '10.1', '10.5', '12.2', '7', '8']
+    inch = None
+    for s in inch_list:
+        if s in read_title:
+            inch = s
+            if inch is '8':
+                inch = str(8.0)
+            if inch is '7':
+                inch = str(7.0)
+            read_title = read_title.replace(inch, "").replace("인치","")
+            break
+
+    ##큰모델 가져오기
+
+    if "엣지" in read_title:
+        detail_model_list.append("엣지")
+        read_title =read_title.replace("엣지", "")
+
+    if "라이트" in read_title:
+        detail_model_list.append("라이트")
+        read_title =read_title.replace("라이트","")
+
+    if "프로" in read_title:
+        detail_model_list.append("프로")
+        read_title =read_title.replace("PRO","").replace("프로","")
+    elif "PRO" in read_title:
+        detail_model_list.append("프로")
+        read_title =read_title.replace("PRO","").replace("프로","")
+
+
+    try:
+        regex = re.compile("갤럭시 탭\s?(\w+)")
+        mc = regex.search(read_title)
+        model_gen = mc.group(1)
+        model_list.append(model_gen)
+        model = " ".join(model_list)
+    except:
+        pass
+    try:
+        regex = re.compile("갤럭시탭\s?(\w+)")
+        mc = regex.search(read_title)
+        model_gen = mc.group(1)
+        model_list.append(model_gen)
+        model = " ".join(model_list)
+    except:
+        pass
+
+    if year is not None:
+        detail_model_list.append(year)
+
+
+    if len(detail_model_list) is not 0:
+        detail_model = " ".join(detail_model_list)
+        model = model +" "+ detail_model
+
+
+    cellular=None
+    boolean_cellular = get_cellular(read_title,read_text)
+    if boolean_cellular:
+        cellular = "셀룰러"
+    else:
+        cellular = "WIFI"
+
+    if model is "":
+        model = None
+    if storage is "":
+        storage = None
+
+    request_data['model_name'] = model
+    request_data['display'] = inch
+    request_data['storage'] = storage
+    request_data['cellular'] = cellular
+    request_data['generation'] = None
+    return request_data
+
+
 #
 # if __name__ == '__main__':
 #     # detail_model_list=[]
 #     product = {}
-#     read_title = "삼성 갤럭시노트9 정상해지공기계 판매합니다 / 영등"
-#     get_galaxymobile_model(product,read_title,"")
-    # try:
-    #     regex = re.compile("(201\d)")
-    #     mc = regex.search(read_title)
-    #     model_gen = mc.group(1)
-    #     print(model_gen)
-    # except:
-    #     pass
-    # if "+" in read_title:
-    #     detail_model_list.append("플러스")
-    #     read_title =read_title.replace("플러스", "")
-    # elif "플러스" in read_title:
-    #     detail_model_list.append("플러스")
-    #     read_title=read_title.replace("플러스", "")
-    # print(detail_model_list)
-#     product={}
-
-#     read_title = "아이폰7 레드 128기가"
-#     read_price ="22,222원"
-#     read_text="풀 박스 입니다. 공기계 상태 입니다. 찍힘, 스크레치 없습니다. 판매금액 26만원 % 8구6구 7lo7 연락주세요."
-#     product= get_iphone_model(product,read_title,read_text)
-#     product =get_price(product,read_title,read_price,read_text)
+#     read_title = "	삼성 갤럭시 탭 3 라이트 / GALAXY TAB 3 Lite wifi ( SM-T110) 판매사진"
+#     read_price="110000원"
+#     read_text="갤럭시탭A T385L 블랙 A급"
+#     get_galaxytab_model(product,read_title,"")
+#     get_price(product,read_title,read_price,read_text)
 #     print(product)
-
-
-# 아이폰7 레드 128기가
-# 풀 박스 입니다. 공기계 상태 입니다. 찍힘, 스크레치 없습니다. 판매금액 26만원 % 8구6구 7lo7 연락주세요.
-# 22,222원
-# ##################################################
-# 아이폰xs 스그 풀박스  리퍼 남음
-# 아이폰xs 풀박스 판매합니다 64기가 충전기 케이블 이어폰 다 있습니다 케이블은 사용도 안했습니다. 배터리 성능 100프로 입니다 리퍼기간은 2020년 3월10일 까지입니다.
-# 서울 직거래 상태는 사진처럼 좋습니다 왼쪽 아래에 작은 기스 있습니다! 나머지는 상태 S급입니다 서브 폰으로 집에서 사용해서 좋습니다!  강화유리 부착중입니다!      
-# 700,000원
-# ##################################################
-# 아이폰7 플러스 32기가 매트블랙
-# [10-247] 아이폰7 플러스 32기가 매트블랙 상태 좋습니다 리퍼 만료입니다 기기단품입니다 배터리89% 25%선택약정가능합니다. 통신사 상관없시 사용한기기입니다 유심만꽂 
-# 으면 바로사용가능합니다 기능검수이상없습니다 역삼역2번출구 직거래가능합니다 댓글이나 쪽지 확인못해요 010-9191-2541 연락주세요
-# 290,000원
-# ##################################################
-# 아이폰XS Max 골드256gb 부산
-# 아이폰XS맥스골드256gb지난해11월구입 사용잘했구요해지했습니다25%할인되구요 리퍼기간은11월까지입니다전화용으로사용해서 배터리좋습니다사진테두리작게한군데말고는 매
-# 우깨끗해요폰만있고쓰던케이스드릴께요
-# 800,000원
-# ##################################################
-# 아이폰XR 128기가 레드
-# [10-244] 아이폰XR 128기가 레드 상태 좋습니다 리퍼 1월2일까지 입니다 기기단품입니다 배터리96% 25%선택약정불가능합니다. 통신사 상관없시 사용한기기입니다 유심만꽂 
-# 으면 바로사용가능합니다 기능검수이상없습니다 역삼역2번출구 직거래가능합니다 댓글이나 쪽지 확인못해요 010-9191-2541 연락주세요
-# 580,000원
-# ##################################################
-# 아이폰8 64기가 골드
-# [10-243] 아이폰8 64기가 골드 상태 좋습니다 백점하나있어요 리퍼 만료입니다 기기단품입니다 배터리84% 25%선택약정가능합니다. 통신사 상관없시 사용한기기입니다 유심 
-# 만꽂으면 바로사용가능합니다 기능검수이상없습니다 역삼역2번출구 직거래가능합니다 댓글이나 쪽지 확인못해요 010-9191-2541 연락주세요
-# 300,000원
-
-
-
-#     with open('navercafe_crawling.csv','r', encoding='utf-8-sig') as read_data:
-#         read_data = list(read_data)
-#         for i in range(len(read_data)) :
-#         # for i in range(5) :
-#             print("#############################################")
-#             read_line = read_data[i].split(',')
-#             read_title = read_line[2].upper()
-#             read_price = read_line[3]
-#             read_text = read_line[4].upper()
-#             print("title",read_title)
-#             print("price",read_price)
-#             print("text",read_text)
-#             request_data={} #딕셔너리 형식
-#             request_data=get_model(request_data,read_title,read_text)
-#             request_data =get_price(request_data,read_title,read_price,read_text)
-#             print(request_data)
