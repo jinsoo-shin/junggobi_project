@@ -161,8 +161,4 @@ for data in url_list:
         cnt+=1
         continue
 response = requests.post(API_URL+"product/", data=json.dumps(request_data), headers=headers)
-print(request_data)
-time.sleep(120)
-print("######,##################################2분 후")
-    
-    
+print(request_data)    
