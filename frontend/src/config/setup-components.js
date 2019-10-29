@@ -29,7 +29,6 @@ function setupComponents(Vue){
     
     //chart
     Vue.component('multipleChart', MultipleChart);  //최소값,평균값,최대값 가격 비교를 위한 차트
-    
     Vue.component('loadingImg', LoadingImg);        //loading시 대체 이미지
   }
   

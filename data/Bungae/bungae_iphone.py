@@ -87,7 +87,7 @@ for data in url_list:
             
             # status = status[0].text
             # exchange = exchange[0].text
-            print(location[0].text)
+            # print(location[0].text)
             if len(location)!=0:
                 location = location[0].text
             description = description[0].text
