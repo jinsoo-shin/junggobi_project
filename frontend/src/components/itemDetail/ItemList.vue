@@ -52,29 +52,31 @@
               :min="min"
               hide-details
               class="align-center"
-              thumb-label
+              tick-labels
+              inverse-label
             >
-              <template v-slot:prepend>
+              <template v-slot>
                 <v-text-field
                   v-model="range[0]"
                   class="mt-0 pt-0"
                   hide-details
                   single-line
                   type="number"
-                  style="width: 60px"
+                  style="width: 80px"
                 ></v-text-field>
               </template>
-              <template v-slot:prepend>
-                <v-text-field
-                  v-model="range[1]"
-                  class="mt-0 pt-0"
-                  hide-details
-                  single-line
-                  type="number"
-                  style="width: 60px"
-                ></v-text-field>
-              </template>
+                <template v-slot>
+              <v-text-field
+                v-model="range[1]"
+                class="mt-0 pt-0"
+                hide-details
+                single-line
+                type="number"
+                style="width: 80px"
+              ></v-text-field>
+            </template>
             </v-range-slider>
+            <p>{{range[0]}} ~ {{range[1]}}</p>
           </v-col>
         </v-row>
 
@@ -144,7 +146,6 @@ export default {
     min: 0,
     max: 3000000,
     range: [0, 3000000],
- 
   }),
   methods:{
     sortByLowToHigh_price() { // 정렬 - 낮은가격순
