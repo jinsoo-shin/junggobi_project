@@ -45,7 +45,7 @@
                       <search/>
                     </v-card-text>
                     <center>
-                      <hr class="type_3">
+                      <hr class="d-none d-lg-flex d-xl-none type_3">
                     </center>
                     <br/>
                     <br/>
@@ -91,7 +91,7 @@
           </v-layout>
         </v-container>
         <center>
-          <hr class="type_3">
+          <hr class="d-none d-lg-flex d-xl-none type_3">
         </center>
         <br/>
       </section>
