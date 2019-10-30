@@ -11,6 +11,7 @@ import CheckBoxButton from '../components/home/CheckBoxButton.vue'
 import MultipleChart from '../components/chart/MultipleChart.vue'
 import SideMenu from '../components/itemDetail/SideMenu.vue'
 import LoadingImg from '../components/LoadingImg.vue'
+import Direct from '../components/home/Direct.vue'
 // import HistogramSlider from '../components/chart/HistogramSlider.vue'
 
 function setupComponents(Vue){
@@ -22,6 +23,8 @@ function setupComponents(Vue){
     Vue.component('headercomponent', Headercomponent);
     Vue.component('detailsearch', DetailSearch);
     Vue.component('checkboxbutton',CheckBoxButton);
+    Vue.component('direct', Direct)
+
     //item Detail page
     Vue.component('itemList', ItemList);            //detailpage - 검색 제품 목록
     Vue.component('itemListCard', ItemListCard);    //detailpage - 검색 제품 목록 내 아이템
