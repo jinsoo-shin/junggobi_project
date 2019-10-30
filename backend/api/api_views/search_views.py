@@ -116,13 +116,12 @@ def auto(request):
                                              "value": "*"+search_word+"*"
                                          }
                                      },
-
                                  },
-
                              })
             request_result = docs['hits']['hits']
             auto_keyword=[]
             for data in request_result:
                 auto_keyword.append(data["_source"]['model_name'])
             auto_keyword = list(set(auto_keyword))
+            auto_keyword.sort(key = lambda s: len(s))
             return Response(auto_keyword)

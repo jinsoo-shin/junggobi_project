@@ -38,22 +38,6 @@ def information(request):
             return Response(data=serializer.data, status=status.HTTP_200_OK)
             # return Response(status=status.HTTP_400_BAD_REQUEST, data={'message': 'search word param is missing'})
 
-        es = Elasticsearch()
-        docs = es.search(index='productinfo-index',
-                         # doc_type='navercafe_index',
-                         body={
-                             "query": {
-                                 "multi_match": {
-                                     "query": search_word,
-                                     "fields": ["title", "contents", "region"]
-                                 }
-                             }
-                         })
-
-        data_list = docs['hits']
-        print(data_list)
-        return Response(data_list)
-
     elif request.method == 'POST':
         product = request.data.get('product', None)
         tablet = request.data.get('tablet', None)
@@ -150,16 +134,6 @@ def information(request):
         bulk_indexing()
 
         return Response(status=status.HTTP_200_OK)
-
-    elif request.method == 'PUT':
-        product_info = ProductInfo.objects.get(id=id)
-        serializer = Product_Info_Serializer(product_info, data=request.DATA)
-        if serializer.is_valid():
-            ProductInfo(id=id,category=category, manufacturer=manufacturer, model_name=model_name, generation=generation,
-                          display=display,cellular=cellular,storage=storage,price=price,date=date,link=link,img_src=img_src,
-                            is_sell=1,title=title,contents=contents).save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 if __name__ == "__main__":

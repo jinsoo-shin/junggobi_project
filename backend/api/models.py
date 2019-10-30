@@ -7,8 +7,9 @@
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 from .search import ProductInfoIndex
-
-
+# from .file import download,get_buffer_ext
+# from django.core.files import File
+# from urllib.parse import urlparse
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=150)
 
@@ -154,6 +155,26 @@ class ProductInfo(models.Model):
     class Meta:
         managed = False
         db_table = 'product_info'
+
+    # def save(self, *args, **kwargs):
+    #     if self.img_src.find('naver') != -1:
+    #         item_image_url = self.img_src
+    #         if item_image_url:
+    #             temp_file = download(item_image_url)
+    #             file_name = '{urlparse}.{ext}'.format(
+    #                 # url의 마지막 '/' 내용 중 확장자 제거
+    #                 # ex) url = 'https://~~~~~~/bag-1623898_960_720.jpg'
+    #                 #     -> 'bag-1623898_960_720.jpg'
+    #                 #     -> 'bag-1623898_960_720'
+    #                 urlparse=self.id,
+    #                 ext=get_buffer_ext(temp_file)
+    #             )
+    #             self.img_src.save(file_name)
+    #             super().save()
+    #         else:
+    #             super().save()
+    #     else:
+    #         super().save()
 
     def indexing(self):
         obj = ProductInfoIndex(
