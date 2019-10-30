@@ -6,6 +6,7 @@
             :rounded="rounded"
             :solo="solo"
             :clearable="clearable"
+            v-on:keyup.enter="search"
         ></v-text-field>
     </v-flex>
 </template>
@@ -20,6 +21,11 @@ export default {
         solo: true,
         clearable: true
     }),
+    methods: {
+        async search() {
+            await this.$store.dispatch('data/test1').then(() => this.$router.push({ name :"itemDetailPage"}));
+        }
+    }
 }
 </script>
 
