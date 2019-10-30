@@ -6,6 +6,8 @@ import store from './store'
 import { setupComponents } from './config/setup-components';
 import swalPlugin from './plugins/VueSweetalert2';
 import './plugins/base';
+import HistogramSlider from "vue-histogram-slider";
+import "vue-histogram-slider/dist/histogram-slider.css";
 
 Vue.component(HistogramSlider.name, HistogramSlider);
 Vue.use(swalPlugin);
