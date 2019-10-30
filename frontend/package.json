@@ -16,6 +16,7 @@
     "easter-egg-collection": "^1.4.56",
     "sweetalert2": "^8.18.5",
     "vue": "^2.6.10",
+    "vue-histogram-slider": "^0.3.4",
     "vue-router": "^3.0.3",
     "vuetify": "^2.1.0",
     "vuex": "^3.0.1"
