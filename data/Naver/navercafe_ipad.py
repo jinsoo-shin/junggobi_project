@@ -51,7 +51,7 @@ except:
 
 page_number = 1
 for page_num in range(page_number):
-    search_url="https://cafe.naver.com/ArticleSearchList.nhn?search.clubid=10050146&search.menuid=749&search.media=0&search.searchdate=all&search.exact=&search.include=&userDisplay=5&search.exclude=&search.onSale=1&search.option=3&search.sortBy=date&search.searchBy=0&search.searchBlockYn=0&search.includeAll=&search.query=%BE%C6%C0%CC%C6%D0%B5%E5&search.viewtype=title&search.page="+str(page_num+1)
+    search_url="https://cafe.naver.com/ArticleSearchList.nhn?search.clubid=10050146&search.menuid=749&search.media=0&search.searchdate=all&search.exact=&search.include=&userDisplay=50&search.exclude=&search.onSale=1&search.option=3&search.sortBy=date&search.searchBy=0&search.searchBlockYn=0&search.includeAll=&search.query=%BE%C6%C0%CC%C6%D0%B5%E5&search.viewtype=title&search.page="+str(page_num+1)
     driver.get(search_url)
     driver.implicitly_wait(3)
     driver.switch_to.frame('cafe_main')
