@@ -5,8 +5,7 @@ import vuetify from './plugins/vuetify';
 import store from './store'
 import { setupComponents } from './config/setup-components';
 import swalPlugin from './plugins/VueSweetalert2';
-import HistogramSlider from "vue-histogram-slider";
-import "vue-histogram-slider/dist/histogram-slider.css";
+import './plugins/base';
 
 Vue.component(HistogramSlider.name, HistogramSlider);
 Vue.use(swalPlugin);
@@ -15,8 +14,8 @@ Vue.prototype.EventBus = new Vue();
 setupComponents(Vue);
 
 new Vue({
-  router,
-  vuetify,
-  store,
-  render: h => h(App)
+    router,
+    vuetify,
+    store,
+    render: h => h(App)
 }).$mount('#app')

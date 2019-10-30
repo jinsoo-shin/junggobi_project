@@ -51,7 +51,7 @@ except:
 
 page_number = 1
 for page_num in range(page_number):
-    search_url="https://cafe.naver.com/ArticleSearchList.nhn?search.clubid=10050146&search.menuid=749&search.media=0&search.searchdate=all&search.exact=&search.include=&userDisplay=50&search.exclude=&search.onSale=1&search.option=3&search.sortBy=date&search.searchBy=0&search.searchBlockYn=0&search.includeAll=&search.query=%BE%C6%C0%CC%C6%D0%B5%E5&search.viewtype=title&search.page="+str(page_num+1)
+    search_url="https://cafe.naver.com/ArticleSearchList.nhn?search.clubid=10050146&search.menuid=749&search.media=0&search.searchdate=all&search.exact=&search.include=&userDisplay=5&search.exclude=&search.onSale=1&search.option=3&search.sortBy=date&search.searchBy=0&search.searchBlockYn=0&search.includeAll=&search.query=%BE%C6%C0%CC%C6%D0%B5%E5&search.viewtype=title&search.page="+str(page_num+1)
     driver.get(search_url)
     driver.implicitly_wait(3)
     driver.switch_to.frame('cafe_main')
@@ -97,7 +97,7 @@ for page_num in range(page_number):
             inbox = page.find(class_="inbox")
             tt = page.find(id="tbody")
             img_src = tt.find(class_="image_condition").find("img").get('src')
-            img_src = img_src.replace("?type=s3","").replace("%3Ftype%3Df1","")
+            # img_src = img_src.replace("?type=s3","").replace("%3Ftype%3Df1","")
             is_sell = False
             try:
                 is_sell_text = tt.find(class_="image_condition").find(class_="sold_txt").text
@@ -156,6 +156,9 @@ for page_num in range(page_number):
         product=regex_function.get_ipad_model(product,read_title,read_text)
         product =regex_function.get_price(product,read_title,read_price,read_text)
 
+        #사진 저장하기
+        urllib.request.urlretrieve(li[5],"../../.media/"+li[3]+".jpg" )
+        
         # 타이틀, 가격, 내용, 아이디, 날짜, 이미지주소, 링크
         request_data['navercafe'].append({
             'category' : '태블릿',
@@ -168,7 +171,8 @@ for page_num in range(page_number):
             'price': str(product['price']),
             'id': li[3],
             'date': li[4],
-            'img_src': li[5],
+           # 'img_src': li[5],
+            'img_src': "http://52.78.203.0:8000/media/"+li[3]+".jpg",
             'link': li[6],
             'title':li[0],
             'contents':li[2],

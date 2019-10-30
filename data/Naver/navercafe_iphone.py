@@ -98,7 +98,7 @@ for i in range(len(list)):
         inbox = page.find(class_="inbox")
         tt = page.find(id="tbody")
         img_src = tt.find(class_="image_condition").find("img").get('src')
-        img_src = img_src.replace("?type=s3","").replace("%3Ftype%3Df1","")
+        # img_src = img_src.replace("?type=s3","").replace("%3Ftype%3Df1","")
         is_sell = False
         try:
             is_sell_text = tt.find(class_="image_condition").find(class_="sold_txt").text
@@ -149,7 +149,8 @@ for li in save_result:
     product={}
     product= regex_function.get_iphone_model(product,read_title,read_text)
     product =regex_function.get_price(product,read_title,read_price,read_text)
-
+    #사진 저장하기
+    urllib.request.urlretrieve(li[5],"../../.media/"+li[3]+".jpg" )
     # 타이틀, 가격, 내용, 아이디, 날짜, 이미지주소, 링크
     request_data['navercafe'].append({
         'category' : '모바일',
@@ -159,7 +160,7 @@ for li in save_result:
         'price': str(product['price']),
         'id': li[3],
         'date': li[4],
-        'img_src': li[5],
+        'img_src': "http://52.78.203.0:8000/media/"+li[3]+".jpg",
         'link': li[6],
         'title':li[0],
         'contents':li[2],
