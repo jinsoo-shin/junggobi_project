@@ -43,6 +43,7 @@
                       <search/>
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
+                      <detailsearch/>
                       <div class="headline">Fast development</div>
                     </v-card-title>
                     <v-card-text>
