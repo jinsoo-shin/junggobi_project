@@ -6,16 +6,15 @@
     </v-toolbar>
     <v-content>
       <section>
-        <v-parallax src="https://cdn.pixabay.com/photo/2017/05/13/20/46/office-2310610_960_720.png" height="600">
+        <v-parallax src="http://file2.instiz.net/data/cached_img/upload/2016/05/09/23/7d931c39c52fe2837a5ec177e7223d36.jpg" height="600">
           <v-layout
             column
             align-center
-            justify-center
             class="white--text"
           >
             <img src="./src/Untitled.png" alt="Vuetify.js" height="200">
-            <div class="subheading mb-4 text-center" id="font">저렴한 중고제품이 필요해!?</div>
-            <h1 class="white--text mb-2 text-center" id="main_font">JunggoBi (중고비)</h1>
+            <h1 class="white--text mb-2 text-center" id="font">JunggoBi (중고비)</h1>
+            <h1 class="subheading mb-4 text-center" id="main_font">저렴한 중고제품이 필요해!?</h1>
           </v-layout>
         </v-parallax>
       </section>
@@ -30,7 +29,6 @@
           <v-flex xs12 sm4 class="my-4">
             <div class="text-center">
               <h2 id="font">The best way to find Ipad, Iphone, Galaxy...</h2>
-
             </div>
           </v-flex>
           <v-flex xs12>
@@ -39,18 +37,18 @@
                 <v-flex xs12>
                   <v-card flat class="transparent">
                     <v-card-text class="text-center">
-                      <v-icon x-large class="blue--text text--lighten-2">mdi-flash </v-icon><h1 id="font"> 필요한 게 뭐에요? </h1>
+                      <!-- <v-icon x-large class="blue--text text--lighten-2">mdi-flash </v-icon> -->
+                      <!-- <h1 id="font"> 필요한 게 뭐에요? </h1> -->
                       <search/>
                     </v-card-text>
-                    <v-card-title primary-title class="layout justify-center">
-                      <detailsearch/>
-                      <div class="headline">Fast development</div>
-                    </v-card-title>
-                    <v-card-text>
-                      Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
-                      Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                      Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti.
-                    </v-card-text>
+                    <br/>
+                    <br/>
+                    <center>
+                      <hr class="type_3">
+                    </center>
+                    <br/>
+                    <br/>
+                    <detailsearch/>
                   </v-card>
                 </v-flex>
               </v-layout>
@@ -60,18 +58,19 @@
       </section>
 
       <section>
-        <v-parallax src="https://static.wixstatic.com/media/4c6d87_812bc0ced5574ca3b2d18f3462e621f7~mv2_d_5334_3001_s_4_2.jpg/v1/fit/w_1000%2Ch_1000%2Cal_c%2Cq_80/file.png" height="380">
+        <v-parallax src="http://file2.instiz.net/data/cached_img/upload/2016/05/09/23/dd22139d831d87ff1c2a096d5f42a400.jpg" height="380">
           <v-layout column align-center justify-center>
-            <div class="headline white--text mb-4 text-center">Web development has never been easier</div>
-            <em>Kick-start your application today</em>
+            <div class="white--text mb-4 text-center" id="main_font">가격이 이렇게까지 싸다고!?</div>
+            <em id="font">가장 저렴한 제품 구경가기</em>
             <v-btn
               class="mt-12"
               color="blue lighten-2"
               dark
               large
+              id="font"
               href="/pre-made-themes"
             >
-              Get Started
+              최저가 보러가기
             </v-btn>
           </v-layout>
         </v-parallax>
@@ -83,7 +82,7 @@
             <v-flex xs12 sm4>
               <v-card flat class="transparent">
                 <v-card-title primary-title class="layout justify-center">
-                  <div class="headline">Company info</div>
+                  <div class="headline">JunggoBi Info</div>
                 </v-card-title>
                 <v-card-text>
                   Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
@@ -130,6 +129,11 @@
             </v-flex>
           </v-layout>
         </v-container>
+        <center>
+          <hr class="type_3">
+        </center>
+        <br/>
+        <br/>
       </section>
 
       <v-footer color="blue darken-2">
@@ -157,10 +161,17 @@ export default {
 <style scoped>
 #font {
   font-family: 'Stylish', sans-serif;
-  font-size: 25px;
+  font-size: 30px;
 }
 #main_font {
   font-family: 'Stylish', sans-serif;
   font-size: 50px;
+}
+hr.type_3 {
+  border: 0;
+  height: 50px;
+  width: 800px;
+  background-image: url(Untitled1.png);
+  background-repeat: no-repeat;
 }
 </style>
