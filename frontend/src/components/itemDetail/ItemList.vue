@@ -4,18 +4,20 @@
     <div>
       <v-flex>
         <v-row>
-          <HistogramSlider
+          <!-- 수정중 부분-->
+          <!-- <HistogramSlider
             style="margin: 200px auto"
             :width="600"
-            :bar-height="100"
+            :bar-height="50"
             :data="data"
-            :prettify="prettify"
             :drag-interval="true"
             :force-edges="false"
             :colors="['#4facfe', '#00f2fe']"
             :min="0"
-            :max="1000000"
-          />
+            :max="3000000"
+            :step="10000"
+            @finish="finish"
+          /> -->
           <!-- start : sort_methods 정렬방법 설정 -->
           <v-col>
             <v-row>
@@ -56,7 +58,8 @@
         </v-row>
 
         <v-row>
-          <v-col class="px-4">
+          <!-- start : range_slider -->
+          <!-- <v-col class="px-4">
             <v-range-slider
               v-model="range"
               :max="max"
@@ -87,7 +90,8 @@
             </template>
             </v-range-slider>
             <p>{{range[0]}} ~ {{range[1]}}</p>
-          </v-col>
+          </v-col> -->
+          <!-- end : range_slider -->
         </v-row>
 
 
@@ -160,7 +164,7 @@ export default {
     min: 0,
     max: 300,
     range: [0, 300],
-    data: []
+    data: data
   }),
   methods:{
     sortByLowToHigh_price() { // 정렬 - 낮은가격순
@@ -197,11 +201,15 @@ export default {
       let self=this;
       this.loading = false;
       setTimeout(function(){self.loading = true; self.loadingList=true}, timer);
-    }
+    },
+    // finish(val) { 
+    //   console.log(val);
+    // },
   },
   created() {
     this.loadingTimer(3000) // 화면전환시 로딩바 출력 부분
-    this.data = toLocaleString()
-  }
+    // this.$store.commit('data/checkCheapCost', this.itemListCards)
+    // this.$store.commit('data/checkExpenCost', this.itemListCards)
+  },
 }
 </script>
