@@ -66,16 +66,16 @@ const mutations = {
   }
 }
 const actions = {
-  async test1() {
-    const resp = await api.test()
-    state.items = resp.data
-    return state.items
-  }
+    async test1() {
+        const resp = await api.test()
+        state.items = resp.data
+        return state.items
+    }
 }
 export default {
-  namespaced: true,
-  state,
-  getters,
-  actions,
-  mutations,
+    namespaced: true,
+    state,
+    getters,
+    actions,
+    mutations,
 }

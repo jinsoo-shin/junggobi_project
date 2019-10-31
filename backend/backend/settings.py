@@ -25,7 +25,12 @@ SECRET_KEY = 'ls-j*2m^s^%8p^4uye$7&!1=e!y+aiz7y8qlc#qer3j_ay+9f_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['52.78.203.0',
+        '52.78.203.0:8000',
+        '52.78.203.0:8080',
+        '0.0.0.0',
+        'localhost:8080',
+        '.amazonaws.com',]
 
 
 # Application definition
@@ -86,7 +91,7 @@ DATABASES = {
         'NAME': 'junggobi',
         'USER': 'newuser',
         'PASSWORD': 'ssafy',
-        'HOST': '192.168.100.60',# Or an IP Address that your database is hosted on
+        'HOST': '52.78.203.0',# Or an IP Address that your database is hosted on
         'PORT': '3306',
         'OPTIONS': {'charset': 'utf8mb4'}
     }

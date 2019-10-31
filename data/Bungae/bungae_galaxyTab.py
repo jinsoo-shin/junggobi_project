@@ -8,7 +8,7 @@ import time
 import requests
 import json
 
-API_URL = "http://localhost:8000/api/"
+API_URL = "http://52.78.203.0:8000/api/"
 headers = {'content-type': 'application/json'}
 
 #user agent 유저인척하여 막히지 않도록!!

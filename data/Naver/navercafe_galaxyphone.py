@@ -9,7 +9,7 @@ import pandas as pd
 import regex_function
 import json
 import datetime
-API_URL = 'http://localhost:8000/api/'
+API_URL = 'http://52.78.203.0:8000/api/'
 headers = {'content-type': 'application/json'}
 filename = 'navercafe_passtext.txt'
 passtext = []
@@ -34,7 +34,7 @@ try :
     driver.find_element_by_css_selector('.btn_upload > .btn').click()
 except:  
     pass  
-
+ 
 try:
     driver.find_element_by_css_selector('.btn_cancel3')
     driver.find_element_by_css_selector('.btn_cancel3').click()

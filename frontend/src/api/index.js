@@ -6,7 +6,7 @@ const apiUrl = '/api'
 
 export default {
 //   searchMovies(params) {
-//     return axios.get(`${apiUrl}/movies/`, {
+//     return axios.get(`52.78.203.0/api/movies/`, {
 //       params,
 //     })
 //   },

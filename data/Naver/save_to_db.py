@@ -8,7 +8,7 @@ import re
 import pandas as pd
 import json
 
-API_URL = 'http://localhost:8000/api/'
+API_URL = 'http://52.78.203.0:8000/api/'
 headers = {'content-type': 'application/json'}
 def save_product():
     with open('product.csv', 'r') as read_data:
