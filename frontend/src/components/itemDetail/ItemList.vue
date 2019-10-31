@@ -4,7 +4,18 @@
     <div>
       <v-flex>
         <v-row>
-          
+          <HistogramSlider
+            style="margin: 200px auto"
+            :width="600"
+            :bar-height="100"
+            :data="data"
+            :prettify="prettify"
+            :drag-interval="true"
+            :force-edges="false"
+            :colors="['#4facfe', '#00f2fe']"
+            :min="0"
+            :max="1000000"
+          />
           <!-- start : sort_methods 정렬방법 설정 -->
           <v-col>
             <v-row>
@@ -20,7 +31,7 @@
             </v-row>
           </v-col>
           <!-- end : sort_methods -->
-
+          
           <!-- start : avgChart 평균가 차트 -->
           <v-col align-self="center">
             <div class="hidden-sm-and-down" style="cursor:pointer" @click="avgChart = true" >
@@ -54,27 +65,28 @@
               class="align-center"
               thumb-label
             >
-              <template v-slot:prepend>
+              <template v-slot>
                 <v-text-field
                   v-model="range[0]"
                   class="mt-0 pt-0"
                   hide-details
                   single-line
                   type="number"
-                  style="width: 60px"
+                  style="width: 80px"
                 ></v-text-field>
               </template>
-              <template v-slot:prepend>
-                <v-text-field
-                  v-model="range[1]"
-                  class="mt-0 pt-0"
-                  hide-details
-                  single-line
-                  type="number"
-                  style="width: 60px"
-                ></v-text-field>
-              </template>
+                <template v-slot>
+              <v-text-field
+                v-model="range[1]"
+                class="mt-0 pt-0"
+                hide-details
+                single-line
+                type="number"
+                style="width: 80px"
+              ></v-text-field>
+            </template>
             </v-range-slider>
+            <p>{{range[0]}} ~ {{range[1]}}</p>
           </v-col>
         </v-row>
 
@@ -124,6 +136,10 @@
 </template>
 
 <script>
+import HistogramSlider from 'vue-histogram-slider';
+import 'vue-histogram-slider/dist/histogram-slider.css';
+import data from "./data.json";
+
 export default {
   props: {
     itemListCards: {
@@ -142,9 +158,9 @@ export default {
     loading: false,     // 로딩 이미지 출력
     loadingList: false, // 카드리스트 출력 
     min: 0,
-    max: 3000000,
-    range: [0, 3000000],
- 
+    max: 300,
+    range: [0, 300],
+    data: []
   }),
   methods:{
     sortByLowToHigh_price() { // 정렬 - 낮은가격순
@@ -185,7 +201,7 @@ export default {
   },
   created() {
     this.loadingTimer(3000) // 화면전환시 로딩바 출력 부분
-    
+    this.data = toLocaleString()
   }
 }
 </script>

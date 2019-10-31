@@ -7,6 +7,7 @@ import { setupComponents } from './config/setup-components';
 import swalPlugin from './plugins/VueSweetalert2';
 import './plugins/base';
 
+Vue.component(HistogramSlider.name, HistogramSlider);
 Vue.use(swalPlugin);
 Vue.config.productionTip = false
 Vue.prototype.EventBus = new Vue();
