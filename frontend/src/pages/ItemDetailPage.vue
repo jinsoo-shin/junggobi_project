@@ -14,9 +14,8 @@
                 <span class="mdi mdi-playlist-plus mdi-24px"></span>
             </v-btn>
         </v-fab-transition>
-
         <!-- start : item-list -->
-        <itemList :itemListCards="itemList"/>
+        <itemList :itemListCards="itemList" :min="min" :max="max"/>
         <!-- end : item-list -->
         
         <!-- start : sideMenu -->
@@ -28,8 +27,8 @@
 
 <script>
 export default {
+    name: "itemDetailPage",
     data: () => ({
-        itemList: [],
         // itemList : // 메인 페이지에서 전달 받은 데이터로 변경 해주세요.
         // [   //name, gb, area, registrationDate, link, img
         //     {idx: 1, company: "samsung", title: "갤럭시탭", size: "32", status:"S급", shipping: "직거래", description:"액정이 파손되어서 버립니다. 싼가격에 가져가용 ㅎ", region: "광주광역시 오선동", registrationDate: "2018.10.19", price: "200,000", link: "http://www.naver.com", img :"//image-notepet.akamaized.net/resize/620x-/seimage/20190705%2F300c8f262e69893db9d3c97fad37dc91.jpg"},
@@ -42,13 +41,17 @@ export default {
 
         // ]
     }),
+    props: {
+        itemList: {type :Array},
+        min: {type:Number},
+        max: {type:Number}
+    },
     methods: {
         side() { 
             this.EventBus.$emit("sideMenu", true)
         }
     },
     created() {
-        this.itemList = this.$store.getters['data/getItems']
     }
 };
 </script>

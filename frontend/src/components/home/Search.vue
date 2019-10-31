@@ -23,7 +23,18 @@ export default {
     }),
     methods: {
         async search() {
-            await this.$store.dispatch('data/test1').then(() => this.$router.push({ name :"itemDetailPage"}));
+            await this.$store.dispatch('data/test1').
+            then(res => {
+                this.$store.commit('data/checkCheapCost', res)
+                this.$store.commit('data/checkExpenCost', res)
+                
+                this.$router.push({ name :"itemDetailPage", 
+                params: {
+                    itemList : res, 
+                    min : this.$store.getters['data/getCheapCost'], 
+                    max : this.$store.getters['data/getExpenCost']
+                }});
+            });
         }
     }
 }
