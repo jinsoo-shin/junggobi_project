@@ -27,6 +27,9 @@ def information(request):
             check = request.GET.get('is_sell',None)
             bungae = request.GET.get('link', None)
             id = request.GET.get('id',None)
+            model = request.GET.get('model_name',None)
+            if model:
+                product_info = product_info.filter(model_name__icontains=model)
             if check:
                 product_info = product_info.filter(is_sell__iexact=check)
             if id:

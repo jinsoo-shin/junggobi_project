@@ -45,14 +45,10 @@ export default {
     methods: {
         side() { 
             this.EventBus.$emit("sideMenu", true)
-        },
-        async dis() {
-            await this.$store.dispatch('data/test1')
-            this.itemList = this.$store.getters['data/getItems']
         }
     },
     created() {
-        this.dis();
+        this.itemList = this.$store.getters['data/getItems']
     }
 };
 </script>
