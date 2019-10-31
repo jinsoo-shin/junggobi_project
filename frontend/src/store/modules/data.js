@@ -52,6 +52,7 @@ const mutations = {
 const actions = {
   async test1() {
     const resp = await api.test()
+	  console.log('hihihi')
     state.items = resp.data
     return state.items
   }
