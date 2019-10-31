@@ -5,7 +5,7 @@
       <v-flex>
         <v-row>
           <!-- 수정중 부분-->
-          <!-- <HistogramSlider
+          <HistogramSlider
             style="margin: 200px auto"
             :width="600"
             :bar-height="50"
@@ -13,11 +13,11 @@
             :drag-interval="true"
             :force-edges="false"
             :colors="['#4facfe', '#00f2fe']"
-            :min="0"
-            :max="3000000"
+            :min="defaultMin"
+            :max="defaultMax"
             :step="10000"
             @finish="finish"
-          /> -->
+          />
           <!-- start : sort_methods 정렬방법 설정 -->
           <v-col>
             <v-row>
@@ -54,53 +54,14 @@
             </v-snackbar>
           </v-col>
           <!-- end : avgChart -->
-
         </v-row>
-
-        <v-row>
-          <!-- start : range_slider -->
-          <!-- <v-col class="px-4">
-            <v-range-slider
-              v-model="range"
-              :max="max"
-              :min="min"
-              hide-details
-              class="align-center"
-              thumb-label
-            >
-              <template v-slot>
-                <v-text-field
-                  v-model="range[0]"
-                  class="mt-0 pt-0"
-                  hide-details
-                  single-line
-                  type="number"
-                  style="width: 80px"
-                ></v-text-field>
-              </template>
-                <template v-slot>
-              <v-text-field
-                v-model="range[1]"
-                class="mt-0 pt-0"
-                hide-details
-                single-line
-                type="number"
-                style="width: 80px"
-              ></v-text-field>
-            </template>
-            </v-range-slider>
-            <p>{{range[0]}} ~ {{range[1]}}</p>
-          </v-col> -->
-          <!-- end : range_slider -->
-        </v-row>
-
 
         <v-row>
           <!-- start : itemListCards 아이템 리스트 출력 -->
           <v-col v-if="loadingList">
             <!-- <itemListCard v-for="card in itemListCards" :key="card.name" :item="card" class="mt-1"></itemListCard> -->
-            <itemListCard v-for="i in itemListCards.length > length ? length : itemListCards.length"
-              :key="i" :item="itemListCards[i-1]" class="mt-1"/>
+            <itemListCard v-for="i in itemsUsed.length > length ? length : itemsUsed.length"
+              :key="i" :item="itemsUsed[i-1]" class="mt-1"/>
           </v-col>
           <!-- end : itemListCards -->
         
@@ -150,6 +111,8 @@ export default {
       type: Array,
       default: () => new Array(),
     },
+    min : { type: Number },
+    max : { type : Number }
   },
   data: () => ({
     avgChart: false,  // 평균 비교 차트
@@ -161,19 +124,41 @@ export default {
     moreBtn: true,      // 더보기버튼 출력
     loading: false,     // 로딩 이미지 출력
     loadingList: false, // 카드리스트 출력 
-    min: 0,
-    max: 300,
-    range: [0, 300],
-    data: data
+    chartMin: 0,
+    chartMax: 0,
+    chartSx: 0,
+    chartLx: 0,
+    defaultMin: 0,
+    defaultMax: 0,
+    data: [],
+    itemsUsed: []
   }),
   methods:{
     sortByLowToHigh_price() { // 정렬 - 낮은가격순
-      this.itemListCards.sort((a,b) => a['price'] < b['price'] ? -1 : 1)
+      this.itemsUsed = this.itemListCards;
+      this.itemsUsed.sort((a,b) => a['price'] < b['price'] ? -1 : 1)
     },
     sortByHighToLow_price() { // 정렬 - 높은가격순
-      this.itemListCards.sort((a,b) => a['price'] > b['price'] ? -1 : 1)
+      this.itemsUsed = this.itemListCards;
+      this.itemsUsed.sort((a,b) => a['price'] > b['price'] ? -1 : 1)
+    },
+    sortByRange() {
+      let max = Math.max.apply(Math, this.itemListCards.map(function(o) { return o.price }))
+      let min = Math.min.apply(Math, this.itemListCards.map(function(o) { return o.price }))
+      // this.itemListCards.sort((a,b) => a['price'] > b['price'] ? -1 : 1)
+      // this.itemListCards.sort((a,b) => (a['price'] >= this.chartSx)&&(a['price'] <= this.chartLx)  ? -1 : 1)
+      var list = [];
+      console.log(this.chartLx + " " + this.chartSx)
+      for(var i = 0; i< this.itemListCards.length; i++) {
+        if( (this.itemListCards[i].price>= this.chartSx) && (this.itemListCards[i].price<=this.chartLx) ){
+          list.push(this.itemListCards[i])
+        }
+      }
+      list.sort((a,b) => a['price'] < b['price'] ? -1 : 1)
+      this.itemsUsed = list;
     },
     sortyBy() { //select 된 정렬 방법 메소드 실행
+      this.reset()
       if(this.sortMethod==="높은가격순") {
         this.sortByHighToLow_price();
       } else {
@@ -202,14 +187,31 @@ export default {
       this.loading = false;
       setTimeout(function(){self.loading = true; self.loadingList=true}, timer);
     },
-    // finish(val) { 
-    //   console.log(val);
-    // },
+    finish(val) { 
+      console.log(val);
+      let arr = [];
+      arr[0] = val.from;
+      arr[1] = val.to;
+      this.chartSx = val.from;
+      this.chartLx = val.to;
+      console.log(this.chartMin + " dasf")
+      let a = this.sortByRange();
+    },
+    reset() {
+      // this.min = this.chartMin;
+      // this.max = this.chartMax;
+      //----수정할 부분 ------
+
+    }
   },
   created() {
     this.loadingTimer(3000) // 화면전환시 로딩바 출력 부분
-    // this.$store.commit('data/checkCheapCost', this.itemListCards)
-    // this.$store.commit('data/checkExpenCost', this.itemListCards)
+    this.itemsUsed = this.itemListCards;
+    for(var i=0; i<this.itemListCards.length; i++){
+      this.data[i] = this.itemListCards[i].price;
+    }
+    this.defaultMin = this.min;
+    this.defaultMax = this.max;
   },
 }
 </script>

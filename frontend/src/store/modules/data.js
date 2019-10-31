@@ -4,6 +4,8 @@ const state = {
   items : [],
   favoriteItems : [],
   index : 0,
+  cheapCost : 0,
+  expenCost : 0,
 }
 const getters = {
   getFavoriteItems(state) {
@@ -11,7 +13,13 @@ const getters = {
   },
   getItems(state) {
     return state.items;
-  }
+  },
+  getCheapCost(state) {
+    return state.cheapCost;
+  },
+  getExpenCost(state) {
+    return state.expenCost;
+  },
 }
 const mutations = {
   setAddFavoriteItems(state, payload) {
@@ -25,6 +33,17 @@ const mutations = {
       }
     }
   },
+  setRangeItems(state, payload) {
+    var min = payload[0];
+    var max = payload[1];
+    var arr = state.items;
+    for(var i=0; i<arr.length; i++){
+      if(min<=arr[i].price){
+        console.log(arr[i].price)
+        break;
+      }
+    }
+  },
   checkExpenCost(state, list) {
     var arr = list
     var len = arr.length, max = -Infinity;
@@ -33,19 +52,16 @@ const mutations = {
         max = arr[len].price;
       }
     }
-    console.log(state.expenCost)
     state.expenCost = max;
   },
   checkCheapCost(state, list) {
     var arr = list
-    console.log(arr)
     var len = arr.length, min = Infinity;
     while (len--) {
       if (arr[len].price < min) {
         min = arr[len].price;
       }
     }
-    console.log(state.cheapCost)
     state.cheapCost = min;
   }
 }

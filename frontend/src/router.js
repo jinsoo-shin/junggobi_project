@@ -18,7 +18,8 @@ export default new Router({
         {
             path: '/itemDetailPage',
             name: 'itemDetailPage',
-            component: ItemDetailPage
+            component: ItemDetailPage,
+            props: true
         },
         {
             path: '/redirectPage',
