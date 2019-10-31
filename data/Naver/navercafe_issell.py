@@ -7,8 +7,8 @@ import pymysql
 import time
 import requests
 import json
-conn = pymysql.connect(host='192.168.100.60', user='newuser', password='ssafy', db='junggobi', charset='utf8')
-API_URL = "http://localhost:8000/api/"
+conn = pymysql.connect(host='52.78.203.0', user='newuser', password='ssafy', db='junggobi', charset='utf8')
+API_URL = "http://52.78.203.0:8000/api/"
 headers = {'content-type': 'application/json'}
 def test():
     curs = conn.cursor()
