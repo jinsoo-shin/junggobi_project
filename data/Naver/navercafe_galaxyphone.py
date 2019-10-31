@@ -34,7 +34,7 @@ try :
     driver.find_element_by_css_selector('.btn_upload > .btn').click()
 except:  
     pass  
-
+ 
 try:
     driver.find_element_by_css_selector('.btn_cancel3')
     driver.find_element_by_css_selector('.btn_cancel3').click()
