@@ -24,8 +24,8 @@ chrome_options.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64
 driver = webdriver.Chrome("../chromedriver.exe",chrome_options=chrome_options)
 driver.implicitly_wait(3)
 driver.get('https://nid.naver.com/nidlogin.login')
-id = 'sjins0127'
-pw = 'jso127!'
+id = 'shy_red'
+pw = 'crldwusbf127!'
 driver.execute_script("document.getElementsByName('id')[0].value=\'" + id + "\'")
 driver.execute_script("document.getElementsByName('pw')[0].value=\'" + pw + "\'")
 driver.find_element_by_xpath('//*[@id="frmNIDLogin"]/fieldset/input').click()
