@@ -4,8 +4,8 @@ const state = {
   items : [],
   favoriteItems : [],
   index : 0,
-  cheapCost : 0,
-  expenCost : 0,
+  valueMaxMin : [],
+  chart : [],
 }
 const getters = {
   getFavoriteItems(state) {
@@ -44,32 +44,42 @@ const mutations = {
       }
     }
   },
-  checkExpenCost(state, list) {
-    var arr = list
-    var len = arr.length, max = -Infinity;
-    while (len--) {
-      if (arr[len].price > max) {
-        max = arr[len].price;
-      }
-    }
-    state.expenCost = max;
-  },
-  checkCheapCost(state, list) {
-    var arr = list
-    var len = arr.length, min = Infinity;
-    while (len--) {
-      if (arr[len].price < min) {
-        min = arr[len].price;
-      }
-    }
-    state.cheapCost = min;
+  // checkExpenCost(state, list) {
+  //   var arr = list
+  //   var len = arr.length, max = -Infinity;
+  //   while (len--) {
+  //     if (arr[len].price > max) {
+  //       max = arr[len].price;
+  //     }
+  //   }
+  //   state.expenCost = max;
+  // },
+  // checkCheapCost(state, list) {
+  //   var arr = list
+  //   var len = arr.length, min = Infinity;
+  //   while (len--) {
+  //     if (arr[len].price < min) {
+  //       min = arr[len].price;
+  //     }
+  //   }
+  //   state.cheapCost = min;
+  // },
+  setValueMaxMin(state, payload) {
+    state.valueMaxMin = payload
   }
 }
 const actions = {
     async test1() {
-        const resp = await api.test()
-        state.items = resp.data
-        return state.items
+      const resp = await api.test()
+      state.items = resp.data
+      return state.items
+    },
+    async searchById(state, payload) {
+      const resp = await api.searchById(payload)
+      state.items = resp.data.hits.hits
+      state.chart = resp.data.aggregations
+      console.log(state.chart)
+      return state.items
     }
 }
 export default {

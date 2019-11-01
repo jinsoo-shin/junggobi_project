@@ -1,6 +1,7 @@
 <!-- itemDetailPage 상세 페이지 -->
 <template>
-    <v-container grid-list-md text-center>        
+    <v-container grid-list-md text-center>  
+        <search></search>      
         <v-fab-transition>
             <v-btn
                 @click="side"

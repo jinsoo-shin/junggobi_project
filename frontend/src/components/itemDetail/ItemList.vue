@@ -103,7 +103,6 @@
 <script>
 import HistogramSlider from 'vue-histogram-slider';
 import 'vue-histogram-slider/dist/histogram-slider.css';
-import data from "./data.json";
 
 export default {
   props: {
