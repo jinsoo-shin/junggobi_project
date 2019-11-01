@@ -1,10 +1,9 @@
 #-*- coding:utf-8 -*-
 import requests
 import time
-import urllib.request
+import urllib
 import re
 import csv
-import pandas as pd
 from collections import Counter
 
 
