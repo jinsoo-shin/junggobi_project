@@ -47,10 +47,8 @@ export default {
                 console.log(res)
                 let valueMaxMin = this.checkMaxMinValue(res);
                 this.$store.commit('data/setValueMaxMin', valueMaxMin)
-                this.$router.push({ name : "itemDetailPage" , 
-                params: {
-                    itemList: res,
-                }})
+                this.$router.push({ name : "itemDetailPage"})
+                this.EventBus.$emit("changedItemList");
             })
         }
     }
