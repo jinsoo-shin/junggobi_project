@@ -12,5 +12,8 @@ export default {
 //   },
     test() {
         return axios.get(`${apiUrl}/product/`)
+    },
+    searchById(id) {
+        return axios.get(`${apiUrl}/search/?search_word=`+id)
     }
 }
