@@ -21,10 +21,6 @@ def search(request):
                                  "size": 10, # size는 한 번에 나타날 게시글의 수
                                  "from": 0, # 페이징을 할 때 쪽수는 from
                                  "query": {
-                                     # "multi_match": {
-                                     #     "query": search_word,
-                                     #     "fields": ["title", "contents", "region"]
-                                     # },
                                      "bool": {
                                          "should": [
                                              {"match": {"title": search_word}},
@@ -89,6 +85,62 @@ def search(request):
                              })
 
             return Response(docs)
+        else:
+            es = Elasticsearch()
+            docs = es.search(index='productinfo-index',
+                             body={
+                                 "size": 10, # size는 한 번에 나타날 게시글의 수
+                                 "from": 0, # 페이징을 할 때 쪽수는 from
+                                 "query": {
+                                    "match_all": {}
+                                 },
+                                 "aggs": {#aggregations
+                                     "avg_price": {
+                                         "avg": {
+                                             "field": "price"
+                                         }
+                                     },
+                                     "max_price": {
+                                         "max": {
+                                             "field": "price"
+                                         }
+                                     },
+                                     "min_price": {
+                                         "min": {
+                                             "field": "price"
+                                         }
+                                     },
+                                     "group_by_date": {
+                                         "terms": {
+                                             "field": "date",
+                                             "format": "yyyy-MM-dd",
+                                             "order": {"_key": "asc"},
+                                             "size": 7
+                                         },
+                                         "aggs": {
+                                             "date_avg": {
+                                                 "avg": {
+                                                     "field": "price"
+                                                 },
+                                             },
+                                             "date_max": {
+                                                 "max": {
+                                                     "field": "price"
+                                                 }
+                                             },
+                                             "date_min": {
+                                                 "min": {
+                                                     "field": "price"
+                                                 }
+                                             },
+                                         },
+                                     },
+
+                                 }
+                             })
+
+            return Response(docs)
+
 
     if request.method == 'POST':
         search = request.data.get('search', None)
@@ -105,21 +157,25 @@ def auto(request):
     if request.method == 'GET':
         search_word = request.query_params.get('search_word')
         if search_word:
+            word = search_word.replace(" ","").split()
             es = Elasticsearch()
             docs = es.search(index='productinfo-index',
                              body={
-                                 # "size":10,
+                                 "size":10,
                                  "_source": ["model_name"],
-                                 "query": {
+                                    "query": {
                                      "wildcard": {
                                          "model_name": {
                                              "value": "*"+search_word+"*"
                                          }
                                      },
                                  },
+                           
                              })
+
             request_result = docs['hits']['hits']
-            auto_keyword=[]
+            # return Response(request_result)
+            auto_keyword=[] 
             for data in request_result:
                 auto_keyword.append(data["_source"]['model_name'])
             auto_keyword = list(set(auto_keyword))
