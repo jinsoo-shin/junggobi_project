@@ -8,7 +8,7 @@ module.exports = {
     },
 	host : '0.0.0.0',
 	disableHostCheck : true,
-	port : 8080,
-	public : '52.78.203.0:8080',
+	port : 80,
+	public : '52.78.203.0:80',
   }
 }
