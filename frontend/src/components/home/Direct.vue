@@ -5,7 +5,7 @@
                 v-for="(item, i) in items"
                 :key="i"
                 cols="12"
-                xs="12" sm="2"
+                xs="12" lg="2" md="3"
             >
                 <center>
                     <a href="#" @click="direct_move(item.idx)">
@@ -83,7 +83,7 @@ export default {
                 idx : 9
             },
             {
-                title: "갤럭시 그외",
+                title: "갤럭시",
                 src : "https://image.flaticon.com/icons/svg/2152/2152553.svg",
                 idx : 10
             },
@@ -95,9 +95,16 @@ export default {
         ]
     }),
     methods:{
-        direct_move(number){
-            console.log(this.items[number].title)
-            
+        async direct_move(id) {
+            console.log(this.items[id].title)
+            await this.$store.dispatch('data/searchById', this.items[id].title)
+            .then(res => {
+                console.log(res)
+                this.EventBus.$emit("changedItemList");
+                this.itemList = res;
+                this.EventBus.$emit("search")
+                this.$router.push({ name : "searchPage", params: {itemListSub: res}})
+            })
         }
     }
 }
