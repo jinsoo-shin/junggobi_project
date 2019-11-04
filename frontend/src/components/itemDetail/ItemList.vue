@@ -32,6 +32,13 @@
       <itemListCard v-for="i in NowItems.length > length ? length :NowItems.length"
         :key="i" :item="NowItems[i-1]" class="mt-1"/>
     </v-row>
+    <v-row>
+      <!-- start : loadMore button 더 보기 버튼 -->
+      <v-col v-if="moreBtn">
+        <v-btn outlined @click = "loadMore">더보기</v-btn>
+      </v-col>
+      <!-- end : loadMore -->
+    </v-row>
     </v-flex>
   </v-layout>
   <v-btn
@@ -50,6 +57,7 @@ import 'vue-histogram-slider/dist/histogram-slider.css';
 
 export default {
   data: () => ({ 
+    moreBtn: true,      // 더보기버튼 출력
     NowItems : [],
     chartLP : 0,
     chartRP : 1000000,
@@ -75,7 +83,7 @@ export default {
     toTop () {      // 맨위좌표 기억
       this.$vuetify.goTo(0)
     },
-     itemLen() { // 검색된 데이터 정보 양 출력
+    itemLen() { // 검색된 데이터 정보 양 출력
       return "검색 결과 : " + this.NowItems.length + " 건";
     },
     sortyBy(action) { //select 된 정렬 방법 메소드 실행
@@ -108,6 +116,10 @@ export default {
       this.NowItems.sort(function(a,b){
         return new Date(a._source.date) - new Date(b._source.date); 
       });
+    },
+    loadMore() {  // 더보기 버튼 
+      this.length += 10;
+      if (this.length >= this.itemList.length) this.moreBtn = false;
     },
   },
   props :{ 
