@@ -14,11 +14,11 @@ from api.search import bulk_indexing
 def search(request):
     if request.method == 'GET':
         search_word = request.query_params.get('search_word')
-        if search_word:
+        if search_word is not "":
             es = Elasticsearch()
             docs = es.search(index='productinfo-index',
                              body={
-                                 "size": 200, # size는 한 번에 나타날 게시글의 수
+                                 "size": 2000, # size는 한 번에 나타날 게시글의 수
                                  "from": 0, # 페이징을 할 때 쪽수는 from
                                  "query": {
                                      "bool": {
@@ -26,8 +26,7 @@ def search(request):
                                              {"match": {"title": search_word}},
                                              {"match": {"contents": search_word}},
                                              {"match": {"region": search_word}},
-                                             {"match": {"manufacturer": ""}},
-                                             {"match": {"model_name": ""}}
+                                             {"match": {"model_name": search_word}}
                                          ]
                                      }
                                  },
@@ -89,7 +88,7 @@ def search(request):
             es = Elasticsearch()
             docs = es.search(index='productinfo-index',
                              body={
-                                 "size": 10, # size는 한 번에 나타날 게시글의 수
+                                 "size": 2000, # size는 한 번에 나타날 게시글의 수
                                  "from": 0, # 페이징을 할 때 쪽수는 from
                                  "query": {
                                     "match_all": {}
