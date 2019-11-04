@@ -14,7 +14,14 @@ am4core.useTheme(am4themes_animated);
 
 export default {
     name: 'logChart',
+    props :{ 
+    chartDatas : { type: Object},
+    },
+    data: () => ({
+        chartDatasList : {}
+    }),
     mounted() {
+        var chartDatasLists = this.chartDatas['group_by_date']['buckets']
         am4core.ready(function() {
 
         // Themes begin
@@ -28,7 +35,7 @@ export default {
         chart.colors.step = 2;
 
         // Add data
-        chart.data = generateChartData();
+        chart.data = generateChartData(chartDatasLists);
 
         // Create axes
         var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
@@ -103,26 +110,22 @@ export default {
         chart.cursor = new am4charts.XYCursor();
 
         // generate some random data, quite different range
-        function generateChartData() {
+        function generateChartData(chartDatasLists) {
         var chartData = [];
-        var firstDate = new Date();
-        firstDate.setDate(firstDate.getDate() - 100);
-        firstDate.setHours(0, 0, 0, 0);
 
-        var visits = 1600;
-        var hits = 2900;
-        var views = 8700;
-
-        for (var i = 0; i < 15; i++) {
+        var visits = 0;
+        var hits = 0;
+        var views = 0;
+        for (var idx in chartDatasLists) {
             // we create date objects here. In your data, you can have date strings
             // and then set format of your dates using chart.dataDateFormat property,
             // however when possible, use date objects, as this will speed up chart rendering.
-            var newDate = new Date(firstDate);
-            newDate.setDate(newDate.getDate() + i);
-
-            visits += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
-            hits += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
-            views += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
+            
+            var newDate = chartDatasLists[idx]['key_as_string']
+            visits = chartDatasLists[idx]['date_avg']['value']
+            hits = chartDatasLists[idx]['date_max']['value']
+            views = chartDatasLists[idx]['date_min']['value']
+            
 
             chartData.push({
             date: newDate,

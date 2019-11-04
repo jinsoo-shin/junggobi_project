@@ -8,6 +8,27 @@
       <b-collapse invisible id="collapse-3">
         <b-form-select v-model="selected" :options="options" size="sm" class="mt-3" value="select"></b-form-select>
       </b-collapse>
+      <div>
+
+      <v-col align-self="center">
+            <div class="hidden-sm-and-down" style="cursor:pointer" @click="avgChart = true" >
+              <v-alert outlined dense color="info">
+                <span class="mdi mdi-poll-box"></span> 
+                가격 변동 
+              </v-alert>
+            </div>
+            <v-snackbar color="white" v-model="avgChart">
+            <v-col>
+              <v-row>
+                <multipleChart :chartDatas ='chartDatas'></multipleChart>
+              </v-row>
+              <v-row justify="end" >
+                <v-btn color="grey" text @click="avgChart = false">Close</v-btn>
+              </v-row>
+            </v-col>
+            </v-snackbar>
+          </v-col>
+      </div>
         <div class="mt-3"><strong> {{itemLen()}}</strong></div>
     </v-row>
     <!-- {{priceList}}
@@ -50,7 +71,9 @@ import HistogramSlider from 'vue-histogram-slider';
 import 'vue-histogram-slider/dist/histogram-slider.css';
 
 export default {
-  data: () => ({ 
+  data: () => ({
+    avgChart: false,
+    chartDatas : {},
     moreBtn: true,      // 더보기버튼 출력
     NowItems : [],
     chartLP : 0,
@@ -120,6 +143,7 @@ export default {
     itemList :function(newVal, oldVal) {
       this.NowItems = this.itemList;
       this.priceList = this.itemPriceList
+      this.chartDatas = this.$store.getters['data/getChartData']
     },
     selected :function(newVal, oldVal) {
       this.sortyBy(newVal);
