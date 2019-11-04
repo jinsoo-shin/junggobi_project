@@ -6,6 +6,7 @@ const state = {
   index : 0,
   valueMaxMin : [],
   chart : [],
+  articles: [],
 }
 const getters = {
   getFavoriteItems(state) {
@@ -20,6 +21,9 @@ const getters = {
   getExpenCost(state) {
     return state.expenCost;
   },
+  getBlogPosts(state) {
+    return state.articles;
+}
 }
 const mutations = {
   setAddFavoriteItems(state, payload) {
@@ -50,15 +54,20 @@ const mutations = {
 }
 const actions = {
     async test1() {
-      const resp = await api.test()
-      state.items = resp.data
-      return state.items
+        const resp = await api.test()
+        state.items = resp.data
+        return state.items
+    },
+    async getBlogPost() {
+        const resp = await api.getBlogpost()
+        state.articles = resp.data
+        return state.articles
     },
     async searchById(state, payload) {
       const resp = await api.searchById(payload)
       state.items = resp.data.hits.hits
       state.chart = resp.data.aggregations
-      console.log(state.chart)
+      console.log(state.items)
       return state.items
     }
 }

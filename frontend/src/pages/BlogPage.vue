@@ -19,6 +19,8 @@ import Pacman from "../components/Pacman"
       Articles,
       Banner,
       Pacman
+    },
+    props: {
     }
   }
 </script>

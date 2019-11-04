@@ -44,7 +44,6 @@ export default {
         async searchById(id) {
             await this.$store.dispatch('data/searchById', id)
             .then(res => {
-                console.log(res)
                 // let valueMaxMin = this.checkMaxMinValue(res);
                 // this.$store.commit('data/setValueMaxMin', valueMaxMin)
                 // this.$router.push({ name : "itemDetailPage"})

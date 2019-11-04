@@ -5,13 +5,12 @@ import axios from 'axios'
 const apiUrl = '/api'
 
 export default {
-//   searchMovies(params) {
-//     return axios.get(`52.78.203.0/api/movies/`, {
-//       params,
-//     })
-//   },
+
     test() {
         return axios.get(`${apiUrl}/product/`)
+    },
+    getBlogpost() {
+        return axios.get(`${apiUrl}/news/`)
     },
     searchById(id) {
         return axios.get(`${apiUrl}/search/?search_word=`+id)

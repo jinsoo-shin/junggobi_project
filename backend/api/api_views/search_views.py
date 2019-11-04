@@ -18,7 +18,7 @@ def search(request):
             es = Elasticsearch()
             docs = es.search(index='productinfo-index',
                              body={
-                                 "size": 200, # size는 한 번에 나타날 게시글의 수
+                                 "size": 2000, # size는 한 번에 나타날 게시글의 수
                                  "from": 0, # 페이징을 할 때 쪽수는 from
                                  "query": {
                                      "bool": {
@@ -88,7 +88,7 @@ def search(request):
             es = Elasticsearch()
             docs = es.search(index='productinfo-index',
                              body={
-                                 "size": 10, # size는 한 번에 나타날 게시글의 수
+                                 "size": 2000, # size는 한 번에 나타날 게시글의 수
                                  "from": 0, # 페이징을 할 때 쪽수는 from
                                  "query": {
                                     "match_all": {}

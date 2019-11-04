@@ -3,6 +3,10 @@
    <v-app light>
     <v-toolbar color="white">
       <v-toolbar-title>Log</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-items>
+        <v-btn text @click="blogpage">Post</v-btn>
+      </v-toolbar-items>
     </v-toolbar>
     <v-content id="back">
       <section>
@@ -72,8 +76,10 @@
               dark
               large
               id="font"
-              href="/pre-made-themes"
+              @click= "searchAll"
             >
+            
+              <!-- href="/pre-made-themes" -->
               최저가 보러가기
             </v-btn>
           </v-layout>
@@ -114,8 +120,21 @@
 </template>
 
 <script>
+const apiUrl = '/api'
+import axios from "axios";
 export default {
-  
+  methods: {
+        async blogpage() {
+            await this.$store.dispatch('data/getBlogPost').then(res => this.$router.push({ name :"BlogPage", params : { data : res}}));
+        },
+         async searchAll() {
+      await this.$store.dispatch('data/searchById', "")
+      .then(res => {
+       
+      })
+    },
+
+  }
 }
 </script>
 <style scoped>
