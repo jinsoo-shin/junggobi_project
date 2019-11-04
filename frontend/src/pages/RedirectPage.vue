@@ -3,7 +3,7 @@
     <v-container grid-list-md text-center>        
         <h1>junggobi</h1>
         <v-divider></v-divider>
-        <p class="font-weight-black" style="color:indigo">판매가격 {{ price }} </p>
+        <p class="font-weight-black" style="color:indigo">판매가격 {{ numberWithCommas(price) }} </p>
         
         <!-- start : progressBar 출력 -->
         <v-layout class="justify-center">
@@ -36,6 +36,9 @@ export default {
     methods: {
         openLink(link) {    // 페이지 오픈
             window.location.assign(link)
+        },
+        numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
     },
     beforeDestroy () {  
