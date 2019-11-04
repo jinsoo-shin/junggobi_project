@@ -27,7 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['52.78.203.0',
         '52.78.203.0:8000',
-        '0.0.0.0']
+        '52.78.203.0:8080',
+        '0.0.0.0',
+        'localhost:8080',
+        '.amazonaws.com',]
 
 
 # Application definition
