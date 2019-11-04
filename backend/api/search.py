@@ -11,6 +11,12 @@ my_analyzer = analyzer(
     'my_analyzer',
     tokenizer=tokenizer('nori_tokenizer')
 )
+# ngram_analyzer = analyzer(
+#     'ngram_analyzer',
+#     tokenizer=tokenizer('edge_ngram',min_gram=1,max_gram=20),
+#     filter=['lowercase']
+# )
+
 class ProductInfoIndex(Document):
 
     id = Integer()
@@ -39,62 +45,6 @@ class ProductInfoIndex(Document):
 def bulk_indexing():
     ProductInfoIndex.init()
     es = Elasticsearch()
-
-
-
-    # es.indices.create(
-    #     index='test-index',
-    #     body={
-    #         "settings": {
-    #             "index": {
-    #                 "analysis": {
-    #                     "tokenizer": {
-    #                         "nori_user_dict": {
-    #                             "type": "nori_tokenizer",
-    #                             "decompound_mode": "mixed",
-    #                             "user_dictionary": "userdict_ko.txt"
-    #                         }
-    #                     },
-    #                     "analyzer": {
-    #                         "my_analyzer": {
-    #                             "type": "custom",
-    #                             "tokenizer": "nori_user_dict"
-    #                         }
-    #                     }
-    #                 }
-    #             }
-    #         },
-    #         "mappings": {
-    #             "navercafe_datas": {
-    #                 "properties": {
-    #                     "id": {
-    #                         "type": "integer"
-    #                     },
-    #                     "title": {
-    #                         "type": "text",
-    #                         "analyzer": "my_analyzer"
-    #                     },
-    #                     "contents": {
-    #                         "type": "text",
-    #                         "analyzer": "my_analyzer"
-    #                     }
-    #                 }
-    #             }
-    #         }
-    #     }
-    # )
-    # body = ""
-    # print(b.indexing() for b in models.Navercafe.objects.all().iterator())
-    # for b in models.Navercafe.objects.all().iterator():
-    #     print(b.indexing())
-
-    # navercafe = models.Navercafe.objects.all()
-    # serializer = NavercafeSerializer(navercafe, many=True)
-    # for b in serializer:
-    #     body = body + json.dumps({"index": {"_index": "test-index", "_type": "navercafe_datas"}}) + '\n'
-    #     body = body + json.dumps(b, ensure_ascii=False) + '\n'
-    # es.bulk(body)
-
 
     bulk(client=es, actions=(b.indexing() for b in models.ProductInfo.objects.all().iterator()))
 

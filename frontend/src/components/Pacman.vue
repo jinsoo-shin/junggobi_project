@@ -20,8 +20,8 @@
 	animation: myPotAnimation 8s ease;
 }
  .pacman>.lectangle{
-	 opacity:0;
-  background:white;
+	opacity:0;
+  background:#fafafa;
  animation:myEatAnimation 7s ease;
  }
 @keyframes myPotAnimation {
