@@ -3,6 +3,10 @@
    <v-app light>
     <v-toolbar color="white">
       <v-toolbar-title>Log</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-items>
+        <v-btn text @click="blogpage">Post</v-btn>
+      </v-toolbar-items>
     </v-toolbar>
     <v-content id="back">
       <section>
@@ -114,8 +118,20 @@
 </template>
 
 <script>
+const apiUrl = '/api'
+import axios from "axios";
 export default {
-  
+  created(){
+    // axios.get(`${apiUrl}/news/`, {
+    //     }).then(response => {
+
+    //     }) 
+  },
+  methods: {
+        async blogpage() {
+            await this.$store.dispatch('data/getBlogPost').then(res => this.$router.push({ name :"BlogPage", params : { data : res}}));
+        }
+  }
 }
 </script>
 <style scoped>

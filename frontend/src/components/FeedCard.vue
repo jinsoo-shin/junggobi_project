@@ -9,9 +9,9 @@
       dark
       href="#!"
     >
-        <!-- :src="require(`./blog/assets/articles/${value.hero}`)" -->
+        <!-- :src="getImgUrl(value.hero)" -->
       <v-img
-        :src="getImgUrl(value.hero)"
+        :src="value.hero"
         height="100%"
         gradient="rgba(0, 0, 0, .42), rgba(0, 0, 0, .42)"
       >
@@ -23,21 +23,12 @@
           ma-0
         >
           <v-flex xs12>
-            <v-chip
-              label
-              class="mx-0 mb-2 text-uppercase"
-              color="grey darken-3"
-              text-color="white"
-              small
-              @click.stop=""
-            >
-              {{ value.category }}
-            </v-chip>
             <h3 class="title font-weight-bold mb-2">
               {{ value.title }}
             </h3>
             <div class="caption">
-              {{ value.author }}<br>Date
+              {{ value.author }}<br>
+              <!-- Date -->
             </div>
           </v-flex>
           <v-flex align-self-end>
@@ -46,7 +37,7 @@
               color="primary"
               label
               small
-              @click.stop=""
+              @click="gotosite(value.url)"
             >
               Read More
             </v-chip>
@@ -81,6 +72,10 @@
     methods: {
       getImgUrl(img) {
         return require('../../assets/articles/' + img)
+      },
+      gotosite(url){
+        window.open(url, '_blank');
+        // window.location.href = url
       }
     }
   }

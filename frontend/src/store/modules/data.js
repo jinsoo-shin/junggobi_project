@@ -4,6 +4,7 @@ const state = {
     items: [],
     favoriteItems: [],
     index: 0,
+    articles: [],
 }
 const getters = {
     getFavoriteItems(state) {
@@ -11,6 +12,9 @@ const getters = {
     },
     getItems(state) {
         return state.items;
+    },
+    getBlogPosts(state) {
+        return state.articles;
     }
 }
 const mutations = {
@@ -34,12 +38,12 @@ const mutations = {
                 max = arr[len].price;
             }
         }
-        console.log(state.expenCost)
+        // console.log(state.expenCost)
         state.expenCost = max;
     },
     checkCheapCost(state, list) {
         var arr = list
-        console.log(arr)
+            // console.log(arr)
         var len = arr.length,
             min = Infinity;
         while (len--) {
@@ -47,7 +51,6 @@ const mutations = {
                 min = arr[len].price;
             }
         }
-        console.log(state.cheapCost)
         state.cheapCost = min;
     }
 }
@@ -56,7 +59,12 @@ const actions = {
         const resp = await api.test()
         state.items = resp.data
         return state.items
-    }
+    },
+    async getBlogPost() {
+        const resp = await api.getBlogpost()
+        state.articles = resp.data
+        return state.articles
+    },
 }
 export default {
     namespaced: true,
