@@ -76,8 +76,10 @@
               dark
               large
               id="font"
-              href="/pre-made-themes"
+              @click= "searchAll"
             >
+            
+              <!-- href="/pre-made-themes" -->
               최저가 보러가기
             </v-btn>
           </v-layout>
@@ -121,16 +123,17 @@
 const apiUrl = '/api'
 import axios from "axios";
 export default {
-  created(){
-    // axios.get(`${apiUrl}/news/`, {
-    //     }).then(response => {
-
-    //     }) 
-  },
   methods: {
         async blogpage() {
             await this.$store.dispatch('data/getBlogPost').then(res => this.$router.push({ name :"BlogPage", params : { data : res}}));
-        }
+        },
+         async searchAll() {
+      await this.$store.dispatch('data/searchById', "")
+      .then(res => {
+       
+      })
+    },
+
   }
 }
 </script>
