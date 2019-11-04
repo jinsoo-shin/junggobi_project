@@ -39,7 +39,10 @@
       </b-list-group-item>
       <!--거래방법 없어졌나요? 직거래?-->
     </b-list-group>
-      <small class="text-muted">updated : {{item._source.date}}</small>
+    <small class="text-muted">updated : {{item._source.date}}</small>
+    <a href="some-href">
+      <div v-if="item._source.is_sell=='1'" class="wp-sold-out-strip">SOLD OUT</div>
+    </a>
     </template>
   </b-card>
 </div> 
@@ -117,4 +120,20 @@ export default {
  -webkit-line-clamp: 1;
  -webkit-box-orient: vertical;
 }
+
+.parent {overflow: hidden; position: relative; display: block; width: 200px; height: 200px;}
+.parent img { width: 100%; height: 100%;}
+.wp-sold-out-strip {
+  text-align: center;
+  background-color: rgb(175, 96, 109);
+  width: 242px;
+  color: #FFF;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 0px 0px;
+  position: absolute;
+  margin-top: -47px;
+  transform: rotate(-26deg);    
+}
+
 </style>
