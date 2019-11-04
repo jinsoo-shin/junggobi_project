@@ -14,7 +14,7 @@ from api.search import bulk_indexing
 def search(request):
     if request.method == 'GET':
         search_word = request.query_params.get('search_word')
-        if search_word:
+        if search_word is not "":
             es = Elasticsearch()
             docs = es.search(index='productinfo-index',
                              body={
@@ -26,8 +26,7 @@ def search(request):
                                              {"match": {"title": search_word}},
                                              {"match": {"contents": search_word}},
                                              {"match": {"region": search_word}},
-                                             {"match": {"manufacturer": ""}},
-                                             {"match": {"model_name": ""}}
+                                             {"match": {"model_name": search_word}}
                                          ]
                                      }
                                  },
