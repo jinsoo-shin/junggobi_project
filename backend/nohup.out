@@ -531,3 +531,677 @@ Watching for file changes with StatReloader
 [01/Nov/2019 06:04:39] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
 [01/Nov/2019 06:05:07] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
 [01/Nov/2019 06:06:14] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[01/Nov/2019 06:11:29] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[01/Nov/2019 06:14:14] "GET /api/auto/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 7192
+[01/Nov/2019 06:14:14] "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0
+[01/Nov/2019 06:14:14] "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0
+[01/Nov/2019 06:14:14] "GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0
+[01/Nov/2019 06:14:14] "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0
+[01/Nov/2019 06:14:14] "GET /static/rest_framework/css/default.css HTTP/1.1" 304 0
+[01/Nov/2019 06:14:14] "GET /static/rest_framework/js/jquery-3.4.1.min.js HTTP/1.1" 304 0
+[01/Nov/2019 06:14:14] "GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0
+[01/Nov/2019 06:14:14] "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0
+[01/Nov/2019 06:14:14] "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0
+[01/Nov/2019 06:14:14] "GET /static/rest_framework/js/default.js HTTP/1.1" 304 0
+[01/Nov/2019 06:14:14] "GET /static/rest_framework/img/grid.png HTTP/1.1" 304 0
+Not Found: /favicon.ico
+[01/Nov/2019 06:14:14] "GET /favicon.ico HTTP/1.1" 404 2206
+[01/Nov/2019 06:14:20] "GET /api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 43340
+Not Found: /
+[01/Nov/2019 06:20:04] "GET / HTTP/1.1" 404 2155
+[01/Nov/2019 06:34:30] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[01/Nov/2019 06:35:25] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[01/Nov/2019 08:04:47] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[01/Nov/2019 08:09:37] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[01/Nov/2019 08:10:12] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[01/Nov/2019 08:10:16] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 18694
+[01/Nov/2019 08:10:17] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[01/Nov/2019 08:13:32] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[01/Nov/2019 08:14:01] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[01/Nov/2019 08:14:31] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[01/Nov/2019 08:16:12] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[01/Nov/2019 08:17:57] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[01/Nov/2019 08:18:28] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[01/Nov/2019 08:21:18] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[01/Nov/2019 08:24:59] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[01/Nov/2019 08:25:14] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[01/Nov/2019 08:28:08] "GET /api/api/search/?search_word=undefined HTTP/1.1" 200 345
+[01/Nov/2019 08:28:33] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[01/Nov/2019 08:33:40] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[01/Nov/2019 08:35:21] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[01/Nov/2019 08:35:34] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[01/Nov/2019 08:39:01] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[01/Nov/2019 08:39:22] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[01/Nov/2019 08:40:40] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[01/Nov/2019 08:41:14] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[01/Nov/2019 08:46:33] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[01/Nov/2019 09:23:10] "GET /api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B07&page=4 HTTP/1.1" 200 46057
+[01/Nov/2019 09:23:10] "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3385
+[01/Nov/2019 09:23:10] "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 121457
+[01/Nov/2019 09:23:10] "GET /static/rest_framework/css/default.css HTTP/1.1" 200 1131
+[01/Nov/2019 09:23:10] "GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
+[01/Nov/2019 09:23:10] "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3597
+[01/Nov/2019 09:23:10] "GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1719
+[01/Nov/2019 09:23:10] "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 37608
+[01/Nov/2019 09:23:10] "GET /static/rest_framework/js/jquery-3.4.1.min.js HTTP/1.1" 200 88145
+[01/Nov/2019 09:23:10] "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
+[01/Nov/2019 09:23:10] "GET /static/rest_framework/js/default.js HTTP/1.1" 200 1268
+[01/Nov/2019 09:23:10] "GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
+Not Found: /
+[01/Nov/2019 14:06:05] "GET / HTTP/1.1" 404 2155
+Not Found: /favicon.ico
+[01/Nov/2019 14:06:05] "GET /favicon.ico HTTP/1.1" 404 2206
+Not Found: /api/
+[01/Nov/2019 14:06:13] "GET /api/ HTTP/1.1" 404 2606
+[01/Nov/2019 14:06:33] "GET /api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 43340
+[01/Nov/2019 14:06:33] "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3385
+[01/Nov/2019 14:06:33] "GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
+[01/Nov/2019 14:06:33] "GET /static/rest_framework/css/default.css HTTP/1.1" 200 1131
+[01/Nov/2019 14:06:33] "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 121457
+[01/Nov/2019 14:06:33] "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3597
+[01/Nov/2019 14:06:33] "GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1719
+[01/Nov/2019 14:06:33] "GET /static/rest_framework/js/jquery-3.4.1.min.js HTTP/1.1" 200 88145
+[01/Nov/2019 14:06:33] "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
+[01/Nov/2019 14:06:33] "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 37608
+[01/Nov/2019 14:06:33] "GET /static/rest_framework/js/default.js HTTP/1.1" 200 1268
+[01/Nov/2019 14:06:33] "GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
+[01/Nov/2019 14:53:50] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[01/Nov/2019 15:30:51] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+Invalid HTTP_HOST header: 'ip-172-26-12-98.ap-northeast-2.compute.internal:8000'. You may need to add 'ip-172-26-12-98.ap-northeast-2.compute.internal' to ALLOWED_HOSTS.
+Bad Request: /
+[01/Nov/2019 17:29:50] "GET / HTTP/1.0" 400 59931
+Not Found: /
+[01/Nov/2019 23:08:15] "GET / HTTP/1.1" 404 2155
+[02/Nov/2019 01:23:49] code 400, message Bad HTTP/0.9 request type ("\x16\x03\x01\x00u\x01\x00\x00q\x03\x03·Þãlà\x19\x08½'ôäeÂö«\xad\x89\x11·âýç\x10\x07}u\x94\x8b\x15o×u\x00\x00\x1aÀ/À+À\x11À\x07À\x13À")
+[02/Nov/2019 01:23:49] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+Not Found: /
+[02/Nov/2019 01:25:53] "GET / HTTP/1.1" 404 2155
+Not Found: /
+[02/Nov/2019 01:25:53] "GET / HTTP/1.1" 404 2155
+Not Found: /
+[02/Nov/2019 01:25:54] "GET / HTTP/1.1" 404 2155
+[02/Nov/2019 01:28:14] code 400, message Bad request version ('À\x14À')
+[02/Nov/2019 01:28:14] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[02/Nov/2019 11:43:30] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+[02/Nov/2019 11:43:30] "  /*à     Cookie: mstshash=Administr" 400 -
+Not Found: /
+[02/Nov/2019 17:20:45] "GET / HTTP/1.1" 404 2155
+[02/Nov/2019 19:23:34] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+[02/Nov/2019 19:23:34] "  /*à     Cookie: mstshash=Administr" 400 -
+Invalid HTTP_HOST header: 'ip-172-26-12-98.ap-northeast-2.compute.internal:8000'. You may need to add 'ip-172-26-12-98.ap-northeast-2.compute.internal' to ALLOWED_HOSTS.
+Bad Request: /
+[02/Nov/2019 19:36:53] "GET / HTTP/1.0" 400 59930
+[02/Nov/2019 20:33:45] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+[02/Nov/2019 20:33:45] "  /*à     Cookie: mstshash=Administr" 400 -
+Not Found: /
+[03/Nov/2019 06:24:00] "GET / HTTP/1.1" 404 2155
+[03/Nov/2019 08:09:43] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[03/Nov/2019 08:12:54] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[03/Nov/2019 08:16:37] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[03/Nov/2019 08:18:41] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[03/Nov/2019 08:21:24] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[03/Nov/2019 08:21:56] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[03/Nov/2019 08:22:34] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[03/Nov/2019 08:23:45] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[03/Nov/2019 08:25:12] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[03/Nov/2019 08:25:49] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[03/Nov/2019 08:25:54] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[03/Nov/2019 08:26:07] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[03/Nov/2019 08:26:10] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[03/Nov/2019 08:26:12] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 18694
+[03/Nov/2019 08:26:40] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[03/Nov/2019 08:27:01] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 18694
+[03/Nov/2019 08:29:17] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 18694
+[03/Nov/2019 08:30:24] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[03/Nov/2019 08:31:41] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[03/Nov/2019 08:32:13] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[03/Nov/2019 09:01:56] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[03/Nov/2019 09:05:54] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[03/Nov/2019 09:06:07] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[03/Nov/2019 09:08:18] "GET /media/658908964.jpg HTTP/1.1" 200 50113
+Not Found: /favicon.ico
+[03/Nov/2019 09:08:18] "GET /favicon.ico HTTP/1.1" 404 2206
+[03/Nov/2019 09:14:32] "GET /media/659187487.jpg HTTP/1.1" 200 5768
+[03/Nov/2019 09:14:32] "GET /media/660682621.jpg HTTP/1.1" 200 15605
+[03/Nov/2019 09:14:32] "GET /media/660646917.jpg HTTP/1.1" 200 37648
+[03/Nov/2019 09:14:32] "GET /media/658787059.jpg HTTP/1.1" 200 11415
+[03/Nov/2019 09:14:32] "GET /media/659188791.jpg HTTP/1.1" 200 43235
+[03/Nov/2019 09:14:32] "GET /media/660730968.jpg HTTP/1.1" 200 134924
+Not Found: /media/658908964.jpg/400/200
+[03/Nov/2019 09:32:14] "GET /media/658908964.jpg/400/200 HTTP/1.1" 404 1818
+[03/Nov/2019 09:36:47] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 18694
+[03/Nov/2019 09:36:47] "GET /media/658906466.jpg HTTP/1.1" 200 6923
+[03/Nov/2019 09:36:47] "GET /media/658791720.jpg HTTP/1.1" 200 8860
+[03/Nov/2019 09:36:47] "GET /media/660638534.jpg HTTP/1.1" 200 18877
+[03/Nov/2019 09:36:47] "GET /media/658901810.jpg HTTP/1.1" 200 9512
+[03/Nov/2019 09:36:47] "GET /media/659797434.jpg HTTP/1.1" 200 33969
+[03/Nov/2019 09:36:47] "GET /media/660137748.jpg HTTP/1.1" 200 24386
+[03/Nov/2019 09:36:47] "GET /media/659790694.jpg HTTP/1.1" 200 24732
+[03/Nov/2019 09:36:47] "GET /media/660133851.jpg HTTP/1.1" 200 30464
+[03/Nov/2019 09:39:39] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[03/Nov/2019 09:41:44] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[03/Nov/2019 09:53:21] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+[03/Nov/2019 09:53:53] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 33376
+Not Found: /
+[03/Nov/2019 10:29:22] "GET / HTTP/1.1" 404 2155
+Invalid HTTP_HOST header: 'ip-172-26-12-98.ap-northeast-2.compute.internal:8000'. You may need to add 'ip-172-26-12-98.ap-northeast-2.compute.internal' to ALLOWED_HOSTS.
+Bad Request: /
+[03/Nov/2019 12:13:25] "GET / HTTP/1.0" 400 59929
+Internal Server Error: /api/product/
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/MySQLdb/connections.py", line 226, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.OperationalError: (1366, "Incorrect string value: '\\xF0\\x9F\\x8D\\xB0 \\xEA...' for column 'contents' at row 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/rest_framework/views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/rest_framework/views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/rest_framework/views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/rest_framework/decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "/var/www/html/s1p3151006/backend/api/api_views/product_views.py", line 135, in information
+    is_sell=is_sell,title=title,contents=contents).save()
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/models/base.py", line 741, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/models/base.py", line 779, in save_base
+    force_update, using, update_fields,
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/models/base.py", line 870, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/models/base.py", line 908, in _do_insert
+    using=using, raw=raw)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/models/query.py", line 1186, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1335, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/MySQLdb/connections.py", line 226, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (1366, "Incorrect string value: '\\xF0\\x9F\\x8D\\xB0 \\xEA...' for column 'contents' at row 1")
+[03/Nov/2019 13:01:19] "POST /api/product/ HTTP/1.1" 500 18873
+[03/Nov/2019 13:02:48] "POST /api/product/ HTTP/1.1" 200 0
+[03/Nov/2019 13:04:32] "POST /api/product/ HTTP/1.1" 200 0
+[03/Nov/2019 13:07:39] "POST /api/product/ HTTP/1.1" 200 0
+[03/Nov/2019 13:39:48] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 13:39:48] "GET /media/661791644.jpg HTTP/1.1" 200 20901
+[03/Nov/2019 13:39:48] "GET /media/661792768.jpg HTTP/1.1" 200 134924
+[03/Nov/2019 13:41:04] "GET /api/api/search/?search_word=%EC%8B%A4%EB%A6%AC%EC%BD%98 HTTP/1.1" 200 15442
+[03/Nov/2019 13:41:04] "GET /media/660255917.jpg HTTP/1.1" 200 41664
+[03/Nov/2019 13:41:11] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 14:30:39] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 14:30:39] "GET /media/661791644.jpg HTTP/1.1" 304 0
+[03/Nov/2019 14:30:39] "GET /media/661792768.jpg HTTP/1.1" 304 0
+[03/Nov/2019 14:51:00] "GET /media/661791644.jpg HTTP/1.1" 304 0
+[03/Nov/2019 14:51:00] "GET /media/660646917.jpg HTTP/1.1" 304 0
+[03/Nov/2019 14:51:00] "GET /media/660682621.jpg HTTP/1.1" 304 0
+[03/Nov/2019 14:51:00] "GET /media/661792768.jpg HTTP/1.1" 304 0
+[03/Nov/2019 14:58:30] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 14:58:30] "GET /media/658906466.jpg HTTP/1.1" 200 6923
+[03/Nov/2019 14:58:30] "GET /media/658791720.jpg HTTP/1.1" 200 8860
+[03/Nov/2019 14:58:30] "GET /media/660137748.jpg HTTP/1.1" 200 24386
+[03/Nov/2019 14:58:30] "GET /media/658901810.jpg HTTP/1.1" 200 9512
+[03/Nov/2019 14:58:30] "GET /media/660638534.jpg HTTP/1.1" 200 18877
+[03/Nov/2019 14:58:30] "GET /media/659797434.jpg HTTP/1.1" 200 33969
+[03/Nov/2019 14:58:30] "GET /media/661789054.jpg HTTP/1.1" 200 17019
+[03/Nov/2019 14:58:30] "GET /media/659790694.jpg HTTP/1.1" 200 24732
+[03/Nov/2019 15:07:58] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B08 HTTP/1.1" 200 27213
+[03/Nov/2019 15:07:58] "GET /media/660680775.jpg HTTP/1.1" 200 18947
+[03/Nov/2019 15:07:58] "GET /media/660139655.jpg HTTP/1.1" 200 29527
+[03/Nov/2019 15:07:58] "GET /media/661791644.jpg HTTP/1.1" 304 0
+[03/Nov/2019 15:07:58] "GET /media/658791392.jpg HTTP/1.1" 200 10531
+[03/Nov/2019 15:07:58] "GET /media/659189224.jpg HTTP/1.1" 200 10531
+[03/Nov/2019 15:07:58] "GET /media/658908742.jpg HTTP/1.1" 200 37260
+[03/Nov/2019 15:07:58] "GET /media/659265719.jpg HTTP/1.1" 200 37260
+[03/Nov/2019 15:26:49] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 15:26:49] "GET /media/661792768.jpg HTTP/1.1" 304 0
+[03/Nov/2019 15:28:48] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 15:28:48] "GET /media/661789054.jpg HTTP/1.1" 304 0
+[03/Nov/2019 15:35:52] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 15:41:44] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 15:43:42] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 15:43:43] "GET /media/661789054.jpg HTTP/1.1" 304 0
+[03/Nov/2019 15:47:44] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 15:48:46] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+Not Found: /
+[03/Nov/2019 16:34:01] "GET / HTTP/1.1" 404 2155
+[03/Nov/2019 17:10:17] "GET /media/661789054.jpg HTTP/1.1" 304 0
+[03/Nov/2019 17:11:46] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 17:11:46] "GET /media/661791644.jpg HTTP/1.1" 304 0
+[03/Nov/2019 17:11:46] "GET /media/661792768.jpg HTTP/1.1" 304 0
+[03/Nov/2019 17:47:50] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 17:47:51] "GET /media/661791644.jpg HTTP/1.1" 304 0
+[03/Nov/2019 17:47:51] "GET /media/661792768.jpg HTTP/1.1" 304 0
+[03/Nov/2019 17:50:27] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 17:58:12] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 17:58:12] "GET /media/661789054.jpg HTTP/1.1" 304 0
+[03/Nov/2019 18:00:50] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B03 HTTP/1.1" 200 17435
+[03/Nov/2019 18:00:50] "GET /media/660259852.jpg HTTP/1.1" 200 25257
+[03/Nov/2019 18:00:50] "GET /media/660635958.jpg HTTP/1.1" 200 25624
+[03/Nov/2019 18:00:50] "GET /media/660675497.jpg HTTP/1.1" 200 16726
+[03/Nov/2019 18:00:50] "GET /media/659789362.jpg HTTP/1.1" 200 16031
+[03/Nov/2019 18:00:50] "GET /media/659786782.jpg HTTP/1.1" 200 26253
+[03/Nov/2019 18:00:50] "GET /media/660644843.jpg HTTP/1.1" 200 30616
+[03/Nov/2019 18:00:50] "GET /media/659178427.jpg HTTP/1.1" 200 8249
+[03/Nov/2019 18:00:50] "GET /media/658780165.jpg HTTP/1.1" 200 41477
+[03/Nov/2019 18:01:51] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 18:01:59] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 18:02:32] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 18:02:39] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 18:03:00] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 18:03:07] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 18:03:18] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 18:03:23] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 18:04:35] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 18:04:38] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%ED%8F%B0 HTTP/1.1" 200 31983
+[03/Nov/2019 18:04:38] "GET /media/661793998.jpg HTTP/1.1" 200 25211
+[03/Nov/2019 18:04:38] "GET /media/660730968.jpg HTTP/1.1" 304 0
+[03/Nov/2019 18:04:38] "GET /media/659189057.jpg HTTP/1.1" 200 38533
+[03/Nov/2019 18:04:38] "GET /media/658830907.jpg HTTP/1.1" 200 15022
+[03/Nov/2019 18:04:38] "GET /media/661785949.jpg HTTP/1.1" 200 10969
+[03/Nov/2019 18:04:38] "GET /media/660260202.jpg HTTP/1.1" 200 19270
+[03/Nov/2019 18:04:38] "GET /media/660681794.jpg HTTP/1.1" 200 21753
+[03/Nov/2019 18:04:45] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 18:04:48] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 18:05:36] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 18:06:05] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 18:06:44] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 18:06:51] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 18:11:06] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 18:12:26] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 18:12:36] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 18:12:54] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 18:16:47] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 18:18:27] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 18:18:38] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 18:18:38] "GET /media/661791644.jpg HTTP/1.1" 304 0
+[03/Nov/2019 18:18:38] "GET /media/661792768.jpg HTTP/1.1" 304 0
+[03/Nov/2019 18:21:45] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 18:29:31] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 18:29:43] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 18:29:43] "GET /media/661789054.jpg HTTP/1.1" 304 0
+[03/Nov/2019 18:32:23] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 18:34:22] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 18:35:09] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 18:40:07] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 18:40:14] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 18:41:24] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 18:41:31] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 18:44:39] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 18:44:48] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 18:45:12] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 18:45:32] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 18:45:35] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 18:45:44] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 18:46:13] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 18:46:18] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 18:46:33] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 18:47:19] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 18:47:28] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 18:47:36] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 18:49:44] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 18:49:51] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 18:56:06] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 18:56:27] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 18:56:28] "GET /media/661791644.jpg HTTP/1.1" 304 0
+[03/Nov/2019 18:56:28] "GET /media/661792768.jpg HTTP/1.1" 304 0
+[03/Nov/2019 18:57:23] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 18:57:30] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 18:57:45] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 18:58:07] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 18:58:10] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 18:59:03] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 18:59:11] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 18:59:11] "GET /media/658906466.jpg HTTP/1.1" 200 6923
+[03/Nov/2019 18:59:11] "GET /media/659797434.jpg HTTP/1.1" 200 33969
+[03/Nov/2019 18:59:11] "GET /media/658791720.jpg HTTP/1.1" 200 8860
+[03/Nov/2019 18:59:11] "GET /media/660137748.jpg HTTP/1.1" 200 24386
+[03/Nov/2019 18:59:11] "GET /media/660638534.jpg HTTP/1.1" 200 18877
+[03/Nov/2019 18:59:11] "GET /media/658901810.jpg HTTP/1.1" 200 9512
+[03/Nov/2019 18:59:11] "GET /media/661789054.jpg HTTP/1.1" 200 17019
+[03/Nov/2019 18:59:11] "GET /media/659790694.jpg HTTP/1.1" 200 24732
+[03/Nov/2019 19:00:06] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 19:00:11] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 19:00:11] "GET /media/659187487.jpg HTTP/1.1" 200 5768
+[03/Nov/2019 19:00:11] "GET /media/658787059.jpg HTTP/1.1" 200 11415
+[03/Nov/2019 19:00:11] "GET /media/658908964.jpg HTTP/1.1" 200 50113
+[03/Nov/2019 19:00:11] "GET /media/660682621.jpg HTTP/1.1" 200 15605
+[03/Nov/2019 19:00:11] "GET /media/659188791.jpg HTTP/1.1" 200 43235
+[03/Nov/2019 19:00:11] "GET /media/660646917.jpg HTTP/1.1" 200 37648
+[03/Nov/2019 19:00:11] "GET /media/661791644.jpg HTTP/1.1" 200 20901
+[03/Nov/2019 19:00:11] "GET /media/661792768.jpg HTTP/1.1" 200 134924
+[03/Nov/2019 19:00:40] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 19:00:47] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B07 HTTP/1.1" 200 22016
+[03/Nov/2019 19:00:47] "GET /media/659788169.jpg HTTP/1.1" 200 14059
+[03/Nov/2019 19:00:47] "GET /media/659788148.jpg HTTP/1.1" 200 33171
+[03/Nov/2019 19:00:47] "GET /media/660646405.jpg HTTP/1.1" 200 19384
+[03/Nov/2019 19:00:47] "GET /media/659189014.jpg HTTP/1.1" 200 13100
+[03/Nov/2019 19:00:47] "GET /media/658909284.jpg HTTP/1.1" 200 11624
+[03/Nov/2019 19:00:47] "GET /media/661792592.jpg HTTP/1.1" 200 27753
+[03/Nov/2019 19:00:47] "GET /media/659264784.jpg HTTP/1.1" 200 49240
+[03/Nov/2019 19:00:47] "GET /media/659188809.jpg HTTP/1.1" 200 32972
+[03/Nov/2019 19:00:47] "GET /media/660731573.jpg HTTP/1.1" 200 21443
+[03/Nov/2019 19:00:52] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 19:01:03] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B08 HTTP/1.1" 200 27213
+[03/Nov/2019 19:01:03] "GET /media/660680775.jpg HTTP/1.1" 200 18947
+[03/Nov/2019 19:01:03] "GET /media/659189224.jpg HTTP/1.1" 200 10531
+[03/Nov/2019 19:01:03] "GET /media/658791392.jpg HTTP/1.1" 200 10531
+[03/Nov/2019 19:01:03] "GET /media/660139655.jpg HTTP/1.1" 200 29527
+[03/Nov/2019 19:01:03] "GET /media/659265719.jpg HTTP/1.1" 200 37260
+[03/Nov/2019 19:01:03] "GET /media/658908742.jpg HTTP/1.1" 200 37260
+[03/Nov/2019 19:01:04] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B08 HTTP/1.1" 200 27213
+[03/Nov/2019 19:01:30] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B08 HTTP/1.1" 200 27213
+[03/Nov/2019 19:01:35] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 19:01:41] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B09 HTTP/1.1" 200 16845
+[03/Nov/2019 19:01:41] "GET /media/657522675.jpg HTTP/1.1" 200 13328
+[03/Nov/2019 19:01:41] "GET /media/661793998.jpg HTTP/1.1" 200 25211
+[03/Nov/2019 19:01:41] "GET /media/659177252.jpg HTTP/1.1" 200 8289
+[03/Nov/2019 19:01:41] "GET /media/660184658.jpg HTTP/1.1" 200 17232
+[03/Nov/2019 19:01:41] "GET /media/659791873.jpg HTTP/1.1" 200 36820
+[03/Nov/2019 19:01:41] "GET /media/661787586.jpg HTTP/1.1" 200 23484
+[03/Nov/2019 19:01:41] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B09 HTTP/1.1" 200 16845
+[03/Nov/2019 19:02:44] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 19:02:44] "GET /media/658906466.jpg HTTP/1.1" 200 6923
+[03/Nov/2019 19:02:44] "GET /media/660137748.jpg HTTP/1.1" 200 24386
+[03/Nov/2019 19:02:44] "GET /media/659797434.jpg HTTP/1.1" 200 33969
+[03/Nov/2019 19:02:44] "GET /media/660638534.jpg HTTP/1.1" 200 18877
+[03/Nov/2019 19:02:44] "GET /media/658901810.jpg HTTP/1.1" 200 9512
+[03/Nov/2019 19:02:44] "GET /media/658791720.jpg HTTP/1.1" 200 8860
+[03/Nov/2019 19:02:44] "GET /media/661789054.jpg HTTP/1.1" 200 17019
+[03/Nov/2019 19:02:44] "GET /media/659790694.jpg HTTP/1.1" 200 24732
+[03/Nov/2019 19:03:22] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 19:03:36] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 19:03:37] "GET /media/658908964.jpg HTTP/1.1" 200 50113
+[03/Nov/2019 19:03:37] "GET /media/659187487.jpg HTTP/1.1" 200 5768
+[03/Nov/2019 19:03:37] "GET /media/658787059.jpg HTTP/1.1" 200 11415
+[03/Nov/2019 19:03:37] "GET /media/660646917.jpg HTTP/1.1" 200 37648
+[03/Nov/2019 19:03:37] "GET /media/660682621.jpg HTTP/1.1" 200 15605
+[03/Nov/2019 19:03:37] "GET /media/659188791.jpg HTTP/1.1" 200 43235
+[03/Nov/2019 19:03:37] "GET /media/661791644.jpg HTTP/1.1" 200 20901
+[03/Nov/2019 19:03:37] "GET /media/661792768.jpg HTTP/1.1" 200 134924
+[03/Nov/2019 19:03:44] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 19:04:16] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 19:04:17] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 19:04:21] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 19:05:28] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 19:05:51] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 19:05:54] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 19:06:12] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 19:07:47] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 19:08:07] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 19:08:27] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 19:08:48] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 19:12:55] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 19:13:01] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 19:13:04] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 19:13:30] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 19:13:32] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 19:14:07] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 19:17:53] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 19:18:01] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 19:18:20] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 19:18:26] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 19:19:26] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 19:19:55] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 19:22:46] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 19:22:50] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 19:28:43] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 19:28:47] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 19:28:56] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 19:29:25] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 19:29:33] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 19:31:07] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 19:31:11] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 19:42:06] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 19:42:06] "GET /media/661789054.jpg HTTP/1.1" 304 0
+[03/Nov/2019 19:42:27] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19635
+[03/Nov/2019 19:42:31] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 19:42:31] "GET /media/661791644.jpg HTTP/1.1" 304 0
+[03/Nov/2019 19:42:31] "GET /media/661792768.jpg HTTP/1.1" 304 0
+[03/Nov/2019 19:42:34] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 19:42:35] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 19:42:42] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 19:43:29] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 19:43:35] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 19:44:28] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 19:44:43] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 19:44:48] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 19:45:50] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 19:48:09] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 19:50:31] code 400, message Bad request syntax ('\x00\x00\x00TZ\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x04\x010I\x00\x00\x00\x00\x80\x0b¨À\x00\x0c)t F\x07\x00tsXrcsXYs9\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00bbXcsXctst\x00\x00\x00\x00\x00\x00')
+[03/Nov/2019 19:50:31] "   TZ          0I    ¨À )t F tsXrcsXYs9                      bbXcsXctst      " 400 -
+[03/Nov/2019 19:53:05] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 19:55:05] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 19:57:07] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19635
+[03/Nov/2019 19:57:07] "GET /media/658906466.jpg HTTP/1.1" 200 6923
+[03/Nov/2019 19:57:07] "GET /media/658901810.jpg HTTP/1.1" 200 9512
+[03/Nov/2019 19:57:07] "GET /media/658791720.jpg HTTP/1.1" 200 8860
+[03/Nov/2019 19:57:07] "GET /media/659797434.jpg HTTP/1.1" 200 33969
+[03/Nov/2019 19:57:07] "GET /media/660137748.jpg HTTP/1.1" 200 24386
+[03/Nov/2019 19:57:07] "GET /media/660638534.jpg HTTP/1.1" 200 18877
+[03/Nov/2019 19:57:07] "GET /media/661789054.jpg HTTP/1.1" 200 17019
+[03/Nov/2019 19:57:07] "GET /media/659790694.jpg HTTP/1.1" 200 24732
+[03/Nov/2019 20:17:30] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 20:17:53] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 20:18:20] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 20:23:09] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 20:23:09] "GET /media/661791644.jpg HTTP/1.1" 304 0
+[03/Nov/2019 20:23:09] "GET /media/661792768.jpg HTTP/1.1" 304 0
+[03/Nov/2019 20:23:45] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 20:28:45] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 20:29:38] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 20:30:23] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 20:31:34] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 20:31:56] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 20:41:19] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19634
+[03/Nov/2019 20:45:14] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36170
+[03/Nov/2019 23:59:49] "POST /api/product/ HTTP/1.1" 200 0
+Internal Server Error: /api/product/
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/MySQLdb/connections.py", line 226, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.DataError: (1406, "Data too long for column 'contents' at row 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/rest_framework/views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/rest_framework/views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/rest_framework/views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/rest_framework/decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "/var/www/html/s1p3151006/backend/api/api_views/product_views.py", line 135, in information
+    is_sell=is_sell,title=title,contents=contents).save()
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/models/base.py", line 741, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/models/base.py", line 779, in save_base
+    force_update, using, update_fields,
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/models/base.py", line 870, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/models/base.py", line 908, in _do_insert
+    using=using, raw=raw)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/models/query.py", line 1186, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1335, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/home/ubuntu/.local/lib/python3.6/site-packages/MySQLdb/connections.py", line 226, in query
+    _mysql.connection.query(self, query)
+django.db.utils.DataError: (1406, "Data too long for column 'contents' at row 1")
+[04/Nov/2019 00:02:05] "POST /api/product/ HTTP/1.1" 500 18733
+[04/Nov/2019 00:18:14] "POST /api/product/ HTTP/1.1" 200 0
+[04/Nov/2019 00:34:46] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36983
+[04/Nov/2019 00:34:47] "GET /media/658908964.jpg HTTP/1.1" 200 50113
+[04/Nov/2019 00:34:47] "GET /media/659187487.jpg HTTP/1.1" 200 5768
+[04/Nov/2019 00:34:47] "GET /media/661916833.jpg HTTP/1.1" 200 19692
+[04/Nov/2019 00:34:47] "GET /media/658787059.jpg HTTP/1.1" 200 11415
+[04/Nov/2019 00:34:47] "GET /media/660682621.jpg HTTP/1.1" 200 15605
+[04/Nov/2019 00:34:47] "GET /media/660646917.jpg HTTP/1.1" 200 37648
+[04/Nov/2019 00:34:47] "GET /media/661917007.jpg HTTP/1.1" 200 20901
+[04/Nov/2019 00:34:47] "GET /media/661791644.jpg HTTP/1.1" 200 20901
+[04/Nov/2019 00:34:47] "GET /media/659188791.jpg HTTP/1.1" 200 43235
+[04/Nov/2019 00:45:17] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36983
+[04/Nov/2019 00:45:17] "GET /media/661916833.jpg HTTP/1.1" 304 0
+[04/Nov/2019 00:45:17] "GET /media/661917007.jpg HTTP/1.1" 304 0
+[04/Nov/2019 01:00:15] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36983
+[04/Nov/2019 01:00:15] "GET /media/661916833.jpg HTTP/1.1" 304 0
+[04/Nov/2019 01:00:15] "GET /media/661917007.jpg HTTP/1.1" 304 0
+[04/Nov/2019 01:08:06] "GET /api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19631
+[04/Nov/2019 01:16:17] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19631
+[04/Nov/2019 01:16:32] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19631
+[04/Nov/2019 01:17:35] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19631
+[04/Nov/2019 01:17:47] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19631
+[04/Nov/2019 01:17:58] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19631
+[04/Nov/2019 01:18:18] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19631
+[04/Nov/2019 01:19:39] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36983
+[04/Nov/2019 01:20:48] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36983
+[04/Nov/2019 01:20:49] "GET /media/661916833.jpg HTTP/1.1" 304 0
+[04/Nov/2019 01:20:49] "GET /media/661917007.jpg HTTP/1.1" 304 0
+[04/Nov/2019 01:20:53] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19631
+[04/Nov/2019 01:20:54] "GET /media/659797434.jpg HTTP/1.1" 304 0
+[04/Nov/2019 01:20:54] "GET /media/658906466.jpg HTTP/1.1" 200 6923
+[04/Nov/2019 01:20:54] "GET /media/660137748.jpg HTTP/1.1" 200 24386
+[04/Nov/2019 01:20:54] "GET /media/658791720.jpg HTTP/1.1" 200 8860
+[04/Nov/2019 01:20:54] "GET /media/658901810.jpg HTTP/1.1" 200 9512
+[04/Nov/2019 01:20:54] "GET /media/661789054.jpg HTTP/1.1" 200 17019
+[04/Nov/2019 01:20:54] "GET /media/660638534.jpg HTTP/1.1" 200 18877
+[04/Nov/2019 01:20:54] "GET /media/659790694.jpg HTTP/1.1" 200 24732
+[04/Nov/2019 01:21:00] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36983
+[04/Nov/2019 01:24:17] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36983
+[04/Nov/2019 01:24:37] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19631
+[04/Nov/2019 01:25:08] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19631
+[04/Nov/2019 01:37:31] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19631
+[04/Nov/2019 01:37:31] "GET /media/658906466.jpg HTTP/1.1" 200 6923
+[04/Nov/2019 01:37:31] "GET /media/660137748.jpg HTTP/1.1" 200 24386
+[04/Nov/2019 01:37:31] "GET /media/658901810.jpg HTTP/1.1" 200 9512
+[04/Nov/2019 01:37:31] "GET /media/660638534.jpg HTTP/1.1" 200 18877
+[04/Nov/2019 01:37:31] "GET /media/658791720.jpg HTTP/1.1" 200 8860
+[04/Nov/2019 01:37:31] "GET /media/659797434.jpg HTTP/1.1" 200 33969
+[04/Nov/2019 01:37:31] "GET /media/661789054.jpg HTTP/1.1" 200 17019
+[04/Nov/2019 01:37:31] "GET /media/659790694.jpg HTTP/1.1" 200 24732
+[04/Nov/2019 01:38:30] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36983
+[04/Nov/2019 01:38:30] "GET /media/658908964.jpg HTTP/1.1" 200 50113
+[04/Nov/2019 01:38:30] "GET /media/659187487.jpg HTTP/1.1" 200 5768
+[04/Nov/2019 01:38:30] "GET /media/660646917.jpg HTTP/1.1" 200 37648
+[04/Nov/2019 01:38:30] "GET /media/661916833.jpg HTTP/1.1" 200 19692
+[04/Nov/2019 01:38:30] "GET /media/660682621.jpg HTTP/1.1" 200 15605
+[04/Nov/2019 01:38:30] "GET /media/658787059.jpg HTTP/1.1" 200 11415
+[04/Nov/2019 01:38:30] "GET /media/659188791.jpg HTTP/1.1" 200 43235
+[04/Nov/2019 01:38:30] "GET /media/661791644.jpg HTTP/1.1" 200 20901
+[04/Nov/2019 01:38:30] "GET /media/661917007.jpg HTTP/1.1" 200 20901
+[04/Nov/2019 01:38:55] "GET /api/api/search/?search_word=%EA%B0%A4%EB%9F%AD%EC%8B%9C%ED%83%AD HTTP/1.1" 200 12479
+[04/Nov/2019 01:38:55] "GET /media/660252514.jpg HTTP/1.1" 200 31150
+[04/Nov/2019 01:38:55] "GET /media/660251254.jpg HTTP/1.1" 200 24173
+[04/Nov/2019 01:38:55] "GET /media/659219799.jpg HTTP/1.1" 200 13090
+[04/Nov/2019 01:38:55] "GET /media/661770136.jpg HTTP/1.1" 200 20644
+[04/Nov/2019 01:38:55] "GET /media/661781114.jpg HTTP/1.1" 200 34339
+[04/Nov/2019 01:38:55] "GET /media/659784100.jpg HTTP/1.1" 200 29018
+[04/Nov/2019 01:38:55] "GET /media/659219914.jpg HTTP/1.1" 200 12213
+[04/Nov/2019 01:39:19] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19631
+[04/Nov/2019 01:39:36] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C HTTP/1.1" 200 19631
+[04/Nov/2019 01:39:36] "GET /media/658906466.jpg HTTP/1.1" 200 6923
+[04/Nov/2019 01:39:36] "GET /media/660137748.jpg HTTP/1.1" 200 24386
+[04/Nov/2019 01:39:36] "GET /media/659797434.jpg HTTP/1.1" 200 33969
+[04/Nov/2019 01:39:36] "GET /media/658791720.jpg HTTP/1.1" 200 8860
+[04/Nov/2019 01:39:36] "GET /media/658901810.jpg HTTP/1.1" 200 9512
+[04/Nov/2019 01:39:36] "GET /media/660638534.jpg HTTP/1.1" 200 18877
+[04/Nov/2019 01:39:36] "GET /media/661789054.jpg HTTP/1.1" 200 17019
+[04/Nov/2019 01:39:36] "GET /media/659790694.jpg HTTP/1.1" 200 24732
+[04/Nov/2019 01:49:19] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36983
+[04/Nov/2019 01:49:19] "GET /media/661917007.jpg HTTP/1.1" 304 0
+[04/Nov/2019 01:49:19] "GET /media/661916833.jpg HTTP/1.1" 304 0
+[04/Nov/2019 01:49:19] "GET /media/661791644.jpg HTTP/1.1" 304 0
+[04/Nov/2019 01:49:31] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36983
+[04/Nov/2019 01:49:44] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36983
+[04/Nov/2019 01:53:23] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36983
+[04/Nov/2019 01:53:56] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36983
+[04/Nov/2019 01:54:12] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36983
+[04/Nov/2019 01:54:52] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36983
+[04/Nov/2019 01:55:12] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36983
+[04/Nov/2019 02:00:01] "GET /api/api/search/?search_word=%EC%95%84%EC%9D%B4%ED%8F%B0 HTTP/1.1" 200 36983
