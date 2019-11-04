@@ -55,7 +55,6 @@
 export default {
   data: () => ({
     active: false,
-    url : "http://52.78.203.0:8000/media/658908964.jpg"
   }),
   props: {
     item : { type: Object },
@@ -96,7 +95,7 @@ export default {
       }
     },
     go() {
-       this.$router.push({ name : "itemPage", params: {item: this.item}})
+      this.$router.push({ name : "itemPage", params: {item: this.item}})
     }
   }
 };

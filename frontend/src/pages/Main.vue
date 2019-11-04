@@ -72,8 +72,10 @@
               dark
               large
               id="font"
-              href="/pre-made-themes"
+              @click= "searchAll"
             >
+            
+              <!-- href="/pre-made-themes" -->
               최저가 보러가기
             </v-btn>
           </v-layout>
@@ -115,7 +117,18 @@
 
 <script>
 export default {
-  
+  data(){
+      return {
+      }
+  },
+  methods: {
+    async searchAll() {
+      await this.$store.dispatch('data/searchById', "")
+      .then(res => {
+       
+      })
+    },
+  }
 }
 </script>
 <style scoped>
