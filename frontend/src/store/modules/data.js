@@ -78,7 +78,7 @@ const actions = {
       const resp = await api.searchById(payload)
       state.items = resp.data.hits.hits
       state.chart = resp.data.aggregations
-      console.log(state.chart)
+      console.log(state.items)
       return state.items
     }
 }
