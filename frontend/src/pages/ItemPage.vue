@@ -15,7 +15,7 @@
         <h4> {{ item._source.title }}</h4>
         <p> {{ item._source.contents }} </p>
         <p> {{ item._source.storage }} </p>
-        <p> {{ item._source.price }} </p>
+        <p> {{ numberWithCommas(item._source.price) }} </p>
         
       </div>
       <div>
@@ -46,9 +46,12 @@ export default {
         item : { type: Object, default: () => new Object() },
     },
     methods: {
-        routerBack() {
-            this.$router.go(-1);
-        }
+      routerBack() {
+        this.$router.go(-1);
+      },
+      numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
     }
 }
 </script>

@@ -74,7 +74,7 @@
         <span class="mdi mdi-star-outline"></span>
         <br/>
 
-      {{item._source.price}}원
+      {{numberWithCommas(item._source.price)}}원
         <!-- <b-button variant="primary" >Go somewhere</b-button> -->
         <!-- <b-button squared variant="outline-secondary">Button</b-button> -->
       <template v-slot:footer>
@@ -140,6 +140,9 @@ export default {
     },
     go() {
       this.$router.push({ name : "itemPage", params: {item: this.item}})
+    },
+    numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
   }
 };
