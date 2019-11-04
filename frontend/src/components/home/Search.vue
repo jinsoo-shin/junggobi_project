@@ -2,11 +2,11 @@
     <v-flex>
         <v-text-field
             v-model="model"
-            :outlined="outlined"
+            :placeholder="placeholder"
             :rounded="rounded"
             :solo="solo"
             :clearable="clearable"
-            v-on:keyup.enter="searchById(model)"
+             v-on:keyup.enter="searchById(model)"
         ></v-text-field>
     </v-flex>
 </template>
@@ -14,8 +14,8 @@
 <script>
 export default {
     data: () => ({
-        value: '',
-        model: '',
+        model:"",
+        placeholder: '상품을 검색하세요.',
         outlined: true,
         rounded: true,
         solo: true,

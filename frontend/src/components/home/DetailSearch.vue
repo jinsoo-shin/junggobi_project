@@ -151,17 +151,39 @@ export default {
   },
     methods:{
       async search_option() {
-          var search = this.value1
+          var search = ""
+          if(this.value1=="아이패드")
+            search += this.value1
+          else if(this.value1=="갤럭시탭"){
+            search += this.value1
+          }
+          if(this.value6=="삼성전자 갤럭시"){
+            search += "갤럭시"
+          }else if(this.value6=="애플 아이폰"){
+            search += "아이폰"
+          }
+          if(this.value3!="종류"){
+            search+=this.value3
+          }
+          if(this.value4!="세대"){
+            search+=this.value4
+          }
+          if(this.value5!="셀룰러/WIFI"){
+            search+=this.value5
+          }
+          if(this.value2!="크기"){
+            search+=this.value2
+          }
           console.log(search)
-          // await this.$store.dispatch('data/searchById', this.items[id].title)
-          // .then(res => {
-          //     console.log(res)
-          //     this.EventBus.$emit("changedItemList");
-          //     this.itemList = res;
-          //     this.EventBus.$emit("search")
-          //     this.$router.push({ name : "searchPage", params: {itemListSub: res}})
-          // }
-        // )
+          await this.$store.dispatch('data/searchById', search)
+          .then(res => {
+              console.log(res)
+              this.EventBus.$emit("changedItemList");
+              this.itemList = res;
+              this.EventBus.$emit("search")
+              this.$router.push({ name : "searchPage", params: {itemListSub: res}})
+          }
+        )
       }
   }
 }
