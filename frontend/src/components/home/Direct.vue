@@ -8,7 +8,7 @@
                 xs="12" lg="2" md="3"
             >
                 <center>
-                    <a href="#" @click="direct_move(item.idx)">
+                    <a @click="direct_move(item.idx)">
                         <v-avatar
                             class="ma-3"
                             size="125"

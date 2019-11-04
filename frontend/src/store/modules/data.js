@@ -44,26 +44,6 @@ const mutations = {
       }
     }
   },
-  // checkExpenCost(state, list) {
-  //   var arr = list
-  //   var len = arr.length, max = -Infinity;
-  //   while (len--) {
-  //     if (arr[len].price > max) {
-  //       max = arr[len].price;
-  //     }
-  //   }
-  //   state.expenCost = max;
-  // },
-  // checkCheapCost(state, list) {
-  //   var arr = list
-  //   var len = arr.length, min = Infinity;
-  //   while (len--) {
-  //     if (arr[len].price < min) {
-  //       min = arr[len].price;
-  //     }
-  //   }
-  //   state.cheapCost = min;
-  // },
   setValueMaxMin(state, payload) {
     state.valueMaxMin = payload
   }
