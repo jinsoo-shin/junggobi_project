@@ -1,6 +1,7 @@
 <!-- itemDetailPage 상세 페이지 -->
 <template>
-    <v-container grid-list-md text-center>  
+<div>
+    <v-container grid-list-md text-center  align-center justify-center>  
         <v-flex>
             <v-text-field
                 v-model="value"
@@ -25,19 +26,21 @@
             </v-btn>
         </v-fab-transition>
         <!-- start : item-list -->
-        <itemList :data="itemList"/>
+        <itemList :itemList="itemList" :itemPriceList="itemPriceList"></itemList>
         <!-- end : item-list -->
         
         <!-- start : sideMenu -->
-        <!-- <sideMenu></sideMenu> -->
+        <sideMenu></sideMenu>
         <!-- end : sideMenu -->
     
     </v-container>
+    
+</div>
 </template>
 
 <script>
 export default {
-    name: "itemDetailPage",
+    name: "searchPage",
     data: () => ({
         value: '',
         outlined: true,
@@ -45,6 +48,7 @@ export default {
         solo: true,
         clearable: true,
         itemList: [],
+        itemPriceList : [],
     }),
     methods: {
         side() { 
@@ -56,11 +60,23 @@ export default {
                 console.log(res)
                 this.EventBus.$emit("changedItemList");
                 this.itemList = res;
-                this.itemList = res;
+                this.getPriceList();
+                this.EventBus.$emit("search")
             })
-        }
+        },
+        getPriceList() {
+            for(var i=0; i<this.itemList.length; i++){
+                this.itemPriceList[i] = this.itemList[i]._source.price;
+            }
+        },
     },
     created() {
+        this.itemList = this.itemListSub;
+    },
+    props: {
+        itemListSub : {
+            type : Array
+        }
     }
 };
 </script>

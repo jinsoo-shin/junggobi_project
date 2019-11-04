@@ -9,9 +9,10 @@ import DetailSearch from '../components/home/DetailSearch.vue'
 import CheckBoxButton from '../components/home/CheckBoxButton.vue'
 
 // import MultipleChart from '../components/chart/MultipleChart.vue'
-// import SideMenu from '../components/itemDetail/SideMenu.vue'
+import SideMenu from '../components/itemDetail/SideMenu.vue'
 // import LoadingImg from '../components/LoadingImg.vue'
 import Direct from '../components/home/Direct.vue'
+import Carousel from '../components/Carousel.vue'
 // import HistogramSlider from '../components/chart/HistogramSlider.vue'
 
 function setupComponents(Vue){
@@ -28,8 +29,9 @@ function setupComponents(Vue){
     //item Detail page
     Vue.component('itemList', ItemList);            //detailpage - 검색 제품 목록
     Vue.component('itemListCard', ItemListCard);    //detailpage - 검색 제품 목록 내 아이템
-    // Vue.component('sideMenu', SideMenu)             //detailpage - 사이드바 ( 최근검색목록 등 출력 )
-    
+    Vue.component('sideMenu', SideMenu)             //detailpage - 사이드바 ( 최근검색목록 등 출력 )
+    Vue.component('carousel', Carousel);
+
     //chart
     // Vue.component('multipleChart', MultipleChart);  //최소값,평균값,최대값 가격 비교를 위한 차트
     // Vue.component('loadingImg', LoadingImg);        //loading시 대체 이미지

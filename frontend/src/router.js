@@ -4,6 +4,7 @@ import SearchPage from './pages/searchPage.vue'
 import Main from './pages/Main.vue'
 import RedirectPage from './pages/RedirectPage.vue'
 import BlogPage from './pages/BlogPage.vue'
+import ItemPage from './pages/ItemPage.vue'
 
 Vue.use(Router)
 
@@ -31,6 +32,12 @@ export default new Router({
             path: '/BlogPage',
             name: 'BlogPage',
             component: BlogPage,
+            props: true
+        },
+        {
+            path: '/ItemPage',
+            name: 'itemPage',
+            component: ItemPage,
             props: true
         }
     ]

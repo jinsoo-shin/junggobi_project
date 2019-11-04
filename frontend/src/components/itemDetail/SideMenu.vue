@@ -27,33 +27,33 @@
       <v-list dense>
         <v-list-item-title>관심 항목</v-list-item-title> 
           
-        <v-list-item v-for="item in items" :key="item.id">
+        <v-list-item v-for="item in items" :key="item._id">
           
           <!--start : favoriteItems 관심항목 출력 -->
           <v-hover v-slot:default="{ hover }">
-          <div style="cursor: pointer;" @click="openUrl(item.link, item.price)">
+          <div style="cursor: pointer;" @click="openUrl(item._source.link, item._source.price)">
           <v-card 
             :elevation="hover ? 6 : 2"
             draggable="true"
-            @dragstart="dragStart(item.id, $event)"
+            @dragstart="dragStart(item._id, $event)"
             @dragover.prevent 
             @dragend="dragEnd" 
-            @drop="dragFinish(item.id, $event)"
+            @drop="dragFinish(item._id, $event)"
             class="mt-2"
             max-width="230"
             outlined
           >
             <v-list-item three-line>
               <v-list-item-content>
-                <div class="overline mb-2">{{item.model_name}}</div>
-                <v-list-item-title class="mb-1">{{item.price}}</v-list-item-title>
-                <v-list-item-subtitle>{{item.contents}}</v-list-item-subtitle>
+                <div class="overline mb-2">{{item._source.model_name}}</div>
+                <v-list-item-title class="mb-1">{{item._source.price}}</v-list-item-title>
+                <v-list-item-subtitle>{{item._source.contents}}</v-list-item-subtitle>
               </v-list-item-content>
 
               <v-list-item-avatar
                 tile
                 size="80"
-              ><v-img  class="outlineImg" :src=item.img_src style="width:100px; height:100px"></v-img>
+              ><v-img  class="outlineImg" :src=item._source.img_src style="width:100px; height:100px"></v-img>
                     
               </v-list-item-avatar>
             </v-list-item>
