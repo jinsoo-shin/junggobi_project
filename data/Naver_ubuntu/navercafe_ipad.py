@@ -1,11 +1,11 @@
+#-*-coding: utf-8-*-
 from selenium import webdriver
 from bs4 import BeautifulSoup
 import requests
 import time
-import urllib.request
+import urllib
 import re
 import csv
-import pandas as pd
 import regex_function
 import json
 import datetime
@@ -19,9 +19,13 @@ with open(filename, mode='r', encoding='utf-8') as data:
     print(passtext)
 
 chrome_options= webdriver.ChromeOptions() #옵션 설정하기
-chrome_options.add_argument('headless') #창이 안보이도록 숨기기
+chrome_options.add_argument('--disable-extensions')
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--disable-gpu')
+chrome_options.add_argument('--no-sandbox')
+#chrome_options.add_argument('headless') #창이 안보이도록 숨기기
 chrome_options.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.3')
-driver = webdriver.Chrome("./chromedriver.exe",chrome_options=chrome_options)
+driver = webdriver.Chrome("./chromedriver",chrome_options=chrome_options)
 driver.implicitly_wait(3)
 driver.get('https://nid.naver.com/nidlogin.login')
 id = 'sjins0127'
