@@ -4,8 +4,9 @@
       class="grey lighten-2"
       height="400"
       width="100%"
-      :src="require('../../../assets/articles/blurcamera.jpg')"
+      src="https://picjumbo.com/wp-content/uploads/golden-gate-bridge-in-san-francisco-at-sunset-vintage-colors_free_stock_photos_picjumbo_HNCK2788-2210x1474.jpg"
     >
+      <!-- :src="require('../../../assets/articles/blurcamera.jpg')" -->
       <v-layout
         fill-height
         align-center
