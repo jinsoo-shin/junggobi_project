@@ -79,11 +79,11 @@
             </card>
         </v-flex>  
         <v-flex d-flex xs12 sm6 md3>
-            <card data-image="//thumbnail11.coupangcdn.com/thumbnails/remote/492x492ex/image/product/image/vendoritem/2019/04/18/4643931503/dd451310-4204-4862-a147-f828601c99b8.jpg">
+            <!-- <card data-image="//thumbnail11.coupangcdn.com/thumbnails/remote/492x492ex/image/product/image/vendoritem/2019/04/18/4643931503/dd451310-4204-4862-a147-f828601c99b8.jpg">
                 <h1 slot="header">아이패드</h1>
                 <p slot="content">가격 1000만원</p>
                 <p slot="content">________________________________</p>
-            </card>
+            </card> -->
         </v-flex>  
     </v-layout>
     </div>
@@ -95,10 +95,10 @@
 </template>
 
 <script>
-import card from './card.vue'
+// import card from './card.vue'
 export default {
     components: {
-        card,
+        // card,
     },
     data(){
         return {

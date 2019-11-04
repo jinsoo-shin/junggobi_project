@@ -45,12 +45,14 @@ export default {
             await this.$store.dispatch('data/searchById', id)
             .then(res => {
                 console.log(res)
-                let valueMaxMin = this.checkMaxMinValue(res);
-                this.$store.commit('data/setValueMaxMin', valueMaxMin)
-                this.$router.push({ name : "itemDetailPage" , 
-                params: {
-                    itemList: res,
-                }})
+                // let valueMaxMin = this.checkMaxMinValue(res);
+                // this.$store.commit('data/setValueMaxMin', valueMaxMin)
+                // this.$router.push({ name : "itemDetailPage"})
+                // this.EventBus.$emit("changedItemList");
+                this.EventBus.$emit("changedItemList");
+                this.itemList = res;
+                this.EventBus.$emit("search")
+                this.$router.push({ name : "searchPage", params: {itemListSub: res}})
             })
         }
     }

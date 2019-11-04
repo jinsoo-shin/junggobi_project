@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import ItemDetailPage from './pages/ItemDetailPage.vue'
+import SearchPage from './pages/searchPage.vue'
 import Main from './pages/Main.vue'
 import RedirectPage from './pages/RedirectPage.vue'
 import BlogPage from './pages/BlogPage.vue'
+import ItemPage from './pages/ItemPage.vue'
 
 Vue.use(Router)
 
@@ -16,9 +17,9 @@ export default new Router({
             component: Main
         },
         {
-            path: '/itemDetailPage',
-            name: 'itemDetailPage',
-            component: ItemDetailPage,
+            path: '/searchPage',
+            name: 'searchPage',
+            component: SearchPage,
             props: true
         },
         {
@@ -31,6 +32,12 @@ export default new Router({
             path: '/BlogPage',
             name: 'BlogPage',
             component: BlogPage,
+            props: true
+        },
+        {
+            path: '/ItemPage',
+            name: 'itemPage',
+            component: ItemPage,
             props: true
         }
     ]
