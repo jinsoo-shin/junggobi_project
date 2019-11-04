@@ -8,7 +8,7 @@ import Headercomponent from '../components/home/Headercomponent.vue'
 import DetailSearch from '../components/home/DetailSearch.vue'
 import CheckBoxButton from '../components/home/CheckBoxButton.vue'
 
-// import MultipleChart from '../components/chart/MultipleChart.vue'
+import MultipleChart from '../components/chart/MultipleChart.vue'
 import SideMenu from '../components/itemDetail/SideMenu.vue'
 // import LoadingImg from '../components/LoadingImg.vue'
 import Direct from '../components/home/Direct.vue'
@@ -33,7 +33,7 @@ function setupComponents(Vue){
     Vue.component('carousel', Carousel);
 
     //chart
-    // Vue.component('multipleChart', MultipleChart);  //최소값,평균값,최대값 가격 비교를 위한 차트
+    Vue.component('multipleChart', MultipleChart);  //최소값,평균값,최대값 가격 비교를 위한 차트
     // Vue.component('loadingImg', LoadingImg);        //loading시 대체 이미지
     // Vue.component('histogramSlider', HistogramSlider);
   }
