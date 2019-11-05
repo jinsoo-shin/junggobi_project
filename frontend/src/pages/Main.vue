@@ -5,7 +5,7 @@
       <v-toolbar-title>Log</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>
-        <v-btn text @click="blogpage">Post</v-btn>
+        <v-btn text @click="blogPage">Post</v-btn>
       </v-toolbar-items>
     </v-toolbar>
     <v-content id="back">
@@ -124,16 +124,15 @@ const apiUrl = '/api'
 import axios from "axios";
 export default {
   methods: {
-        async blogpage() {
-            await this.$store.dispatch('data/getBlogPost').then(res => this.$router.push({ name :"BlogPage", params : { data : res}}));
-        },
-         async searchAll() {
+    async blogPage() {
+      await this.$store.dispatch('data/getBlogPost').then(res => this.$router.push({ name :"blogpage", params : { data : res}}));
+    },
+    async searchAll() {
       await this.$store.dispatch('data/searchById', "")
       .then(res => {
-       
+        this.$router.push({ name : "searchPage", params: { itemListSub: res}})
       })
     },
-
   }
 }
 </script>

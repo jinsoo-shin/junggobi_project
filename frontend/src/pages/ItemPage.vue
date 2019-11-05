@@ -36,22 +36,22 @@
 
 
 export default {
-    data(){
-        return {
-            
+  data(){
+      return {
+          
 
-        }
-    },
-    props: {
-        item : { type: Object, default: () => new Object() },
-    },
-    methods: {
-      routerBack() {
-        this.$router.go(-1);
-      },
-      numberWithCommas(x) {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
       }
+  },
+  props: {
+      item : { type: Object, default: () => new Object() },
+  },
+  methods: {
+    routerBack() {
+      this.$router.go(-1);
+    },
+    numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
+  }
 }
 </script>
