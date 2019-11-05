@@ -6,8 +6,8 @@
         </v-toolbar-title>
         <v-spacer></v-spacer>
         <v-toolbar-items>
-            <v-btn text @click="blog" id="font">Post</v-btn>
             <v-btn text @click="searchAll" id="font">Search</v-btn>
+            <v-btn text @click="blog" id="font">Post</v-btn>
         </v-toolbar-items>
         </v-toolbar>
     </v-layout>
