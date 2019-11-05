@@ -12,12 +12,23 @@ import BootstrapVue from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 
+// chatkit
+
+// import VueChatScroll from "vue-chat-scroll";
+// import 'bootstrap/dist/css/bootstrap.css'
+// import 'bootstrap-vue/dist/bootstrap-vue.css'
+// import './assets/css/loading.css'
+// import './assets/css/loading-btn.css'
+
 Vue.use(BootstrapVue)
 Vue.component(HistogramSlider.name, HistogramSlider);
 Vue.use(swalPlugin);
 Vue.config.productionTip = false
 Vue.prototype.EventBus = new Vue();
 setupComponents(Vue);
+
+// chatkit
+// Vue.use(VueChatScroll)
 
 new Vue({
     router,

@@ -5,6 +5,9 @@ import Main from './pages/Main.vue'
 import RedirectPage from './pages/RedirectPage.vue'
 import BlogPage from './pages/BlogPage.vue'
 import ItemPage from './pages/ItemPage.vue'
+// chatkit
+import Login from './pages/Login.vue'
+import ChatDashboard from './pages/ChatDashboard.vue'
 
 Vue.use(Router)
 
@@ -39,6 +42,16 @@ export default new Router({
             name: 'itemPage',
             component: ItemPage,
             props: true
-        }
+        },
+        {
+            path: '/',
+            name: 'login',
+            component: Login
+          },
+          {
+            path: '/chat',
+            name: 'chat',
+            component: ChatDashboard,
+          }
     ]
 })
