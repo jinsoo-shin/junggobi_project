@@ -26,7 +26,9 @@ def search(request):
                                              {"match": {"title": search_word}},
                                              {"match": {"contents": search_word}},
                                              {"match": {"region": search_word}},
-                                             {"match": {"model_name": search_word}}
+                                             {"match": {"model_name": search_word}},
+                                             {"match": {"cellular": search_word}},
+
                                          ]
                                      }
                                  },
