@@ -1,11 +1,13 @@
 <!-- itemDetailPage 상세 페이지 -->
 <template>
-    <v-container grid-list-md text-center>        
-        <h1>junggobi</h1>
+    <v-container grid-list-md text-center>  
+        <img src="./src/Untitled.png" alt="Vuetify.js" height="100">      
+        <h1 class="fontMain">junggobi</h1>
+
         <v-divider></v-divider>
-        <p class="font-weight-black" style="color:indigo">판매가격 {{ numberWithCommas(price) }} </p>
+        <p class="fontSub font-weight-black" style="color:indigo">판매가격 {{ numberWithCommas(price) }} </p>
         <!-- {{ value }} -->
-        <p>
+        <p class="fontSub">
             {{ link }}<br>
             해당 사이트로 이동 중입니다.<br>
             잠시만 기다려주세요.
@@ -75,6 +77,14 @@ export default {
 </script>
 <style scoped>
 .v-progress-circular {
-  margin: 1rem;
+    margin: 1rem;
+}
+.fontMain {
+  font-family: 'Cute Font', cursive;
+  font-size: 30px;
+}
+.fontSub {
+    font-family: 'Cute Font', cursive;
+    font-size: 30px;
 }
 </style>
