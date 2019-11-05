@@ -53,6 +53,8 @@ export default {
     name: "searchPage",
     data: () => ({
         value: '',
+        model:"",
+        placeholder: '상품을 검색하세요.',
         outlined: true,
         rounded: true,
         solo: true,
