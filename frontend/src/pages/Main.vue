@@ -144,6 +144,9 @@ export default {
         this.$router.push({ name : "searchPage", params: { itemListSub: res}})
       })
     },
+    handleAnimation: function (anim) {
+        this.anim = anim;
+    },
   },
 }
 </script>
