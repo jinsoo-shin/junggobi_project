@@ -4,6 +4,10 @@
   <v-layout>
     <v-flex >
     <v-row>
+      <b-button class="m-1" @click="avgChart = true">
+        가격 변동
+        <span class="mdi mdi-poll-box"></span>
+      </b-button>
       <b-button v-b-toggle.collapse-3 class="m-1">정렬방법</b-button>
       <b-collapse invisible id="collapse-3">
         <b-form-select v-model="selected" :options="options" size="sm" class="mt-3" value="select"></b-form-select>
@@ -11,11 +15,7 @@
       <div>
 
       <v-col align-self="center">
-            <div class="hidden-sm-and-down" style="cursor:pointer" @click="avgChart = true" >
-              <v-alert outlined dense color="info">
-                <span class="mdi mdi-poll-box"></span> 
-                가격 변동 
-              </v-alert>
+            <div class="hidden-sm-and-down" style="cursor:pointer"  >
             </div>
             <v-snackbar color="white" v-model="avgChart">
             <v-col>
