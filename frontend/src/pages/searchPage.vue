@@ -1,46 +1,51 @@
 <!-- itemDetailPage 상세 페이지 -->
 <template>
-<v-container grid-list-md text-center>  
-    <v-flex>
-        <v-text-field
-            v-model="value"
-            :outlined="outlined"
-            :rounded="rounded"
-            :solo="solo"
-            :clearable="clearable"
-            v-on:keyup.enter="searchById(value)"
-        ></v-text-field>
-    </v-flex> 
-    <v-fab-transition>
+    <v-container grid-list-md text-center>  
+        <br/>
+        <img src="./src/Untitled.png" alt="Vuetify.js" height="200">    
+        <center>
+            <v-flex lg8>
+                <v-text-field
+                    v-model="model"
+                    :placeholder="placeholder"
+                    :rounded="rounded"
+                    :solo="solo"
+                    :clearable="clearable"
+                    v-on:keyup.enter="searchById(model)"
+                ></v-text-field>
+            </v-flex>
+        </center> 
+
+        <v-fab-transition>
+            <v-btn
+                @click="side"
+                color="grey"
+                fab
+                dark
+                small
+                absolute
+                right
+            >
+                <span class="mdi mdi-playlist-plus mdi-24px"></span>
+            </v-btn>
+        </v-fab-transition>
+        <!-- start : item-list -->
+        <itemList :itemList="itemList" ></itemList><!-- :itemPriceList="itemPriceList" -->
+
+
+        <!-- end : item-list -->
+        
+        <!-- start : sideMenu -->
+        <sideMenu></sideMenu>
+        <!-- end : sideMenu -->
         <v-btn
-            @click="side"
-            color="grey"
-            fab
-            dark
-            small
-            absolute
-            right
-        >
-            <span class="mdi mdi-playlist-plus mdi-24px"></span>
-        </v-btn>
-    </v-fab-transition>
-    <!-- start : item-list -->
-    <itemList :itemList="itemList" ></itemList><!-- :itemPriceList="itemPriceList" -->
-
-
-    <!-- end : item-list -->
-    
-    <!-- start : sideMenu -->
-    <sideMenu></sideMenu>
-    <!-- end : sideMenu -->
-    <v-btn
-    v-scroll="onScroll" v-show="fab"
-    fab dark fixed bottom right
-    color="primary" @click="toTop"
-  >
-    <v-icon>keyboard_arrow_up</v-icon>
-  </v-btn> 
-</v-container>
+        v-scroll="onScroll" v-show="fab"
+        fab dark fixed bottom right
+        color="primary" @click="toTop"
+    >
+        <v-icon>keyboard_arrow_up</v-icon>
+    </v-btn> 
+    </v-container>
 </template>
 
 <script>
@@ -95,3 +100,13 @@ export default {
     }
 };
 </script>
+
+<style scoped>
+hr.type_3 {
+  border: 0;
+  height: 50px;
+  width: 800px;
+  background-image: url(Untitled1.png);
+  background-repeat: no-repeat;
+}
+</style>
