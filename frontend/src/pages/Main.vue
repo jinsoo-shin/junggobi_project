@@ -1,13 +1,14 @@
 <template>
   <div id="app">
    <v-app light>
-    <v-toolbar color="white">
+    <!-- <v-toolbar color="white">
       <v-toolbar-title>Log</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>
-        <v-btn text @click="blogPage">Post</v-btn>
+        <v-btn text @click="blog">Post</v-btn>
       </v-toolbar-items>
-    </v-toolbar>
+    </v-toolbar> -->
+    <header/>
     <v-content id="back">
       <section>
         <v-parallax src="http://file2.instiz.net/data/cached_img/upload/2016/05/09/23/7d931c39c52fe2837a5ec177e7223d36.jpg" height="650">
