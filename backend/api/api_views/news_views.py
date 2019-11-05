@@ -43,82 +43,84 @@ def news(request):
             url=""
 
             for i in range(3):
-            
-                card = cards[i].select("div")
                 try:
-                    url = card[1].select("a")[0].attrs['href']     
+                    card = cards[i].select("div")
+                    try:
+                        url = card[1].select("a")[0].attrs['href']     
+                    except:
+                        url = card[0].select("div>div")[0].select("a")[0].attrs['href']
+                    if "http://www.itworld.co.kr/" in url:
+                        news_page = BeautifulSoup(urllib.request.urlopen(url).read(), "html.parser")
+                        title = news_page.select("h3")[0].text
+                        title= title.replace("\r\n\t  \t","")
+                        for ii in news_page.select('.node_body>img'):
+                            hero = "http://itworld.co.kr"+ii.attrs['src']
+                            break
+                        if hero is "":
+                            hero = "https://media.licdn.com/dms/image/C510BAQGI6bReiFqNbQ/company-logo_200_200/0?e=2159024400&v=beta&t=am4p3LK6gMAETjIN75BVTmcRJrpEft501Hnr1-ssEm4"    
+                        author = "ITWorld Korea"
+                    elif "www.bloter.net" in url:
+                        news_page = BeautifulSoup(urllib.request.urlopen(url).read(), "html.parser")
+                        title = news_page.select_one("h1").text
+                        imgs = news_page.select("img")
+                        author = "블로터닷넷"
+                        for img in imgs:
+                            try:
+                                if "www.bloter.net/wp-content/uploads" in img.attrs['src']:
+                                    hero = img.attrs['src']
+                                    break
+                            except:
+                                continue
+                    elif "autodaily.co.kr" in url:
+                        author = "오토데일리"
+                        news_page = BeautifulSoup(urllib.request.urlopen(url).read(), "html.parser")
+                        title = news_page.select(".article-head-title")[0].text
+                        imgs = news_page.select("img")
+                        for img in imgs:
+                            try:
+                                if "/news/photo/" in img.attrs['src']:
+                                    hero = "http://www.autodaily.co.kr"+img.attrs['src']
+                                    break
+                            except:
+                                continue
+                    elif "biz.chosun.com" in url:
+                        author = "조선비즈"
+                        news_page = BeautifulSoup(urllib.request.urlopen(url).read(), "html.parser")
+                        title = news_page.select_one("h1").text
+                        hero = news_page.select("img")[0].attrs['src']
+                    elif "www.hankyung.com" in url:
+                        author = "한국경제"
+                        news_page = BeautifulSoup(urllib.request.urlopen(url).read(), "html.parser")
+                        title = news_page.select_one(".title").text
+                        hero = news_page.select(".articleimage>img")[0].attrs['src']
+                    elif "http://www.farminsight.net/" in url:
+                        author = "팜인사이트"
+                        news_page = BeautifulSoup(urllib.request.urlopen(url).read(), "html.parser")
+                        title = news_page.select(".article-head-title")[0].text
+                        imgs = news_page.select("img")
+                        for img in imgs:
+                            try:
+                                if "/news/photo/" in img.attrs['src']:
+                                    hero = "http://www.farminsight.net"+img.attrs['src']
+                                    break
+                            except:
+                                continue
+                    else:
+                        continue
+                    request_data['data'].append({
+                        "title": title,
+                        "author": author,
+                        "category": category,
+                        "hero": hero,
+                        "url":url
+                    })
+                    title = ""
+                    author = ""
+                    category=""
+                    hero=""
+                    url=""
                 except:
-                    url = card[0].select("div>div")[0].select("a")[0].attrs['href']
-                if "http://www.itworld.co.kr/" in url:
-                    news_page = BeautifulSoup(urllib.request.urlopen(url).read(), "html.parser")
-                    title = news_page.select("h3")[0].text
-                    title= title.replace("\r\n\t  \t","")
-                    for ii in news_page.select('.node_body>img'):
-                        hero = "http://itworld.co.kr"+ii.attrs['src']
-                        break
-                    if hero is "":
-                        hero = "https://media.licdn.com/dms/image/C510BAQGI6bReiFqNbQ/company-logo_200_200/0?e=2159024400&v=beta&t=am4p3LK6gMAETjIN75BVTmcRJrpEft501Hnr1-ssEm4"    
-                    author = "ITWorld Korea"
-                elif "www.bloter.net" in url:
-                    news_page = BeautifulSoup(urllib.request.urlopen(url).read(), "html.parser")
-                    title = news_page.select_one("h1").text
-                    imgs = news_page.select("img")
-                    author = "블로터닷넷"
-                    for img in imgs:
-                        try:
-                            if "www.bloter.net/wp-content/uploads" in img.attrs['src']:
-                                hero = img.attrs['src']
-                                break
-                        except:
-                            continue
-                elif "autodaily.co.kr" in url:
-                    author = "오토데일리"
-                    news_page = BeautifulSoup(urllib.request.urlopen(url).read(), "html.parser")
-                    title = news_page.select(".article-head-title")[0].text
-                    imgs = news_page.select("img")
-                    for img in imgs:
-                        try:
-                            if "/news/photo/" in img.attrs['src']:
-                                hero = "http://www.autodaily.co.kr"+img.attrs['src']
-                                break
-                        except:
-                            continue
-                elif "biz.chosun.com" in url:
-                    author = "조선비즈"
-                    news_page = BeautifulSoup(urllib.request.urlopen(url).read(), "html.parser")
-                    title = news_page.select_one("h1").text
-                    hero = news_page.select("img")[0].attrs['src']
-                elif "www.hankyung.com" in url:
-                    author = "한국경제"
-                    news_page = BeautifulSoup(urllib.request.urlopen(url).read(), "html.parser")
-                    title = news_page.select_one(".title").text
-                    hero = news_page.select(".articleimage>img")[0].attrs['src']
-                elif "http://www.farminsight.net/" in url:
-                    author = "팜인사이트"
-                    news_page = BeautifulSoup(urllib.request.urlopen(url).read(), "html.parser")
-                    title = news_page.select(".article-head-title")[0].text
-                    imgs = news_page.select("img")
-                    for img in imgs:
-                        try:
-                            if "/news/photo/" in img.attrs['src']:
-                                hero = "http://www.farminsight.net"+img.attrs['src']
-                                break
-                        except:
-                            continue
-                else:
                     continue
-                request_data['data'].append({
-                    "title": title,
-                    "author": author,
-                    "category": category,
-                    "hero": hero,
-                    "url":url
-                })
-                title = ""
-                author = ""
-                category=""
-                hero=""
-                url=""
        
         return Response(request_data)
 
