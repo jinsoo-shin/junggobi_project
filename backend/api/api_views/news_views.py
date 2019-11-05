@@ -43,6 +43,7 @@ def news(request):
             url=""
 
             for i in range(3):
+            
                 card = cards[i].select("div")
                 try:
                     url = card[1].select("a")[0].attrs['href']     
