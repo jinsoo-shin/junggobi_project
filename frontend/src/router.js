@@ -17,25 +17,25 @@ export default new Router({
             component: Main
         },
         {
-            path: '/searchPage',
+            path: '/search',
             name: 'searchPage',
             component: SearchPage,
             props: true
         },
         {
-            path: '/redirectPage',
+            path: '/redirect',
             name: 'redirectPage',
             component: RedirectPage,
             props: true
         },
         {
-            path: '/BlogPage',
+            path: '/blog',
             name: 'BlogPage',
             component: BlogPage,
             props: true
         },
         {
-            path: '/ItemPage',
+            path: '/item',
             name: 'itemPage',
             component: ItemPage,
             props: true
