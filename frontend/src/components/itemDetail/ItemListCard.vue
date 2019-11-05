@@ -147,11 +147,15 @@ export default {
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     },
     checkHighlight() {
-        if(this.item.highlight === undefined){
+      if(this.item.highlight === undefined){
+        return this.item._source
+      }else{
+        if(this.item.highlight.title === undefined || this.item.highlight.contents){
           return this.item._source
         }else{
           return this.item.highlight
         }
+      }
     }
   },
 };

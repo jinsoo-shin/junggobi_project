@@ -31,20 +31,19 @@
       </div>
         <div class="mt-3"><strong> {{itemLen()}}</strong></div>
     </v-row>
-    <!-- {{priceList}}
-    <v-row>
-       <HistogramSlider
-            style="margin: 200px auto"
-            :width="600"
-            :bar-height="50"
-            :data="priceList"
-            :drag-interval="true"
-            :force-edges="false"
-            :colors="['#4facfe', '#00f2fe']"
-            :min="chartLP"
-            :max="chartRP"
-            :step="10000"
-          />
+    <!-- <v-row>
+      <HistogramSlider
+          style="margin: auto"
+          :width="600"
+          :bar-height="50"
+          :data="priceList"
+          :drag-interval="true"
+          :force-edges="false"
+          :colors="['#4facfe', '#00f2fe']"
+          :min="chartLP"
+          :max="chartRP"
+          :step="10000"
+        />
     </v-row> -->
     <carousel></carousel>
     <v-flex wrap>
