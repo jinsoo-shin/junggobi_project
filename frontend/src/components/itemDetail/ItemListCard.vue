@@ -35,9 +35,9 @@
       <template v-slot:footer id="card_color">
         <b-list-group id="card_color">
           <b-list-group-item id="card_color">
-            <v-btn id="card_color" text small color="error" @click="visitLink(item._source.link, item._source.price)">방문하기</v-btn>
-            <v-btn id="card_color" text small @click="addItem">관심상품</v-btn>
-            <v-btn id="card_color" @click="go">asdf</v-btn>
+            <v-btn class="fontSub font-weight-black" id="card_color" text small color="error" @click="visitLink(item._source.link, item._source.price)">방문하기</v-btn>
+            <v-btn class="fontSub font-weight-black" id="card_color" text small @click="addItem">관심상품</v-btn>
+            <v-btn class="fontSub font-weight-black" text small @click="go">상세보기</v-btn>
           </b-list-group-item>
           <!--거래방법 없어졌나요? 직거래?-->
         </b-list-group>
@@ -80,10 +80,10 @@
       <template v-slot:footer>
           <b-list-group>
           <b-list-group-item>
-    <v-btn text small color="error" @click="visitLink(item._source.link, item._source.price)">방문하기</v-btn>
-        <v-btn text small @click="addItem">관심상품</v-btn>
+    <v-btn class="fontSub font-weight-black" text small color="error" @click="visitLink(item._source.link, item._source.price)">방문하기</v-btn>
+        <v-btn class="fontSub font-weight-black" text small @click="addItem">관심상품</v-btn>
         
-        <v-btn @click="go">asdf</v-btn>
+        <v-btn class="fontSub font-weight-black" text small @click="go" color='indigo'>상세보기</v-btn>
           </b-list-group-item>
           <!--거래방법 없어졌나요? 직거래?-->
         </b-list-group>
