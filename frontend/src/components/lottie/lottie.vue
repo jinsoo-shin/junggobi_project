@@ -1,5 +1,7 @@
 <template>
-    <div :style="style" ref="lavContainer"></div>
+    <div :style="style" ref="lavContainer">
+      <h2 id="font">로딩중......</h2>
+    </div>
 </template>
 
 <script>
@@ -37,3 +39,10 @@
     }
   }
 </script>
+
+<style scoped>
+#font {
+  font-family: 'Cute Font', cursive;
+  font-size: 30px;
+}
+</style>
