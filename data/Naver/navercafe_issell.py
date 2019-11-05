@@ -80,7 +80,7 @@ def saveDb(id):
 
 def mysql():
     cursor = conn.cursor()
-    query = "select id,link from product_info where link like '%cafe.naver.com%' and date = '2019-11-3' and is_sell = 0"
+    query = "select id,link from product_info where link like '%cafe.naver.com%' and date = '2019-11-4' and is_sell = 0"
     cursor.execute(query)
     row = dictfetchall(cursor)  
     return row
