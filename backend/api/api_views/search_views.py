@@ -23,15 +23,20 @@ def search(request):
                                  "query": {
                                      "bool": {
                                          "should": [
-                                             {"match": {"title": search_word}},
-                                             {"match": {"contents": search_word}},
+                                             {"match": {"title": {"query":search_word,"boost":3}}},
+                                             {"match": {"contents": {"query":search_word,"boost":1.5}}},
+                                            #  {"match": {"contents": search_word}},
                                              {"match": {"region": search_word}},
-                                             {"match": {"model_name": search_word}},
+                                             {"match": {"generation": search_word}},
                                              {"match": {"cellular": search_word}},
-
+                                             {"match": {"model_name": {"query":search_word,"boost":5}}},
                                          ]
                                      }
                                  },
+                                "sort" : [
+                                    { "date" : {"order" : "desc"}},
+                                    "_score"
+                                ],
                                  "highlight": {
                                      "pre_tags": ["<mark><strong>"],
                                      "post_tags": ["</strong></mark>"],
@@ -95,6 +100,9 @@ def search(request):
                                  "query": {
                                     "match_all": {}
                                  },
+                                "sort" : [
+                                    { "date" : {"order" : "desc"}},
+                                ],
                                  "aggs": {#aggregations
                                      "avg_price": {
                                          "avg": {
