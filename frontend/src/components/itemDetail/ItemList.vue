@@ -8,6 +8,27 @@
       <b-collapse invisible id="collapse-3">
         <b-form-select v-model="selected" :options="options" size="sm" class="mt-3" value="select"></b-form-select>
       </b-collapse>
+      <div>
+
+      <v-col align-self="center">
+            <div class="hidden-sm-and-down" style="cursor:pointer" @click="avgChart = true" >
+              <v-alert outlined dense color="info">
+                <span class="mdi mdi-poll-box"></span> 
+                가격 변동 
+              </v-alert>
+            </div>
+            <v-snackbar color="white" v-model="avgChart">
+            <v-col>
+              <v-row>
+                <multipleChart :chartDatas ='chartDatas'></multipleChart>
+              </v-row>
+              <v-row justify="end" >
+                <v-btn color="grey" text @click="avgChart = false">Close</v-btn>
+              </v-row>
+            </v-col>
+            </v-snackbar>
+          </v-col>
+      </div>
         <div class="mt-3"><strong> {{itemLen()}}</strong></div>
     </v-row>
     <!-- {{priceList}}
@@ -27,10 +48,16 @@
     </v-row> -->
     <carousel></carousel>
     <v-flex wrap>
-      <v-row>
-        <itemListCard v-for="i in NowItems.length > length ? length :NowItems.length"
-          :key="i" :item="NowItems[i-1]" class="mt-1"/>
-      </v-row>
+      <div v-if="turn===true">
+        <v-row>
+          <itemListCard v-for="i in itemList.length > length ? length :itemList.length"
+            :key="i" :item="itemList[i-1]" :itemId="itemList[i-1]._id" class="mt-1"/>
+        </v-row>
+      </div>
+      <div v-if="loading===true">
+        <lottie :options="defaultOptions" :height="400" :width="400" v-on:animCreated="handleAnimation"/>
+      </div>
+      
     </v-flex>
     <v-row>
       <!-- start : loadMore button 더 보기 버튼 -->
@@ -48,15 +75,20 @@
 <script>
 import HistogramSlider from 'vue-histogram-slider';
 import 'vue-histogram-slider/dist/histogram-slider.css';
+import Lottie from '../lottie/lottie.vue';
+import * as animationData from '../lottie/notebook.json';
 
 export default {
-  data: () => ({ 
+  data: () => ({
+    avgChart: false,
+    chartDatas : {},
     moreBtn: true,      // 더보기버튼 출력
     NowItems : [],
     chartLP : 0,
     chartRP : 1000000,
     length: 9,
-    
+    turn : false,
+    loading : false,
     selected: null,
     select :"",
     priceList : [],
@@ -66,8 +98,13 @@ export default {
       { value: 'highPrice', text: '높은 가격순' },
       { value: 'nowDate', text: '최근순' },
       { value: 'oldDate', text: '오래된순' },
-    ]
+    ],
+    defaultOptions: {animationData: animationData.default},
+    animationSpeed: 1
   }),
+  components: {
+    'lottie': Lottie
+  },
   methods:{
     itemLen() { // 검색된 데이터 정보 양 출력
       return "검색 결과 : " + this.NowItems.length + " 건";
@@ -104,22 +141,38 @@ export default {
       });
     },
     loadMore() {  // 더보기 버튼 
-      this.length += 9;
-      if (this.length >= this.itemList.length) this.moreBtn = false;
+      let self=this;
+      self.loading = true;
+      setTimeout(function(){
+        self.loading = false; self.length += 9;
+        if (self.length >= self.itemList.length) self.moreBtn = false;}, 3000);
+    },
+    handleAnimation: function (anim) {
+      this.anim = anim;
+    },
+    loadingTimer(timer) { //이미지 로딩바 출력부분
+      let self=this;
+      self.loading = true;
+      self.turn = false;
+      setTimeout(function(){self.loading = false; self.turn=true}, timer);
     },
   },
   props :{ 
     itemList : { type: Array , default: () => new Array() },
-    itemPriceList : { type: Array , default: () => new Array() }
+    // itemPriceList : { type: Array , default: () => new Array() }
   },
   created() {
+    this.loadingTimer(3000)
     this.NowItems = this.itemList;
-    this.EventBus.$on("search", () => {this.selected =null; } )
+    this.EventBus.$on("search", () => {this.selected =null;} )
+    this.sortByLowToHigh_price()
   },
   watch: {
     itemList :function(newVal, oldVal) {
+      this.loadingTimer(2000)
       this.NowItems = this.itemList;
       this.priceList = this.itemPriceList
+      this.chartDatas = this.$store.getters['data/getChartData']
     },
     selected :function(newVal, oldVal) {
       this.sortyBy(newVal);

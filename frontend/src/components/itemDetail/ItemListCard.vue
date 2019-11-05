@@ -15,10 +15,10 @@
         style="width: 20rem; height: 40rem; margin: 10px"
       >
         <b-card-text id="card_color">
-          <p class="target1 title font-weight-black" v-html="item.highlight.title[0]"></p>
+          <p class="target1 title font-weight-black" v-html="checkHighlight().title"></p>
           <!-- <p class="target1 title font-weight-black	" v-html="item._source.title"></p> -->
           <div class="target2">
-            <span v-for="(content,index) in item.highlight.contents" :key="index" v-html="content"></span>
+            <span v-for="(content,index) in checkHighlight().contents" :key="index" v-html="content"></span>
           </div>
           <!-- class="target2" v-html="item.highlight.contents" -->
         </b-card-text>
@@ -29,7 +29,7 @@
         <span class="mdi mdi-star-outline" id="card_color"></span>
         <br/>
 
-        <span id="card_color">{{item._source.price}}원</span>
+        <!-- <span id="card_color">{{item._source.price}}원</span> -->
         <!-- <b-button variant="primary" >Go somewhere</b-button> -->
         <!-- <b-button squared variant="outline-secondary">Button</b-button> -->
       <template v-slot:footer id="card_color">
@@ -41,7 +41,7 @@
           </b-list-group-item>
           <!--거래방법 없어졌나요? 직거래?-->
         </b-list-group>
-        <small id="card_color" class="text-muted">updated : {{item._source.date}}</small>
+        <!-- <small id="card_color" class="text-muted">updated : {{item._source.date}}</small> -->
         </template>
       </b-card>
       <a href="some-href">
@@ -60,10 +60,10 @@
         style="width: 20rem; height: 40rem; margin: 10px"
       >
         <b-card-text>
-          <p class="target1 title font-weight-black" v-html="item.highlight.title[0]"></p>
+          <p class="target1 title font-weight-black" v-html="checkHighlight().title[0]"></p>
           <!-- <p class="target1 title font-weight-black	" v-html="item._source.title"></p> -->
           <div class="target2">
-            <span v-for="(content,index) in item.highlight.contents" :key="index" v-html="content"></span>
+            <span v-for="(content,index) in checkHighlight().contents" :key="index" v-html="content"></span>
           </div>
           <!-- class="target2" v-html="item.highlight.contents" -->
         </b-card-text>
@@ -74,7 +74,7 @@
         <span class="mdi mdi-star-outline"></span>
         <br/>
 
-      {{item._source.price}}원
+      {{numberWithCommas(item._source.price)}}원
         <!-- <b-button variant="primary" >Go somewhere</b-button> -->
         <!-- <b-button squared variant="outline-secondary">Button</b-button> -->
       <template v-slot:footer>
@@ -99,9 +99,11 @@
 export default {
   data: () => ({
     active: false,
+    turn : false
   }),
-  props: {
-    item : { type: Object },
+  props:{
+    item : { type: Object , default: () => new Object()},
+    itemId : {type : String}
   },
   methods: {
     addItem() {
@@ -140,8 +142,18 @@ export default {
     },
     go() {
       this.$router.push({ name : "itemPage", params: {item: this.item}})
+    },
+    numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    },
+    checkHighlight() {
+        if(this.item.highlight === undefined){
+          return this.item._source
+        }else{
+          return this.item.highlight
+        }
     }
-  }
+  },
 };
 </script>
 

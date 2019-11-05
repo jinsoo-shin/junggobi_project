@@ -25,7 +25,8 @@
         </v-btn>
     </v-fab-transition>
     <!-- start : item-list -->
-    <itemList :itemList="itemList" :itemPriceList="itemPriceList"></itemList>
+    <itemList :itemList="itemList" ></itemList><!-- :itemPriceList="itemPriceList" -->
+
 
     <!-- end : item-list -->
     
@@ -66,6 +67,7 @@ export default {
                 this.itemList = res;
                 this.getPriceList();
                 this.EventBus.$emit("search")
+                turnItemList : true;
             })
         },
         getPriceList() {

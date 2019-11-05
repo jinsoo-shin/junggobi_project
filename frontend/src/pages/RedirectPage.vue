@@ -3,40 +3,60 @@
     <v-container grid-list-md text-center>        
         <h1>junggobi</h1>
         <v-divider></v-divider>
-        <p class="font-weight-black" style="color:indigo">판매가격 {{ price }} </p>
-        
+        <p class="font-weight-black" style="color:indigo">판매가격 {{ numberWithCommas(price) }} </p>
+        <!-- {{ value }} -->
+        <p>
+            {{ link }}<br>
+            해당 사이트로 이동 중입니다.<br>
+            잠시만 기다려주세요.
+        </p>
+               
+
         <!-- start : progressBar 출력 -->
         <v-layout class="justify-center">
             <v-progress-circular
                 :rotate="90"
                 :size="500"
-                :width="40"
+                :width="20"
                 :value="value"
-                color="red"
+                color="brown"
             >
-                <!-- {{ value }} -->
-                {{ link }}<br>
-                해당 사이트로 이동 중입니다.<br>
-                잠시만 기다려주세요.
-            </v-progress-circular>
+            <lottie :options="defaultOptions" :height="400" :width="400" v-on:animCreated="handleAnimation"/>
+        </v-progress-circular>
         </v-layout>
+         <v-layout>
+              
+         </v-layout>
         <!-- end : progressBar -->
-
     </v-container>
 </template>
 
 <script>
+import Lottie from '../components/lottie/lottie.vue';
+import * as animationData from '../components/lottie/box.json';
+
 export default {
     data: () => ({
         interval: {},
         value: 0,   // progressbar percent
         link: "",   
         price: 0,
+        defaultOptions: {animationData: animationData.default},
+        animationSpeed: 1
     }),
+    components: {
+      'lottie': Lottie
+    },
     methods: {
         openLink(link) {    // 페이지 오픈
             window.location.assign(link)
-        }
+        },
+        numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        },
+        handleAnimation: function (anim) {
+            this.anim = anim;
+        },
     },
     beforeDestroy () {  
       clearInterval(this.interval)
