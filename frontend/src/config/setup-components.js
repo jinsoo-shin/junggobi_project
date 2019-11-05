@@ -13,6 +13,7 @@ import SideMenu from '../components/itemDetail/SideMenu.vue'
 // import LoadingImg from '../components/LoadingImg.vue'
 import Direct from '../components/home/Direct.vue'
 import Carousel from '../components/Carousel.vue'
+import Header from '../components/home/Header.vue'
 // import HistogramSlider from '../components/chart/HistogramSlider.vue'
 
 function setupComponents(Vue){
@@ -25,6 +26,8 @@ function setupComponents(Vue){
     Vue.component('detailsearch', DetailSearch);
     Vue.component('checkboxbutton',CheckBoxButton);
     Vue.component('direct', Direct)
+    Vue.component('header', Header)
+
 
     //item Detail page
     Vue.component('itemList', ItemList);            //detailpage - 검색 제품 목록
