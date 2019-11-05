@@ -23,7 +23,10 @@ const getters = {
   },
   getBlogPosts(state) {
     return state.articles;
-}
+  },
+  getChartData(state) {
+    return state.chart
+  }
 }
 const mutations = {
   setAddFavoriteItems(state, payload) {
