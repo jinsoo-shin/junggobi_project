@@ -149,7 +149,7 @@ export default {
       
     }
   },
-  watch:{
+  watch:{ 
     value: function(val){
       if (this.value == "태블릿" || this.value == "모바일/스마트폰"){
         this.value1= ['태블릿 종류를 고르세요'],

@@ -30,6 +30,10 @@ def search(request):
                                              {"match": {"generation": search_word}},
                                              {"match": {"cellular": search_word}},
                                              {"match": {"model_name": {"query":search_word,"boost":5}}},
+                                             {"match": {"manufacturer": search_word}},
+                                             {"match": {"display": search_word}},
+                                             {"match": {"generation": search_word}},
+                                             {"match": {"storage": search_word}},
                                          ]
                                      }
                                  },

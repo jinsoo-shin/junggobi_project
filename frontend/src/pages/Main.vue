@@ -47,6 +47,7 @@
                     <v-card-text class="text-center">
                       <!-- <v-icon x-large class="blue--text text--lighten-2">mdi-flash </v-icon> -->
                       <!-- <h1 id="font"> 필요한 게 뭐에요? </h1> -->
+                      <lottie :options="defaultOptions" :height="100" :width="100" v-on:animCreated="handleAnimation"/>
                       <search/>
                     </v-card-text>
                     <center>
@@ -86,7 +87,7 @@
           </v-layout>
         </v-parallax>
       </section>
-
+        
       <section>
         <v-container grid-list-xl>
           <v-layout row wrap justify-center class="my-12">
@@ -123,7 +124,16 @@
 <script>
 const apiUrl = '/api'
 import axios from "axios";
+import Lottie from '../components/lottie/lottie_typing.vue';
+import * as animationData from '../components/lottie/typing.json';
 export default {
+  components: {
+    'lottie': Lottie
+  },
+  data: () => ({
+    defaultOptions: {animationData: animationData.default},
+    animationSpeed: 1
+  }),
   methods: {
     async blogPage() {
       await this.$store.dispatch('data/getBlogPost').then(res => this.$router.push({ name :"blogpage", params : { data : res}}));
@@ -134,7 +144,10 @@ export default {
         this.$router.push({ name : "searchPage", params: { itemListSub: res}})
       })
     },
-  }
+    handleAnimation: function (anim) {
+        this.anim = anim;
+    },
+  },
 }
 </script>
 <style scoped>
