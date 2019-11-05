@@ -9,10 +9,22 @@
         <!-- {{ value }} -->
         <p class="fontSub">
             {{ link }}<br>
-            해당 사이트로 이동 중입니다.<br>
-            잠시만 기다려주세요.
         </p>
-               
+        <div>
+            <b-alert show variant="success">
+                <h4 class="alert-heading fontSub">해당 사이트로 이동 중입니다.</h4>
+                <p class="fontSub">
+                잠깐! 중고비에서 알려드립니다.
+                중고비는 가격비교 정보 중개자로서 상품판매와는 직접적인 관련이 없습니다.<br>
+                사이트로 이동 후 상품의 주문, 배송, 환불의 책임은 해당 쇼핑몰에 있습니다.<br>
+                사이트로 이동 후 상품과 가격이 일치하는지 다시 한번 확인하시기 바랍니다.<br>
+                </p>
+                <hr>
+                <p class="mb-0 fontSub">
+                주문과정에서의 판매자의 현금 할인 직거래 및 타 계좌 유도를 하는 사이트가 있을 경우를 주의하세요.
+                </p>
+            </b-alert>
+        </div>
 
         <!-- start : progressBar 출력 -->
         <v-layout class="justify-center">

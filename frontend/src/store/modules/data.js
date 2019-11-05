@@ -69,8 +69,7 @@ const actions = {
   async searchById(state, payload) {
     const resp = await api.searchById(payload)
     state.items = resp.data.hits.hits
-    // state.chart = resp.data.aggregations
-    
+    state.chart = resp.data.aggregations
     actions.addChart(resp.data.aggregations)
     // console.log('테스트' , state.chart)
     return state.items

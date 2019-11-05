@@ -15,7 +15,7 @@
         style="width: 20rem; height: 40rem; margin: 10px"
       >
         <b-card-text id="card_color">
-          <p class="target1 title font-weight-black" v-html="checkHighlight().title"></p>
+          <p class="target1 title font-weight-black">{{item._source.title}}</p>
           <!-- <p class="target1 title font-weight-black	" v-html="item._source.title"></p> -->
           <div class="target2">
             <span v-for="(content,index) in checkHighlight().contents" :key="index" v-html="content"></span>
@@ -60,7 +60,7 @@
         style="width: 20rem; height: 40rem; margin: 10px"
       >
         <b-card-text>
-          <p class="target1 title font-weight-black" v-html="checkHighlight().title[0]"></p>
+          <p class="target1 title font-weight-black">{{item._source.title}}</p>
           <!-- <p class="target1 title font-weight-black	" v-html="item._source.title"></p> -->
           <div class="target2">
             <span v-for="(content,index) in checkHighlight().contents" :key="index" v-html="content"></span>
@@ -150,7 +150,7 @@ export default {
       if(this.item.highlight === undefined){
         return this.item._source
       }else{
-        if(this.item.highlight.title === undefined || this.item.highlight.contents){
+        if(this.item.highlight.title === undefined || this.item.highlight.contents === undefined){
           return this.item._source
         }else{
           return this.item.highlight
