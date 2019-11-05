@@ -17,11 +17,11 @@
       <b-carousel-slide
         caption="First slide"
         text="Nulla vitae elit libero, a pharetra augue mollis interdum."
-        img-src="https://picsum.photos/1024/480/?image=52"
+        img-src="https://www.apple.com/v/iphone-11-pro/a/images/meta/og__smc3haxsdn2q_specs.png"
       ></b-carousel-slide>
 
       <!-- Slides with custom text -->
-      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
+      <b-carousel-slide img-src="https://t1.daumcdn.net/cfile/tistory/995AAB4E5D46EBEF07">
         <h1>Hello world!</h1>
       </b-carousel-slide>
 
