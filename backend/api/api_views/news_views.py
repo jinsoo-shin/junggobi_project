@@ -16,7 +16,8 @@ def news(request):
         chrome_options= webdriver.ChromeOptions() #옵션 설정하기
         chrome_options.add_argument('headless') #창이 안보이도록 숨기기
         chrome_options.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.3')
-        driver = webdriver.Chrome("./chromedriver.exe",chrome_options=chrome_options)
+        driver = webdriver.Chrome("./chromedriver",chrome_options=chrome_options)#ubuntu
+        # driver = webdriver.Chrome("./chromedriver.exe",chrome_options=chrome_options)#window
 
         url_list=[]
         url_list.append("https://www.google.com/search?q=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C&newwindow=1&tbm=nws")#아이패드
