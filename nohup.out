@@ -49,3 +49,4 @@ npm ERR! enoent
 
 npm ERR! Please include the following file with any support request:
 npm ERR!     /var/www/html/s1p3151006/npm-debug.log
+python3: can't open file 'manage.py': [Errno 2] No such file or directory

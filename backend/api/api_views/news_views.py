@@ -14,9 +14,13 @@ headers = {'content-type': 'application/json'}
 def news(request):
     if request.method == 'GET':
         chrome_options= webdriver.ChromeOptions() #옵션 설정하기
-        chrome_options.add_argument('headless') #창이 안보이도록 숨기기
+        #chrome_options.add_argument('headless') #창이 안보이도록 숨기기
+        chrome_options.add_argument('--disable-extensions')
+        chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--disable-gpu')
+        chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.3')
-        driver = webdriver.Chrome("./chromedriver",chrome_options=chrome_options)#ubuntu
+        driver = webdriver.Chrome("/usr/bin/chromedriver",chrome_options=chrome_options)#ubuntu
         # driver = webdriver.Chrome("./chromedriver.exe",chrome_options=chrome_options)#window
 
         url_list=[]
