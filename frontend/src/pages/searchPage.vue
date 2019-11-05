@@ -2,7 +2,9 @@
 <template>
     <v-container grid-list-md text-center>  
         <br/>
-        <img src="./src/Untitled.png" alt="Vuetify.js" height="200">    
+        <v-btn to="/">
+            <v-img src="./src/Untitled.png" alt="Vuetify.js" height="200" />    
+        </v-btn>
         <center>
             <v-flex lg8>
                 <v-text-field
