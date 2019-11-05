@@ -149,6 +149,20 @@ export default {
       
     }
   },
+  watch:{
+    value: function(val){
+      if (this.value == "태블릿" || this.value == "모바일/스마트폰"){
+        this.value1= ['태블릿 종류를 고르세요'],
+        this.value2= ['크기'],
+        this.value3= ['종류'],
+        this.value4= ['세대'],
+        this.value5= ['셀룰러/WIFI'],
+        this.value6= ['제조사를 골라주세요'],
+        this.value7= ['갤럭시 종류'],
+        this.value11= ['아이폰 세대']
+      }
+    }
+  },
     methods:{
       async search_option() {
           var search = ""
