@@ -1,8 +1,8 @@
 <template>
 <div class="container">
   <div class="col-md-12">
-    <div>
-      <div class="row">
+    <div style="min-width:500px">
+      <div>
         <div class="col-12 col-md-4 offset-md-4">
           <v-row>
             <img :src="item._source.img_src" alt="">
@@ -11,12 +11,12 @@
       </div>
 
       <div>
-        <h4>$ {{ item._source.price }}</h4>
+        <b-alert show variant="success">
         <h4> {{ item._source.title }}</h4>
         <p> {{ item._source.contents }} </p>
-        <p> {{ item._source.storage }} </p>
-        <p> {{ numberWithCommas(item._source.price) }} </p>
-        
+        <p> 기타 : {{ item._source.storage }} </p>
+        <p> 가격 :{{ numberWithCommas(item._source.price) }} </p>
+        </b-alert>
       </div>
       <div>
         <p>
@@ -24,7 +24,6 @@
                 뒤로가기
             </button>
         </p>
-         <img src="@/assets/gif/chart.gif" alt="차트보기">
       </div>
     </div>
   </div>
