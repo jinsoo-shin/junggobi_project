@@ -13,7 +13,6 @@
         img-top
         elevation="10"
         style="width: 20rem; height: 40rem; margin: 10px"
-        @click = "clickImg()"
       >
         <b-card-text id="card_color">
           <p class="target1 title font-weight-black">{{item._source.title}}</p>
@@ -59,7 +58,6 @@
         img-top
         elevation="10"
         style="width: 20rem; height: 40rem; margin: 10px"
-        @click = "clickImg()"
       >
         <b-card-text>
           <p class="target1 title font-weight-black">{{item._source.title}}</p>
@@ -159,9 +157,6 @@ export default {
         }
       }
     },
-    clickImg() {
-      this.go();
-    }
   },
 };
 </script>
