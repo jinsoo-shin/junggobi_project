@@ -164,7 +164,6 @@ export default {
     this.loadingTimer(3000)
     this.NowItems = this.itemList;
     this.EventBus.$on("search", () => {this.selected =null;} )
-    this.sortByLowToHigh_price()
   },
   watch: {
     itemList :function(newVal, oldVal) {
