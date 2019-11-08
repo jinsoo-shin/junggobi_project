@@ -1,6 +1,17 @@
-# JunggoBi
-- 전자 제품 가격 비교 플랫폼
-- 실행 : frontend -> npm install -> **npm run serve**
-- WAS : **Django**
-- Front : **Vue, JavaScript, CSS3**
-- 웹 크롤링 : **Python**
+## 중고비
+
+#### 1주차
+
+박성하 조신성 정동준 신진수 이중봉
+
+- develop -> master로 변경중
+- 
+
+mysql연동시 사용
+- pip install mysqlclient
+
+
+mysql에서 테이블 생성 후 Django에 model 생성시키기
+- python manage.py inspectdb > ./api/models.py
+- python manage.py makemigrations
+- python manage.py migrate
