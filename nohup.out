@@ -1,0 +1,52 @@
+npm ERR! Linux 4.15.0-1021-aws
+npm ERR! argv "/usr/bin/node" "/usr/bin/npm" "run" "serve"
+npm ERR! node v8.10.0
+npm ERR! npm  v3.5.2
+npm ERR! path /var/www/html/s1p3151006/package.json
+npm ERR! code ENOENT
+npm ERR! errno -2
+npm ERR! syscall open
+
+npm ERR! enoent ENOENT: no such file or directory, open '/var/www/html/s1p3151006/package.json'
+npm ERR! enoent ENOENT: no such file or directory, open '/var/www/html/s1p3151006/package.json'
+npm ERR! enoent This is most likely not a problem with npm itself
+npm ERR! enoent and is related to npm not being able to find a file.
+npm ERR! enoent 
+
+npm ERR! Please include the following file with any support request:
+npm ERR!     /var/www/html/s1p3151006/npm-debug.log
+npm ERR! Linux 4.15.0-1021-aws
+npm ERR! argv "/usr/bin/node" "/usr/bin/npm" "run" "serve"
+npm ERR! node v8.10.0
+npm ERR! npm  v3.5.2
+npm ERR! path /var/www/html/s1p3151006/package.json
+npm ERR! code ENOENT
+npm ERR! errno -2
+npm ERR! syscall open
+
+npm ERR! enoent ENOENT: no such file or directory, open '/var/www/html/s1p3151006/package.json'
+npm ERR! enoent ENOENT: no such file or directory, open '/var/www/html/s1p3151006/package.json'
+npm ERR! enoent This is most likely not a problem with npm itself
+npm ERR! enoent and is related to npm not being able to find a file.
+npm ERR! enoent 
+
+npm ERR! Please include the following file with any support request:
+npm ERR!     /var/www/html/s1p3151006/npm-debug.log
+npm ERR! Linux 4.15.0-1021-aws
+npm ERR! argv "/usr/bin/node" "/usr/bin/npm" "run" "serve"
+npm ERR! node v8.10.0
+npm ERR! npm  v3.5.2
+npm ERR! path /var/www/html/s1p3151006/package.json
+npm ERR! code ENOENT
+npm ERR! errno -2
+npm ERR! syscall open
+
+npm ERR! enoent ENOENT: no such file or directory, open '/var/www/html/s1p3151006/package.json'
+npm ERR! enoent ENOENT: no such file or directory, open '/var/www/html/s1p3151006/package.json'
+npm ERR! enoent This is most likely not a problem with npm itself
+npm ERR! enoent and is related to npm not being able to find a file.
+npm ERR! enoent 
+
+npm ERR! Please include the following file with any support request:
+npm ERR!     /var/www/html/s1p3151006/npm-debug.log
+python3: can't open file 'manage.py': [Errno 2] No such file or directory
