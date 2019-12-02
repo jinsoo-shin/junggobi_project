@@ -20,10 +20,8 @@ def test():
     
     driver.implicitly_wait(3)
     driver.get('https://nid.naver.com/nidlogin.login')
-    id = 'shy_red'
-    pw = 'crldwusbf127!'
-    # id = 'sjins0127'
-    # pw = 'jso127!'
+    id = ''
+    pw = ''
     driver.execute_script("document.getElementsByName('id')[0].value=\'" + id + "\'")
     driver.execute_script("document.getElementsByName('pw')[0].value=\'" + pw + "\'")
     driver.find_element_by_xpath('//*[@id="frmNIDLogin"]/fieldset/input').click()
